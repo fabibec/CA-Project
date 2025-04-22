@@ -31,4 +31,3 @@ set_property -dict { PACKAGE_PIN V15   IOSTANDARD LVCMOS33 } [get_ports { uart_r
 - AXI UART Lite IP
 	- [Datasheet](https://docs.amd.com/v/u/en-US/axi_uartlite_ds741)
 	- [Product Page](https://www.amd.com/en/products/adaptive-socs-and-fpgas/intellectual-property/axi_uartlite.html#tabs-cca09b7575-item-2da8bf30b9-tab)
-	- 
