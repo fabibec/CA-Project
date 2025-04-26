@@ -5,6 +5,7 @@
 *.aux
 *.bbl
 *.blg
+*.bcf
 *.brf
 *.idx
 *.ilg
