@@ -56,7 +56,14 @@ Ziel des Projekts ist die Entwicklung und Integration eines funktionsfähigen De
    \end{itemize}
 \end{enumerate}
 \textbf{Systemblockbild:}\\
-(Siehe Abbildung 1.1 )\\
+\begin{figure}[h!]
+  \centering
+  \begin{minipage}{\textwidth}
+      \includegraphics[width=\linewidth]{./images/system.drawio.png} % replace with your image filename
+  \end{minipage}
+  \caption{Systemblockbild}
+  \label{fig:system}
+\end{figure}
 \begin{itemize}
   \item \textbf{Exakte Timings für das Display (PmodCLP) in VHDL:}\\
   Die Ansteuerung im Nibble-Mode erfordert die präzise Umsetzung aller Timingbedingungen (Setup, Hold, Enable) in einer FSM, da keine automatische Verzögerung durch die CPU gegeben ist.
