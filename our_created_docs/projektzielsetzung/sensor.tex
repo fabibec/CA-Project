@@ -41,7 +41,8 @@ Das Projektteam hat sich auf folgenden Entwurf geeinigt:
     Die Baudrate mit Oversampling wird durch einen Clockdivider aus dem Systemtakt generiert.\\
     Bei einem Fehler im Empfangsprozess wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittels des \textit{ap\_done} Signals.
     \item \textit{Submodul 2}: ASCII Decoder (FSM) \\
-    Der ASCII Decoder empfängt stückweise die 5 ASCII-Zeichen im Format "Rxxx\textbackslash r", jedes x bezeichnet hierbei eine ASCII-Zahl von 0-9.\\
+    Der ASCII Decoder empfängt stückweise die 5 ASCII-Zeichen im Format "R$x_0 x_ 1 x_ 2$\textbackslash r"
+    \newline $x_0 \in \{ 0,..,2\}, x_{1,2} \in \{ 0,...,9 \}$.\\
     Wird dieses Format verletzt, wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittles des \textit{ap\_done} Signals.\\
     Nach erfolgreicher Konvertierung steht die Distanz als 8-Bit Zahl in der Einheit zoll (inch) zur Verfügung.
     \item \textit{Submodul 3}: Distance Converter \\
