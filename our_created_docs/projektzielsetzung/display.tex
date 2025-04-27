@@ -53,9 +53,9 @@ Das Projektteam hat sich auf folgenden Entwurf geeinigt:
     \newline
     Graphik \ref{fig:startup_sequence} zeigt die Initialisierung des Displays und die damit verbundenen Timing-Anforderungen.
     \item \textit{Submodul 3}: Character Transfomer  \newline
-    Die vom Sensor erhaltenen Werte müssen in entsprechende Werte, die auf dem Display dargestellt werden können, umgewandelt werden. Eine lookup-table soll hier Abhilfe schaffen.
+    Die von der Software gesetzten Daten müssen in entsprechende Werte, die auf dem Display dargestellt werden können, umgewandelt werden. Eine lookup-table soll hier Abhilfe schaffen.
     \item \textit{Submodul 4}: Memory Mapping  \newline
-    Dieses Submodul soll eines standardisierte und zuverlässige DDRAM-Adressierung garantieren. Dabei muss das Display-Layout (16x2) beachtet werden. Mögliche Erweiterungen, wie bspw. Scrolling, sollen bei der Implementierung bereits stets bedacht werden.
+    Dieses Submodul soll eines standardisierte und zuverlässige DDRAM-Adressierung garantieren. Dabei muss das Display-Layout (16x2) beachtet werden.
     \item \textit{Submodul 5}: LCD-Communication Interface  \newline
     Hier werden die Daten in die entsprechenden Register geschrieben, um die Werte anschließend auf dem Display darzustellen.
     \item \textit{Submodul 6}: AXI Slave Interface  \newline
@@ -67,7 +67,7 @@ Das Registermapping wurde in Anlehnung an \textit{at\_doc.pdf} aus \textit{02b\_
 \section{Registermapping}
 
 \subsection{I/Os}
-\begin{longtable}{|p{2.5cm}|p{1cm}|p{2cm}|p{9cm}|}
+\begin{longtable}{|p{4cm}|p{1cm}|p{2cm}|p{6.6cm}|}
 \hline
 \textbf{Signal Name} & \textbf{I/O} & \textbf{Initial State} & \textbf{Description} \\
 \hline
@@ -80,8 +80,6 @@ s\_axi\_control* (s00\_axi*) & NA & NA & AXI4-Lite Slave Interface signals \\
 interrupt & I & 0x0 & Indicates that the condition for an interrupt has occurred. (new sensor value available)
 \newline 0 = No interrupt has occurred
 \newline 1 = Interrupt has occurred \\
-\hline
-sensor\_val\_in & I & 0xFF & Input value from PmodMAXSONAR \\
 \hline
 db4\_7\_out & O & 0xFF & 4 data bits, necessary in nibble mode. \\
 \hline
@@ -132,7 +130,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \end{longtable}
     
     % GCSR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -174,7 +172,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \end{longtable}
     
     % GIER Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -199,7 +197,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \end{longtable}
     
     % IPIER Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -224,7 +222,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \end{longtable}
     
     % IPISR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -249,7 +247,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \end{longtable}
     
     % IDR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2.5cm}|p{4.75cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -272,7 +270,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \end{longtable}
     
     % VERR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2.5cm}|p{4.75cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -295,7 +293,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \end{longtable}
     
     % SCSR0 Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -311,38 +309,23 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     
     \multicolumn{5}{|c|}{\textbf{0x18 SCSR0 - Special Control and Status Register}} \\
     \hline
-    0 & lcd\_enable & R/W & 0 & Master enable for LCD display (0 = disabled, 1 = enabled) \\
     \hline
-    1 & clear\_display & R/W & 0 & Write 1 to clear the display, auto-clears when operation completes \\
+    0 & reset\_lcd & R/W & 0 & Write 1 to reset LCD controller, auto-clears when operation completes \\
     \hline
-    2 & return\_home & R/W & 0 & Write 1 to return cursor to home position, auto-clears when operation completes \\
+    1 & busy\_flag & R & 0 & Indicates LCD controller is busy \\
     \hline
-    3 & cursor\_on & R/W & 0 & Enable cursor visibility (0 = off, 1 = on) \\
+    9:2 & fsm\_state & R & 0 & Current state of LCD controller FSM (for debugging) \\
     \hline
-    4 & cursor\_blink & R/W & 0 & Enable cursor blinking (0 = no blink, 1 = blink) \\
+    17:10 & error\_code & R & 0 & Error code if error\_flag is set in GCSR \\
     \hline
-    5 & display\_shift & R/W & 0 & Enable display shift (0 = no shift, 1 = shift) \\
-    \hline
-    6 & shift\_direction & R/W & 0 & Shift direction (0 = left, 1 = right) \\
-    \hline
-    7 & auto\_scroll & R/W & 0 & Enable automatic scrolling for long text \\
-    \hline
-    8 & reset\_lcd & R/W & 0 & Write 1 to reset LCD controller, auto-clears when operation completes \\
-    \hline
-    9 & busy\_flag & R & 0 & Indicates LCD controller is busy \\
-    \hline
-    10:15 & reserved & & & \\
-    \hline
-    23:16 & fsm\_state & R & 0 & Current state of LCD controller FSM (for debugging) \\
-    \hline
-    31:24 & error\_code & R & 0 & Error code if error\_flag is set in GCSR \\
+    31:18 & reserved & & & \\
     \hline
     \caption{Special Control and Status Register (SCSR0)}
     \label{tab:scsr0}
     \end{longtable}
     
     % CDR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -360,25 +343,22 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     7:0 & char\_data & R/W & 0 & Character data to write to LCD \\
     \hline
-    15:8 & char\_addr & R/W & 0 & DDRAM address for character (00H-27H for line 1, 40H-67H for line 2) \\
+    15:8 & cgrom\_position & R/W & 0 & Corresponding position of character in CGROM. \\
     \hline
-    16 & write\_char & R/W & 0 & Write 1 to initiate character write to specified address \\
+    23:16 & char\_addr & R/W & 0 & DDRAM address for character (00H-27H for line 1, 40H-67H for line 2) \\
     \hline
-    17 & read\_char & R/W & 0 & Write 1 to read character from specified address \\
+    24 & write\_char & R/W & 0 & Write 1 to initiate character write to specified address \\
     \hline
-    31:18 & reserved & & & \\
+    25 & read\_char & R/W & 0 & Write 1 to read character from specified address \\
+    \hline
+    31:26 & reserved & & & \\
     \hline
     \caption{Character Data Register (CDR)}
     \label{tab:cdr}
     \end{longtable}
 
-TODO: Mit anderer Gruppe sprechen
-- wie Austausch von Daten funktioniert, über Input/Register/? --> SDR??
-- Formatting-Switch Inch/cm siehe FMR??
-
-
-    % FMR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    % DFR Register Table
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
         \hline
         \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
         \hline
@@ -392,49 +372,22 @@ TODO: Mit anderer Gruppe sprechen
         \hline
         \endlastfoot
         
-        \multicolumn{5}{|c|}{\textbf{0x2C FMR - Format and Mode Register}} \\
+        \multicolumn{5}{|c|}{\textbf{0x2C DFR - Display Format Register}} \\
         \hline
-        0 & auto\_format & R/W & 0 & Enable automatic formatting of sensor data \\
+        1 & clear\_display & R/W & 0 & Write 1 to clear the display, auto-clears when operation completes \\
         \hline
-        1 & show\_units & R/W & 0 & Show measurement units alongside values \\
+        2 & return\_home & R/W & 0 & Write 1 to return cursor to home position, auto-clears when operation completes \\
         \hline
-        2 & leading\_zeros & R/W & 0 & Show leading zeros (0 = hide, 1 = show) \\
+        3 & cursor\_on & R/W & 0 & Enable cursor visibility (0 = off, 1 = on) \\
         \hline
-        3 & fixed\_point & R/W & 0 & Enable fixed-point display format \\
+        4 & cursor\_blink & R/W & 0 & Enable cursor blinking (0 = no blink, 1 = blink) \\
         \hline
-        7:4 & decimal\_places & R/W & 0 & Number of decimal places to display (0-8) \\
+        5 & display\_shift & R/W & 0 & Enable display shift (0 = no shift, 1 = shift) \\
         \hline
-        15:8 & display\_mode & R/W & 0 & Display mode selection (0 = raw, 1 = formatted, etc.) \\
+        6 & shift\_direction & R/W & 0 & Shift direction (0 = left, 1 = right) \\
         \hline
-        31:16 & reserved & & & \\
+        31:7 & reserved & & & \\
         \hline
         \caption{Format and Mode Register (FMR)}
         \label{tab:fmr}
-        \end{longtable}
-
-    % SDR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
-        \hline
-        \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
-        \hline
-        \endfirsthead
-        \hline
-        \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
-        \hline
-        \endhead
-        \hline \multicolumn{5}{|r|}{{Continued on next page}} \\ \hline
-        \endfoot
-        \hline
-        \endlastfoot
-        
-        \multicolumn{5}{|c|}{\textbf{0x30 SDR - Sensor Data Register}} \\
-        \hline
-        15:0 & sensor\_value & R/W & 0 & Raw sensor value from PmodMAXSONAR \\
-        \hline
-        23:16 & sensor\_status & R & 0 & Status code of sensor \\
-        \hline
-        31:24 & scaling\_factor & R/W & 0 & Scaling factor for sensor value display \\
-        \hline
-        \caption{Sensor Data Register (SDR)}
-        \label{tab:sdr}
         \end{longtable}
