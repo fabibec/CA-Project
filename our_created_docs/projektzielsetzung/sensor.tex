@@ -33,27 +33,29 @@ Im ersten Schritt soll die IP funktional fertiggestellt werden. Sie soll dabei m
 Das Projektteam hat sich auf folgenden Entwurf geeinigt:
 
 \begin{itemize}
-    \item \textit{Submodul 0}: Startup \& Calibration Timer \\
+    \item \textit{Submodul 1}: Startup \& Calibration Timer \\
     Während der Startup und Kalibrierungsphase können keine Messungen durchgeführt werden.\\
     Daher wird ein Timer implementiert, der die Zeit bis zur ersten Messung überwacht.
-    \item \textit{Submodul 1}: UART Receiver (FSM) \\
+    \item \textit{Submodul 2}: UART Receiver (FSM) \\
     Mittels einer FSM wird der UART Empfang realisiert, dieser empfängt jeweils 1 Byte und meldet den Empfang an den ASCII-Decoder.\\
     Die Baudrate mit Oversampling wird durch einen Clockdivider aus dem Systemtakt generiert.\\
     Bei einem Fehler im Empfangsprozess wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittels des \textit{ap\_done} Signals.
-    \item \textit{Submodul 2}: ASCII Decoder (FSM) \\
+    \item \textit{Submodul 3}: ASCII Decoder (FSM) \\
     Der ASCII Decoder empfängt stückweise die 5 ASCII-Zeichen im Format "R$x_0 x_ 1 x_ 2$\textbackslash r"
     \newline $x_0 \in \{ 0,..,2\}, x_{1,2} \in \{ 0,...,9 \}$.\\
     Wird dieses Format verletzt, wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittles des \textit{ap\_done} Signals.\\
     Nach erfolgreicher Konvertierung steht die Distanz als 8-Bit Zahl in der Einheit zoll (inch) zur Verfügung.
-    \item \textit{Submodul 3}: Distance Converter \\
+    \item \textit{Submodul 4}: Distance Converter \\
     Zuletzt wird die Distanz in eine 16-Bit Zahl konvertiert und von zoll in cm umgerechnet.\\
     Beide Werte werden in dem entsprechenden Register bereitgestellt.\\
+    \item \textit{Submodul 6}: AXI Slave Interface  \\
+    Nachdem die Zuverlässigkeit der IP mittels Tests sichergestellt wurde, soll die IP an den internen Systembus (AXI) angebunden werden.
 \end{itemize}
 
 \section{Registermapping}
 
 \subsection{I/Os}
-\begin{longtable}{|p{4cm}|p{0.75cm}|p{1.75cm}|p{8cm}|}
+\begin{longtable}{|p{4cm}|p{1cm}|p{2cm}|p{6.6cm}|}
 \hline
 \textbf{Signal Name} & \textbf{I/O} & \textbf{Initial State} & \textbf{Description} \\
 \hline
@@ -116,7 +118,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % GCSR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -155,7 +157,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % GIER Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -180,7 +182,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % IPIER Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -205,7 +207,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % IPISR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -230,7 +232,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % IDR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2.5cm}|p{4.75cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -253,7 +255,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % VERR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2.5cm}|p{4.75cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -276,7 +278,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % SCSR0 Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -314,7 +316,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % DIST0 Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -351,7 +353,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % URSR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -380,7 +382,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \end{longtable}
 
     % ADSR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2cm}|p{6cm}|}
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
