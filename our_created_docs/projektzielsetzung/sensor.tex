@@ -39,9 +39,9 @@ Das Projektteam hat sich auf folgenden Entwurf geeinigt:
     \item \textit{Submodul 1}: UART Receiver (FSM) \\
     Mittels einer FSM wird der UART Empfang realisiert, dieser empfängt jeweils 1 Byte und meldet den Empfang an den ASCII-Decoder.\\
     Die Baudrate mit Oversampling wird durch einen Clockdivider aus dem Systemtakt generiert.\\
-    Bei einem Fehler im Empfangsprozess wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittles des \textit{ap\_done} Signals.
+    Bei einem Fehler im Empfangsprozess wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittels des \textit{ap\_done} Signals.
     \item \textit{Submodul 2}: ASCII Decoder (FSM) \\
-    Der ASCII Decoder empfängt stückweise die 5 ASCII-Zeichen im Format "Rxxx\textbackslash r", xxx bezeichnet hierbei eine ASCII-Zahl von 0-9.\\
+    Der ASCII Decoder empfängt stückweise die 5 ASCII-Zeichen im Format "Rxxx\textbackslash r", jedes x bezeichnet hierbei eine ASCII-Zahl von 0-9.\\
     Wird dieses Format verletzt, wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittles des \textit{ap\_done} Signals.\\
     Nach erfolgreicher Konvertierung steht die Distanz als 8-Bit Zahl in der Einheit zoll (inch) zur Verfügung.
     \item \textit{Submodul 3}: Distance Converter \\
