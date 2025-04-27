@@ -66,7 +66,7 @@ Ziel des Projekts ist die Entwicklung und Integration eines funktionsfähigen De
 \end{figure}
 \begin{itemize}
   \item \textbf{Exakte Timings für das Display (PmodCLP) in VHDL:}\\
-  Die Ansteuerung im Nibble-Mode erfordert die präzise Umsetzung aller Timingbedingungen (Setup, Hold, Enable) in einer FSM, da keine automatische Verzögerung durch die CPU gegeben ist.
+  Die Ansteuerung im Nibble-Mode erfordert die präzise Umsetzung aller Timingbedingungen in einer FSM, da keine automatische Verzögerung durch die CPU gegeben ist.
 \item \textbf{Entwicklung AXI4-Lite-kompatibler IP-Cores:}\\
   Für Sensor und Display werden eigenständige IPs mit klar strukturiertem Registermapping und AXI-Anbindung erstellt, basierend auf einer gemeinsamen IP-Vorlage.
 \item \textbf{Zuverlässiger Datenfluss zwischen Sensor, CPU und Display:}\\
@@ -75,4 +75,4 @@ Ziel des Projekts ist die Entwicklung und Integration eines funktionsfähigen De
   Funktion und Schnittstellen werden über VHDL-Testbenches (Core + AXI) geprüft, um Designfehler frühzeitig zu erkennen.
 \end{itemize}
 \textbf{Ziel:}\\
-Ein lauffähiges Demosystem mit eigenentwickelten, erweiterbaren IP-Cores, das Messwerte des Sonar Sensors auf einem LCD-Display ausgibt – mit strukturierter Dokumentation, Tests und einer funktionalen Ergebnisvorführung.
+Ein lauffähiges Demosystem mit eigenentwickelten, erweiterbaren IP-Cores, das Messwerte des Sonar Sensors auf einem LCD-Display ausgibt – mit Tests und einer funktionalen Ergebnisvorführung.
