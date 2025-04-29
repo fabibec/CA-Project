@@ -45,14 +45,11 @@ Das Projektteam hat sich auf folgenden Entwurf geeinigt:
     \newline $x_0 \in \{ 0,..,2\}, x_{1,2} \in \{ 0,...,9 \}$.\\
     Wird dieses Format verletzt, wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittles des \textit{ap\_done} Signals.\\
     Nach erfolgreicher Konvertierung steht die Distanz als 8-Bit Zahl in der Einheit zoll (inch) zur Verfügung.
-    \item \textit{Submodul 4}: Distance Converter \\
-    Zuletzt wird die Distanz in eine 16-Bit Zahl konvertiert und von zoll in cm umgerechnet.\\
-    Beide Werte werden in dem entsprechenden Register bereitgestellt.
-    \item \textit{Submodul 5}: AXI Slave Interface  \\
+    \item \textit{Submodul 4}: AXI Slave Interface  \\
     Nachdem die Zuverlässigkeit der IP mittels Tests sichergestellt wurde, soll die IP an den internen Systembus (AXI) angebunden werden.
 \end{itemize}
 
-\section{Registermapping}
+\section{Registermapping - \textit{DRAFT}}
 
 \subsection{I/Os}
 \begin{longtable}{|p{4cm}|p{1cm}|p{2cm}|p{6.6cm}|}
