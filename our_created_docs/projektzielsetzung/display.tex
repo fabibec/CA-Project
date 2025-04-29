@@ -62,7 +62,7 @@ Das Projektteam hat sich auf folgenden Entwurf geeinigt:
     Nachdem die Zuverlässigkeit der IP mittels Tests sichergestellt wurde, soll die IP an den internen Systembus (AXI) angebunden werden.
 \end{itemize}
 
-Das Registermapping wurde in Anlehnung an \textit{at\_doc.pdf} aus \textit{02b\_tut\_vhdl\_v03} erstellt.
+Das Registermapping ist an \textit{at\_doc.pdf} aus \textit{02b\_tut\_vhdl\_v03} angelehnt.
 
 \section{Registermapping}
 
@@ -148,7 +148,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     0 & ap\_start & R/W & 0 & Asserted when the kernel can start processing data. Cleared on handshake with ap\_done being asserted. \\
     \hline
-    1 & ap\_done & R & 0 & Asserted when the kernel has completed initialization operation. Cleared on read. \\
+    1 & ap\_done & R & 0 & Asserted when the kernel has completed processing data (with or without error). Cleared on read. \\
     \hline
     2 & ap\_idle & R & 0 & Asserted when the kernel is idle. \\
     \hline

@@ -47,8 +47,8 @@ Das Projektteam hat sich auf folgenden Entwurf geeinigt:
     Nach erfolgreicher Konvertierung steht die Distanz als 8-Bit Zahl in der Einheit zoll (inch) zur Verfügung.
     \item \textit{Submodul 4}: Distance Converter \\
     Zuletzt wird die Distanz in eine 16-Bit Zahl konvertiert und von zoll in cm umgerechnet.\\
-    Beide Werte werden in dem entsprechenden Register bereitgestellt.\\
-    \item \textit{Submodul 6}: AXI Slave Interface  \\
+    Beide Werte werden in dem entsprechenden Register bereitgestellt.
+    \item \textit{Submodul 5}: AXI Slave Interface  \\
     Nachdem die Zuverlässigkeit der IP mittels Tests sichergestellt wurde, soll die IP an den internen Systembus (AXI) angebunden werden.
 \end{itemize}
 
@@ -136,7 +136,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \hline
     0 & ap\_start & R/W & 0 & Asserted when the kernel is able to do sensor readings. Cleared on handshake with ap\_done being asserted. \\
     \hline
-    1 & ap\_done & R & 0 & Asserted when the kernel has completed a sensor read (with or without error). Cleared on read. \\
+    1 & ap\_done & R & 0 & Asserted when the kernel has completed processing data (with or without error). Cleared on read. \\
     \hline
     2 & ap\_idle & R & 0 & Asserted when the kernel is idle. \\
     \hline
@@ -300,7 +300,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \hline
     2 & read\_valid & R & 0 & Signals if the current values in the DIST0 Register are valid.
     \newline In single reading mode the flag is asserted when completed a sensor read without an error. When a new reading starts the flag is cleared.
-    \newline In free running mode the flag is set when the first error free sensor reading was conducted. If the current sensor reading is older 100ms, the flag is cleared.
+    \newline In free running mode the flag is set when the first error free sensor reading was conducted. If there are errors while reading sensor, the flag should be cleared.
     \\
     \hline
     5:3 & reserved & & & \\
