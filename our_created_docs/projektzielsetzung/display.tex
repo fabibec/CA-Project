@@ -125,6 +125,8 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     0x1C & CDR & Character Data Register \\
     \hline
+    0x20 & DFR & Display Format Register \\
+    \hline
     \caption{PmodCLP Controller Register Space Overview}
     \label{tab:register_overview}
     \end{longtable}
@@ -372,7 +374,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
         \hline
         \endlastfoot
 
-        \multicolumn{5}{|c|}{\textbf{0x2C DFR - Display Format Register}} \\
+        \multicolumn{5}{|c|}{\textbf{0x20 DFR - Display Format Register}} \\
         \hline
         1 & clear\_display & R/W & 0 & Write 1 to clear the display, auto-clears when operation completes \\
         \hline
