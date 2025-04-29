@@ -108,7 +108,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endfoot
     \hline
     \endlastfoot
-    
+
     0x00 & GCSR & General/Global Control and Status Register \\
     \hline
     0x04 & GIER & Global Interrupt Enable Register \\
@@ -128,7 +128,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \caption{PmodCLP Controller Register Space Overview}
     \label{tab:register_overview}
     \end{longtable}
-    
+
     % GCSR Register Table
     \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
@@ -143,7 +143,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endfoot
     \hline
     \endlastfoot
-    
+
     \multicolumn{5}{|c|}{\textbf{0x00 GCSR - General/Global Control and Status Register}} \\
     \hline
     0 & ap\_start & R/W & 0 & Asserted when the kernel can start processing data. Cleared on handshake with ap\_done being asserted. \\
@@ -160,17 +160,12 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     7 & auto\_restart & R/W & 0 & Used to enable automatic kernel restart. This bit determines whether the display reloads the last sensor value and continues running or clears the display. \\
     \hline
-    8 & lcd\_initialized & R & 0 & Indicates the LCD has been properly initialized and is ready for commands. \\
+    31:8 & reserved & & & \\
     \hline
-    9 & display\_busy & R & 0 & Indicates the display is currently processing a command. \\
-    \hline
-    10 & error\_flag & R & 0 & Indicates an error occurred during last operation. \\
-    \hline
-    31:11 & reserved & & & \\
     \caption{General/Global Control and Status Register (GCSR)}
     \label{tab:gcsr}
     \end{longtable}
-    
+
     % GIER Register Table
     \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
@@ -185,7 +180,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endfoot
     \hline
     \endlastfoot
-    
+
     \multicolumn{5}{|c|}{\textbf{0x04 GIER - Global Interrupt Enable Register}} \\
     \hline
     0 & gie & R/W & 0 & When asserted, along with the IP Interrupt Enable bit, the interrupt is enabled. \\
@@ -195,7 +190,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \caption{Global Interrupt Enable Register (GIER)}
     \label{tab:gier}
     \end{longtable}
-    
+
     % IPIER Register Table
     \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
@@ -210,7 +205,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endfoot
     \hline
     \endlastfoot
-    
+
     \multicolumn{5}{|c|}{\textbf{0x08 IPIER - IP Interrupt Enable Register}} \\
     \hline
     0 & ipie & R/W & 0 & When asserted, along with Global Interrupt Enable bit, the interrupt is enabled. (default: uses the internal ap\_done signal to trigger an interrupt) \\
@@ -220,7 +215,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \caption{IP Interrupt Enable Register (IPIER)}
     \label{tab:ipier}
     \end{longtable}
-    
+
     % IPISR Register Table
     \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
@@ -235,7 +230,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endfoot
     \hline
     \endlastfoot
-    
+
     \multicolumn{5}{|c|}{\textbf{0x0C IPISR - IP Interrupt Status Register}} \\
     \hline
     0 & ipis & R/W & 0 & Toggle on write. (write 1 to clear(W1C)) \\
@@ -245,7 +240,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \caption{IP Interrupt Status Register (IPISR)}
     \label{tab:ipisr}
     \end{longtable}
-    
+
     % IDR Register Table
     \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2.5cm}|p{4.75cm}|}
     \hline
@@ -260,7 +255,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endfoot
     \hline
     \endlastfoot
-    
+
     \multicolumn{5}{|c|}{\textbf{0x10 IDR - ID Register}} \\
     \hline
     31:0 & ID & R & 0x80010744 & Distinct ID for PmodCLP Controller \\
@@ -268,7 +263,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \caption{ID Register (IDR)}
     \label{tab:idr}
     \end{longtable}
-    
+
     % VERR Register Table
     \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{2.5cm}|p{4.75cm}|}
     \hline
@@ -283,7 +278,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endfoot
     \hline
     \endlastfoot
-    
+
     \multicolumn{5}{|c|}{\textbf{0x14 VERR - Version Register}} \\
     \hline
     31:0 & VER & R & 0x80001000 & Version \\
@@ -291,7 +286,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \caption{Version Register (VERR)}
     \label{tab:verr}
     \end{longtable}
-    
+
     % SCSR0 Register Table
     \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
@@ -306,9 +301,8 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endfoot
     \hline
     \endlastfoot
-    
+
     \multicolumn{5}{|c|}{\textbf{0x18 SCSR0 - Special Control and Status Register}} \\
-    \hline
     \hline
     0 & reset\_lcd & R/W & 0 & Write 1 to reset LCD controller, auto-clears when operation completes \\
     \hline
@@ -318,12 +312,18 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     17:10 & error\_code & R & 0 & Error code if error\_flag is set in GCSR \\
     \hline
-    31:18 & reserved & & & \\
+    18 & lcd\_initialized & R & 0 & Indicates the LCD has been properly initialized and is ready for commands. \\
+    \hline
+    19 & display\_busy & R & 0 & Indicates the display is currently processing a command. \\
+    \hline
+    20 & error\_flag & R & 0 & Indicates an error occurred during last operation. \\
+    \hline
+    31:21 & reserved & & & \\
     \hline
     \caption{Special Control and Status Register (SCSR0)}
     \label{tab:scsr0}
     \end{longtable}
-    
+
     % CDR Register Table
     \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
     \hline
@@ -338,7 +338,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endfoot
     \hline
     \endlastfoot
-    
+
     \multicolumn{5}{|c|}{\textbf{0x1C CDR - Character Data Register}} \\
     \hline
     7:0 & char\_data & R/W & 0 & Character data to write to LCD \\
@@ -371,7 +371,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
         \endfoot
         \hline
         \endlastfoot
-        
+
         \multicolumn{5}{|c|}{\textbf{0x2C DFR - Display Format Register}} \\
         \hline
         1 & clear\_display & R/W & 0 & Write 1 to clear the display, auto-clears when operation completes \\
