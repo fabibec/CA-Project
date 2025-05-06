@@ -40,7 +40,7 @@ Das Projektteam hat sich auf folgenden Entwurf geeinigt:
     Mittels einer FSM wird der UART Empfang realisiert, dieser empfängt jeweils 1 Byte und meldet den Empfang an den ASCII-Decoder.\\
     Die Baudrate mit Oversampling wird durch einen Clockdivider aus dem Systemtakt generiert.\\
     Bei einem Fehler im Empfangsprozess wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittels des \textit{ap\_done} Signals.
-    \item \textit{Submodul 3}: ASCII Decoder (FSM) \\
+    \item \textit{Submodul 3}: ASCII Decoder (FSM) \textit{optional} \\
     Der ASCII Decoder empfängt stückweise die 5 ASCII-Zeichen im Format "R$x_0 x_ 1 x_ 2$\textbackslash r"
     \newline $x_0 \in \{ 0,..,2\}, x_{1,2} \in \{ 0,...,9 \}$.\\
     Wird dieses Format verletzt, wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittles des \textit{ap\_done} Signals.\\
@@ -108,9 +108,9 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \hline
     0x1C & DIST0 & Distance Value Register \\
     \hline
-    0x20 & URSR & Distance Value Register \\
+    0x20 & UCSR & UART Control and Status Register \\
     \hline
-    0x24 & ADSR & ASCII Decoder Status Register \\
+    0x24 & ADSR & ASCII Decoder Status Register \textit{(optional)}\\
     \hline
     \caption{PmodMAXSONAR Register Space Overview}
     \label{tab:register_overview}
@@ -338,7 +338,11 @@ tx\_out & O & 1 & UART transmit to sensor \\
         \item 6in - 255in
     \end{itemize}\\
     \hline
-    31:8 & reserved & & & \\
+    15:8 & dist\_char\_1  \newline \textit{(optional)} & R & 0x00 & First Digit of Distance value ($x_1 * 10^2$)\\
+    \hline
+    23:16 & dist\_char\_2 \newline \textit{(optional)} & R & 0x00 & Second Digit of Distance value ($x_2 * 10^1$)\\
+    \hline
+    31:24 & dist\_char\_3 \newline \textit{(optional)} & R & 0x00 & Third Digit of Distance value ($x_3 * 10^0$)\\
     \hline
     \caption{Distance Value Register (DIST0)}
     \label{tab:dist0}
@@ -359,20 +363,20 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \hline
     \endlastfoot
 
-    \multicolumn{5}{|c|}{\textbf{0x24 URSR - UART Receiver Status Register}} \\
+    \multicolumn{5}{|c|}{\textbf{0x20 UCSR - UART Control and Status Register}} \\
     \hline
     0 & ur\_error & R & 0 & Set to one, if the UART Receiver moves into the error state. Cleared on reset.\\
     \hline
-    1 & ur\_bd\_rate & R/W & 0 & Baudrate of the UART Receiver
+    1 & ur\_bd\_rate \newline \textit{(optional)} & R/W & 0 & Baudrate of the UART Receiver
     \newline 0 = 4800 Baud
     \newline 1 = 9600 Baud
     \\
     \hline
-    2 & ur\_os\_rate & R/W & 0 & Oversampling Rate of UART Receiver
+    2 & ur\_os\_rate \newline \textit{(optional)} & R/W & 0 & Oversampling Rate of UART Receiver
     \newline 0 = 8x Oversampling
     \newline 1 = 16x Oversampling \\
     \hline
-    6:3 & ur\_data\_bits & R/W & 0x1 & Number of Databits
+    6:3 & ur\_data\_bits \newline \textit{(optional)} & R/W & 0x1 & Number of Databits
     \newline 0x1 = 5 Bits
     \newline 0x2 = 6 Bits
     \newline 0x4 = 7 Bits
@@ -405,9 +409,9 @@ tx\_out & O & 1 & UART transmit to sensor \\
 
     \multicolumn{5}{|c|}{\textbf{0x24 ADSR - ASCII Decoder Status Register}} \\
     \hline
-    0 & ad\_error & R & 0 & Set, if the ASCII Decoder moves into error state (the packet structure „Rxxx\textbackslash r“ violated). Cleared on reset. \\
+    0 & ad\_error \newline \textit{(optional)} & R & 0 & Set, if the ASCII Decoder moves into error state (the packet structure „Rxxx\textbackslash r“ violated). Cleared on reset. \\
     \hline
-    5:1 & ad\_err\_pos & R & 0x00 & One-hot bitmask of the ASCII character which caused the error
+    5:1 & ad\_err\_pos \newline \textit{(optional)} & R & 0x00 & One-hot bitmask of the ASCII character which caused the error
     \newline 0x01 = R
     \newline 0x02 = first number
     \newline 0x04 = second number
@@ -417,7 +421,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \hline
     7:6 & reserved & & & \\
     \hline
-    15:8 & ad\_err\_char & R & 0x00 & ASCII character which caused the error \\
+    15:8 & ad\_err\_char \newline \textit{(optional)} & R & 0x00 & ASCII character which caused the error \\
     \hline
     31:16 & reserved & & & \\
     \hline
