@@ -342,11 +342,11 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     23:6 & ddram\_pos & R/W & 0xFF & DDRAM address/position for character (00H-27H for line 1, 40H-67H for line 2) for software testing purpose (e.g. read symbol which was written before). \\
     \hline
-    16 & write\_char & R/W & 0 & Write 1 to initiate character write either to specified ddram position (if ddram\_pos is in valid range) or default last\_ddram\_pos. \\
+    24 & write\_char & R/W & 0 & Write 1 to initiate character write either to specified DDRAM position (if ddram\_pos is in valid range) or default last\_ddram\_pos. \\
     \hline
-    17 & read\_char & R/W & 0 & Write 1 to read character either from specified ddram position (if ddram\_pos is in valid range) or default last\_ddram\_pos. \\
+    25 & read\_char & R/W & 0 & Write 1 to read character either from specified DDRAM position (if ddram\_pos is in valid range) or default last\_ddram\_pos. \\
     \hline
-    31:18 & reserved & & & \\
+    31:26 & reserved & & & \\
     \hline
     \caption{Character Control Register (CCR)}
     \label{tab:cdr}
