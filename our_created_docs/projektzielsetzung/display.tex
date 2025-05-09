@@ -307,11 +307,11 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     9:2 & lcd\_state \textit{(for debugging)} & R & 0 & Current state of LCD controller. \\
     \hline
-    10 & lcd\_error\_flag & R & 0 & Indicates an error occurred during last operation. \\
+    10 & display\_busy & R & 0 & Indicates the display is currently processing a command. \\
     \hline
-    18:11 & lcd\_error\_code & R & 0 & Error code. \\
+    11 & lcd\_error\_flag & R & 0 & Indicates an error occurred during last operation. \\
     \hline
-    19 & display\_busy & R & 0 & Indicates the display is currently processing a command. \\
+    19:12 & lcd\_error\_code \textit{(optional)} & R & 0 & Error code. Detailed description will be provided if needed. \\
     \hline
     31:20 & reserved & & & \\
     \hline
@@ -338,7 +338,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     7:0 & symbol & R/W & 0 & Character symbol to write to LCD \\
     \hline
-    15:8 & ddram\_pos & R/W & 0 & DDRAM address/position for character (00H-27H for line 1, 40H-67H for line 2) \\
+    15:8 & ddram\_pos \textit{(optional)} & R/W & 0 & DDRAM address/position for character (00H-27H for line 1, 40H-67H for line 2) \\
     \hline
     16 & write\_char & R/W & 0 & Write 1 to initiate character write to specified address \\
     \hline
@@ -367,9 +367,9 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
 
         \multicolumn{5}{|c|}{\textbf{0x20 DCR - Display Control Register}} \\
         \hline
-        1 & clear\_display & R/W & 0 & Write 1 to clear the display, auto-clears when operation completes \\
+        1 & clear\_display & R/W & 0 & Write 1 to clear the display \\
         \hline
-        2 & return\_home & R/W & 0 & Write 1 to return cursor to home position, auto-clears when operation completes \\
+        2 & return\_home & R/W & 0 & Write 1 to return cursor to home position \\
         \hline
         3 & cursor\_on & R/W & 0 & Enable cursor visibility (0 = off, 1 = on) \\
         \hline
@@ -379,7 +379,9 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
         \hline
         6 & shift\_direction & R/W & 0 & Shift direction (0 = left, 1 = right) \\
         \hline
-        31:7 & reserved & & & \\
+        7 & display\_line & R/W & 0 & Indicates selected line on display (0 = line 1, 1 = line 2) \\
+        \hline
+        31:8 & reserved & & & \\
         \hline
         \caption{Display Control Register (DCR)}
         \label{tab:fmr}
