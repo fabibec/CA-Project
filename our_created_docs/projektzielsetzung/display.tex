@@ -37,11 +37,8 @@ Im ersten Schritt soll die IP funktional fertiggestellt werden. Sie soll dabei m
 Das Projektteam hat sich auf folgenden Entwurf geeinigt:
 
 \begin{itemize}
-    \item \textit{Submodul 1}: LCD-Controller (FSM) \newline
-    Mittels einer FSM wird aus den Registern, welche von Microprozessor gesetzt werden können, der Befehl interpretiert.
-    \item \textit{Submodul 2}: Timing Controller \newline
-    Dies kann bspw. mit einem Zähler, der als Timer in Abhängigkeit vom Systemtakt fungiert, umgesetzt werden.
-    Diverse Statusflags sollen den aktuellen Stand zeigen.\newline
+    \item \textit{Submodul 1}: Timing Controller \newline
+    Um das Display ordnungsgemäß betreiben zu können, müssen diverse Timing-Constraints beachtet werden. Dies kann bspw. mit einem Zähler, der als Timer in Abhängigkeit vom Systemtakt fungiert, umgesetzt werden.\newline
     \begin{figure}[h!]
         \centering
         \begin{minipage}{0.15\textwidth}
@@ -51,14 +48,10 @@ Das Projektteam hat sich auf folgenden Entwurf geeinigt:
         \label{fig:startup_sequence}
     \end{figure}
     \newline
-    Graphik \ref{fig:startup_sequence} zeigt die Initialisierung des Displays und die damit verbundenen Timing-Anforderungen.
-    \item \textit{Submodul 3}: Character Transfomer  \newline
-    Die von der Software gesetzten Daten müssen in entsprechende Werte, die auf dem Display dargestellt werden können, umgewandelt werden. Eine lookup-table soll hier Abhilfe schaffen.
-    \item \textit{Submodul 4}: Memory Mapping  \newline
-    Dieses Submodul soll eines standardisierte und zuverlässige DDRAM-Adressierung garantieren. Dabei muss das Display-Layout (16x2) beachtet werden.
-    \item \textit{Submodul 5}: LCD-Communication Interface  \newline
-    Hier werden die Daten in die entsprechenden Register geschrieben, um die Werte anschließend auf dem Display darzustellen.
-    \item \textit{Submodul 6}: AXI Slave Interface  \newline
+    Graphik \ref{fig:startup_sequence} zeigt beispielhaft die Initialisierung des Displays und die damit verbundenen Timing-Anforderungen.
+    \item \textit{Submodul 2}: LCD Controller  \newline
+    Hier werden Befehle interpretiert und die Daten in die entsprechenden Register geschrieben, um die Werte anschließend auf dem Display darzustellen.
+    \item \textit{Submodul 3}: AXI Slave Interface  \newline
     Nachdem die Zuverlässigkeit der IP mittels Tests sichergestellt wurde, soll die IP an den internen Systembus (AXI) angebunden werden.
 \end{itemize}
 
@@ -123,9 +116,9 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     0x18 & SCSR0 & Special Control and Status Register \\
     \hline
-    0x1C & CDR & Character Data Register \\
+    0x1C & CCR & Character Control Register \\
     \hline
-    0x20 & DFR & Display Format Register \\
+    0x20 & DCR & Display Control Register \\
     \hline
     \caption{PmodCLP Controller Register Space Overview}
     \label{tab:register_overview}
@@ -306,21 +299,21 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
 
     \multicolumn{5}{|c|}{\textbf{0x18 SCSR0 - Special Control and Status Register}} \\
     \hline
-    0 & reset\_lcd & R/W & 0 & Write 1 to reset LCD controller, auto-clears when operation completes \\
+    0 & lcd\_initialized & R & 0 & 1 indicates the LCD has been properly initialized and is ready for commands. \\
     \hline
-    1 & busy\_flag & R & 0 & Indicates LCD controller is busy \\
+    1 & lcd\_busy & R & 0 & Indicates LCD controller is busy (e.g. timing constraints). \\
     \hline
-    9:2 & fsm\_state & R & 0 & Current state of LCD controller FSM (for debugging) \\
+    2 & lcd\_reset & R/W & 0 & Write 1 to reset LCD controller. \\
     \hline
-    17:10 & error\_code & R & 0 & Error code if error\_flag is set in GCSR \\
+    9:2 & lcd\_state \textit{(for debugging)} & R & 0 & Current state of LCD controller. \\
     \hline
-    18 & lcd\_initialized & R & 0 & Indicates the LCD has been properly initialized and is ready for commands. \\
+    10 & lcd\_error\_flag & R & 0 & Indicates an error occurred during last operation. \\
+    \hline
+    18:11 & lcd\_error\_code & R & 0 & Error code. \\
     \hline
     19 & display\_busy & R & 0 & Indicates the display is currently processing a command. \\
     \hline
-    20 & error\_flag & R & 0 & Indicates an error occurred during last operation. \\
-    \hline
-    31:21 & reserved & & & \\
+    31:20 & reserved & & & \\
     \hline
     \caption{Special Control and Status Register (SCSR0)}
     \label{tab:scsr0}
@@ -341,25 +334,23 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     \endlastfoot
 
-    \multicolumn{5}{|c|}{\textbf{0x1C CDR - Character Data Register}} \\
+    \multicolumn{5}{|c|}{\textbf{0x1C CCR - Character Control Register}} \\
     \hline
-    7:0 & char\_data & R/W & 0 & Character data to write to LCD \\
+    7:0 & symbol & R/W & 0 & Character symbol to write to LCD \\
     \hline
-    15:8 & cgrom\_position & R/W & 0 & Corresponding position of character in CGROM. \\
+    15:8 & ddram\_pos & R/W & 0 & DDRAM address/position for character (00H-27H for line 1, 40H-67H for line 2) \\
     \hline
-    23:16 & char\_addr & R/W & 0 & DDRAM address for character (00H-27H for line 1, 40H-67H for line 2) \\
+    16 & write\_char & R/W & 0 & Write 1 to initiate character write to specified address \\
     \hline
-    24 & write\_char & R/W & 0 & Write 1 to initiate character write to specified address \\
+    17 & read\_char & R/W & 0 & Write 1 to read character from specified address \\
     \hline
-    25 & read\_char & R/W & 0 & Write 1 to read character from specified address \\
+    31:18 & reserved & & & \\
     \hline
-    31:26 & reserved & & & \\
-    \hline
-    \caption{Character Data Register (CDR)}
+    \caption{Character Control Register (CCR)}
     \label{tab:cdr}
     \end{longtable}
 
-    % DFR Register Table
+    % DCR Register Table
     \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
         \hline
         \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
@@ -374,7 +365,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
         \hline
         \endlastfoot
 
-        \multicolumn{5}{|c|}{\textbf{0x20 DFR - Display Format Register}} \\
+        \multicolumn{5}{|c|}{\textbf{0x20 DCR - Display Control Register}} \\
         \hline
         1 & clear\_display & R/W & 0 & Write 1 to clear the display, auto-clears when operation completes \\
         \hline
@@ -390,6 +381,6 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
         \hline
         31:7 & reserved & & & \\
         \hline
-        \caption{Format and Mode Register (FMR)}
+        \caption{Display Control Register (DCR)}
         \label{tab:fmr}
         \end{longtable}
