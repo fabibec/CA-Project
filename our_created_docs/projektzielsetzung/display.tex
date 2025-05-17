@@ -118,7 +118,9 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     0x1C & CCR & Character Control Register \\
     \hline
-    0x20 & DCR & Display Control Register \\
+    0x20 & CDR & Character Data Register \\
+    \hline
+    0x24 & DCR & Display Control Register \\
     \hline
     \caption{PmodCLP Controller Register Space Overview}
     \label{tab:register_overview}
@@ -319,8 +321,8 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \label{tab:scsr0}
     \end{longtable}
 
-    % CDR Register Table
-    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
+    % CCR Register Table
+    \begin{longtable}{|p{1cm}|p{4cm}|p{1cm}|p{1cm}|p{6.25cm}|}
     \hline
     \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
     \hline
@@ -336,19 +338,43 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
 
     \multicolumn{5}{|c|}{\textbf{0x1C CCR - Character Control Register}} \\
     \hline
-    7:0 & symbol & R/W & 0 & Character symbol to write to LCD \\
+    7:0 & ddram\_pos\_last\_written & R & 0xFF & Last updated DDRAM address/position for character (00H-27H for line 1, 40H-67H for line 2)  \\
     \hline
-    15:8 & last\_ddram\_pos & R & 0xFF & Last updated DDRAM address/position for character (00H-27H for line 1, 40H-67H for line 2)  \\
+    15:8 & ddram\_pos\_to\_read & R/W & 0xFF & DDRAM address/position for character (00H-27H for line 1, 40H-67H for line 2) for software testing purpose (e.g. read symbol which was written before). \\
     \hline
-    23:16 & ddram\_pos & R/W & 0xFF & DDRAM address/position for character (00H-27H for line 1, 40H-67H for line 2) for software testing purpose (e.g. read symbol which was written before). \\
+    16 & write\_char & R/W & 0 & Write 1 to initiate character write either to specified DDRAM position (if ddram\_pos is in valid range) or default last\_ddram\_pos. \\
     \hline
-    24 & write\_char & R/W & 0 & Write 1 to initiate character write either to specified DDRAM position (if ddram\_pos is in valid range) or default last\_ddram\_pos. \\
+    17 & read\_char & R/W & 0 & Write 1 to read character either from specified DDRAM position (if ddram\_pos is in valid range) or default last\_ddram\_pos. \\
     \hline
-    25 & read\_char & R/W & 0 & Write 1 to read character either from specified DDRAM position (if ddram\_pos is in valid range) or default last\_ddram\_pos. \\
-    \hline
-    31:26 & reserved & & & \\
+    31:18 & reserved & & & \\
     \hline
     \caption{Character Control Register (CCR)}
+    \label{tab:cdr}
+    \end{longtable}
+
+    % CDR Register Table
+    \begin{longtable}{|p{1cm}|p{3cm}|p{2cm}|p{1cm}|p{6.25cm}|}
+    \hline
+    \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
+    \hline
+    \endfirsthead
+    \hline
+    \textbf{Bit} & \textbf{Name} & \textbf{Access Type} & \textbf{Reset Value} & \textbf{Description} \\
+    \hline
+    \endhead
+    \hline \multicolumn{5}{|r|}{{Continued on next page}} \\ \hline
+    \endfoot
+    \hline
+    \endlastfoot
+    \multicolumn{5}{|c|}{\textbf{0x20 CDR - Character Data Register}} \\
+    \hline
+    7:0 & symbol\_written & R/W & 0xFF & Character symbol to write to LCD. \\
+    \hline
+    15:8 & symbol\_read & R & 0x3F & Character symbol which was read ('?' is default value if no read operation was triggered before). For software testing purpose. \\
+    \hline
+    31:16 & reserved & & & \\
+    \hline
+    \caption{Character Data Register (CDR)}
     \label{tab:cdr}
     \end{longtable}
 
@@ -367,7 +393,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
         \hline
         \endlastfoot
 
-        \multicolumn{5}{|c|}{\textbf{0x20 DCR - Display Control Register}} \\
+        \multicolumn{5}{|c|}{\textbf{0x24 DCR - Display Control Register}} \\
         \hline
         0 & clear\_display & R/W & 0 & Write 1 to clear the display \\
         \hline
