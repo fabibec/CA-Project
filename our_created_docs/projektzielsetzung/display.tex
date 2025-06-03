@@ -74,13 +74,13 @@ interrupt & I & 0x0 & Indicates that the condition for an interrupt has occurred
 \newline 0 = No interrupt has occurred
 \newline 1 = Interrupt has occurred \\
 \hline
-db4\_7\_out & O & 0xFF & 4 data bits, necessary in nibble mode. \\
+db4\_7 & O & 0xFF & 4 data bits, necessary in nibble mode. \\
 \hline
-register\_select\_out & O & 0x1 & Register Select: High for Data Transfer, Low for Instruction Transfer \\
+register\_select & O & 0x1 & Register Select: High for Data Transfer, Low for Instruction Transfer \\
 \hline
-read\_write\_out & O & 0x1 & Read/Write signal: High for Read mode, Low for Write mode \\
+read\_write & O & 0x1 & Read/Write signal: High for Read mode, Low for Write mode \\
 \hline
-read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling edge writes data \\
+read\_write\_enable & O & 0x1 & Read/Write Enable: High for Read, falling edge writes data \\
 \hline
 \caption{PmodCLP Überblick I/O}
 \end{longtable}
@@ -143,7 +143,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
 
     \multicolumn{5}{|c|}{\textbf{0x00 GCSR - General/Global Control and Status Register}} \\
     \hline
-    0 & ap\_start & R/W & 0 & Asserted when the kernel can start processing data. Cleared on handshake with ap\_done being asserted. \\
+    0 & ap\_start & R/W & 0 & Asserted when the kernel can start processing data or format display. Cleared on handshake with ap\_done being asserted. \\
     \hline
     1 & ap\_done & R & 0 & Asserted when the kernel has completed processing data (with or without error). Cleared on read. \\
     \hline
@@ -155,7 +155,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     5:6 & reserved & & & \\
     \hline
-    7 & auto\_restart & R/W & 0 & Used to enable automatic kernel restart. This bit determines whether the display reloads the last sensor value and continues running or clears the display. \\
+    7 & auto\_restart \textit{(optional)} & R/W & 0 & Used to enable automatic kernel restart. This bit determines whether the display reloads the last sensor value and continues running or clears the display. \\
     \hline
     31:8 & reserved & & & \\
     \hline
@@ -303,19 +303,11 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \hline
     0 & lcd\_initialized & R & 0 & 1 indicates the LCD has been properly initialized and is ready for commands. \\
     \hline
-    1 & lcd\_busy & R & 0 & Indicates LCD controller is busy (e.g. timing constraints). \\
+    8:1 & lcd\_state \textit{(for debugging)} & R & 0x00 & Current state of LCD controller. \\
     \hline
-    2 & lcd\_reset & R/W & 0 & Write 1 to reset LCD controller. \\
+    9 & lcd\_error\_flag & R & 0 & Indicates an error occurred during last operation. \\
     \hline
-    10:3 & lcd\_state \textit{(for debugging)} & R & 0x00 & Current state of LCD controller. \\
-    \hline
-    11 & display\_busy & R & 0 & Indicates the display is currently processing a command. \\
-    \hline
-    12 & lcd\_error\_flag & R & 0 & Indicates an error occurred during last operation. \\
-    \hline
-    20:13 & lcd\_error\_code \textit{(optional)} & R & 0x00 & Error code. Detailed description will be provided if needed. \\
-    \hline
-    31:21 & reserved & & & \\
+    31:10 & reserved & & & \\
     \hline
     \caption{Special Control and Status Register (SCSR0)}
     \label{tab:scsr0}
@@ -368,7 +360,7 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
     \endlastfoot
     \multicolumn{5}{|c|}{\textbf{0x20 CDR - Character Data Register}} \\
     \hline
-    7:0 & symbol\_written & R/W & 0xFF & Character symbol to write to LCD. \\
+    7:0 & symbol\_to\_write & R/W & 0xFF & Character symbol to write to LCD. \\
     \hline
     15:8 & symbol\_read & R & 0x3F & Character symbol which was read ('?' is default value if no read operation was triggered before). For software testing purpose. \\
     \hline
@@ -403,13 +395,9 @@ read\_write\_enable\_out & O & 0x1 & Read/Write Enable: High for Read, falling e
         \hline
         3 & cursor\_blink & R/W & 0 & Enable cursor blinking (0 = no blink, 1 = blink) \\
         \hline
-        4 & display\_shift & R/W & 0 & Enable display shift (0 = no shift, 1 = shift) \\
+        4 & display\_line \textit{(optional)} & R/W & 0 & Indicates selected line on display (0 = line 1, 1 = line 2) \\
         \hline
-        5 & shift\_direction & R/W & 0 & Shift direction (0 = left, 1 = right) \\
-        \hline
-        6 & display\_line & R/W & 0 & Indicates selected line on display (0 = line 1, 1 = line 2) \\
-        \hline
-        31:7 & reserved & & & \\
+        31:5 & reserved & & & \\
         \hline
         \caption{Display Control Register (DCR)}
         \label{tab:fmr}
