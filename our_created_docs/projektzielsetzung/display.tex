@@ -391,13 +391,15 @@ read\_write\_enable & O & 0x1 & Read/Write Enable: High for Read, falling edge w
         \hline
         1 & return\_home & R/W & 0 & Write 1 to return cursor to home position \\
         \hline
-        2 & cursor\_on & R/W & 0 & Enable cursor visibility (0 = off, 1 = on) \\
+        2 & cursor\_on & R/W & 1 & Enable cursor visibility (0 = off, 1 = on) \\
         \hline
-        3 & cursor\_blink & R/W & 0 & Enable cursor blinking (0 = no blink, 1 = blink) \\
+        3 & cursor\_blink & R/W & 1 & Enable cursor blinking (0 = no blink, 1 = blink) \\
         \hline
-        4 & display\_line \textit{(optional)} & R/W & 0 & Indicates selected line on display (0 = line 1, 1 = line 2) \\
+        4 & cursor\_apply \textit{(optional)} & R/W & 0 & Write 1 to apply cursor formatting set in cursor\_on and cursor\_blink. \\
         \hline
-        31:5 & reserved & & & \\
+        5 & display\_line \textit{(optional)} & R/W & 0 & Indicates selected line on display (0 = line 1, 1 = line 2) \\
+        \hline
+        31:6 & reserved & & & \\
         \hline
         \caption{Display Control Register (DCR)}
         \label{tab:fmr}
