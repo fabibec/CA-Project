@@ -297,9 +297,8 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \hline
     1 & config\_done & R & 0 & Asserted when the configuration of the sonar sensor is done \\
     \hline
-    2 & read\_valid & R & 0 & Signals if the current values in the DIST0 Register are valid.
-    \newline In single reading mode the flag is asserted when completed a sensor read without an error. When a new reading starts the flag is cleared.
-    \newline In free running mode the flag is set when the first error free sensor reading was conducted. If there are errors while reading sensor, the flag should be cleared.
+    2 & read\_valid & R & 0 & Signals if the current values in the DIST0, UCSR \& ADSR Register are valid.
+    \newline If this flag is high the CPU is able to read the registers. If low the values might change between reads.
     \\
     \hline
     5:3 & reserved & & & \\
@@ -338,11 +337,11 @@ tx\_out & O & 1 & UART transmit to sensor \\
         \item 6in - 255in
     \end{itemize}\\
     \hline
-    15:8 & dist\_char\_1  \newline \textit{(optional)} & R & 0x00 & First Digit of Distance value ($x_1 * 10^2$)\\
+    15:8 & dist\_char\_1 & R & 0x00 & First Digit of Distance value ($x_1 * 10^2$)\\
     \hline
-    23:16 & dist\_char\_2 \newline \textit{(optional)} & R & 0x00 & Second Digit of Distance value ($x_2 * 10^1$)\\
+    23:16 & dist\_char\_2 & R & 0x00 & Second Digit of Distance value ($x_2 * 10^1$)\\
     \hline
-    31:24 & dist\_char\_3 \newline \textit{(optional)} & R & 0x00 & Third Digit of Distance value ($x_3 * 10^0$)\\
+    31:24 & dist\_char\_3 & R & 0x00 & Third Digit of Distance value ($x_3 * 10^0$)\\
     \hline
     \caption{Distance Value Register (DIST0)}
     \label{tab:dist0}
@@ -409,19 +408,20 @@ tx\_out & O & 1 & UART transmit to sensor \\
 
     \multicolumn{5}{|c|}{\textbf{0x24 ADSR - ASCII Decoder Status Register}} \\
     \hline
-    0 & ad\_error \newline \textit{(optional)} & R & 0 & Set, if the ASCII Decoder moves into error state (the packet structure „Rxxx\textbackslash r“ violated). Cleared on reset. \\
+    0 & ad\_error & R & 0 & Set, if the ASCII Decoder moves into error state (the packet structure „Rxxx\textbackslash r“ violated).\\
     \hline
-    5:1 & ad\_err\_pos \newline \textit{(optional)} & R & 0x00 & One-hot bitmask of the ASCII character which caused the error
+    6:1 & ad\_err\_pos & R & 0x00 & One-hot bitmask of the ASCII character which caused the error (+ timeout flag)
     \newline 0x01 = R
     \newline 0x02 = first number
     \newline 0x04 = second number
     \newline 0x08 = third number
     \newline 0x10 = cariage return
+    \newline 0x20 = timeout
     \\
     \hline
-    7:6 & reserved & & & \\
+    7 & reserved & & & \\
     \hline
-    15:8 & ad\_err\_char \newline \textit{(optional)} & R & 0x00 & ASCII character which caused the error \\
+    15:8 & ad\_err\_char & R & 0x00 & ASCII character which caused the error \\
     \hline
     31:16 & reserved & & & \\
     \hline
