@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_as_core_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_as_core" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="38,659.918 ns"></ZoomStartTime>
+      <ZoomEndTime time="39,085.419 ns"></ZoomEndTime>
+      <Cursor1Time time="38,739.918 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="172"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject type="other" fp_name="/tb_as_core/tb_testcase">
+      <obj_property name="ElementShortName">tb_testcase</obj_property>
+      <obj_property name="ObjectShortName">tb_testcase</obj_property>
+      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group115">
+      <obj_property name="label">UART I/O</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_rx">
+         <obj_property name="ElementShortName">tb_rx</obj_property>
+         <obj_property name="ObjectShortName">tb_rx</obj_property>
+         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_tx">
+         <obj_property name="ElementShortName">tb_tx</obj_property>
+         <obj_property name="ObjectShortName">tb_tx</obj_property>
+         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_tx_expected">
+         <obj_property name="ElementShortName">tb_tx_expected</obj_property>
+         <obj_property name="ObjectShortName">tb_tx_expected</obj_property>
+         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group114">
+      <obj_property name="label">General Control Signals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_clk">
+         <obj_property name="ElementShortName">tb_clk</obj_property>
+         <obj_property name="ObjectShortName">tb_clk</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_reset">
+         <obj_property name="ElementShortName">tb_reset</obj_property>
+         <obj_property name="ObjectShortName">tb_reset</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group118">
+      <obj_property name="label">IP Control &amp; Status</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_ap_start">
+         <obj_property name="ElementShortName">tb_ap_start</obj_property>
+         <obj_property name="ObjectShortName">tb_ap_start</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_ap_idle">
+         <obj_property name="ElementShortName">tb_ap_idle</obj_property>
+         <obj_property name="ObjectShortName">tb_ap_idle</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_ap_idle_expected">
+         <obj_property name="ElementShortName">tb_ap_idle_expected</obj_property>
+         <obj_property name="ObjectShortName">tb_ap_idle_expected</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_ap_done">
+         <obj_property name="ElementShortName">tb_ap_done</obj_property>
+         <obj_property name="ObjectShortName">tb_ap_done</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_ap_done_expected">
+         <obj_property name="ElementShortName">tb_ap_done_expected</obj_property>
+         <obj_property name="ObjectShortName">tb_ap_done_expected</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_auto_restart">
+         <obj_property name="ElementShortName">tb_auto_restart</obj_property>
+         <obj_property name="ObjectShortName">tb_auto_restart</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_reset_ip">
+         <obj_property name="ElementShortName">tb_reset_ip</obj_property>
+         <obj_property name="ObjectShortName">tb_reset_ip</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_freeze_ip">
+         <obj_property name="ElementShortName">tb_freeze_ip</obj_property>
+         <obj_property name="ObjectShortName">tb_freeze_ip</obj_property>
+         <obj_property name="CustomSignalColor">#008080</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group125">
+      <obj_property name="label">IP Timing Control</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_powerup_done">
+         <obj_property name="ElementShortName">tb_powerup_done</obj_property>
+         <obj_property name="ObjectShortName">tb_powerup_done</obj_property>
+         <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_powerup_done_expected">
+         <obj_property name="ElementShortName">tb_powerup_done_expected</obj_property>
+         <obj_property name="ObjectShortName">tb_powerup_done_expected</obj_property>
+         <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_calib_done">
+         <obj_property name="ElementShortName">tb_calib_done</obj_property>
+         <obj_property name="ObjectShortName">tb_calib_done</obj_property>
+         <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_calib_done_expected">
+         <obj_property name="ElementShortName">tb_calib_done_expected</obj_property>
+         <obj_property name="ObjectShortName">tb_calib_done_expected</obj_property>
+         <obj_property name="CustomSignalColor">#A0A0A4</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group128">
+      <obj_property name="label">IP Distance Information</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_read_valid">
+         <obj_property name="ElementShortName">tb_read_valid</obj_property>
+         <obj_property name="ObjectShortName">tb_read_valid</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_read_valid_expected">
+         <obj_property name="ElementShortName">tb_read_valid_expected</obj_property>
+         <obj_property name="ObjectShortName">tb_read_valid_expected</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_dist_in">
+         <obj_property name="ElementShortName">tb_dist_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_dist_in[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_dist_in_expected">
+         <obj_property name="ElementShortName">tb_dist_in_expected[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_dist_in_expected[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_dist_char_1">
+         <obj_property name="ElementShortName">tb_dist_char_1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_dist_char_1[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_dist_char_1_expected">
+         <obj_property name="ElementShortName">tb_dist_char_1_expected[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_dist_char_1_expected[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_dist_char_2">
+         <obj_property name="ElementShortName">tb_dist_char_2[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_dist_char_2[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_dist_char_2_expected">
+         <obj_property name="ElementShortName">tb_dist_char_2_expected[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_dist_char_2_expected[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_dist_char_3">
+         <obj_property name="ElementShortName">tb_dist_char_3[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_dist_char_3[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_dist_char_3_expected">
+         <obj_property name="ElementShortName">tb_dist_char_3_expected[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_dist_char_3_expected[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#008000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group134">
+      <obj_property name="label">IP UART Receiver Status</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_ur_error">
+         <obj_property name="ElementShortName">tb_ur_error</obj_property>
+         <obj_property name="ObjectShortName">tb_ur_error</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_ur_error_expected">
+         <obj_property name="ElementShortName">tb_ur_error_expected</obj_property>
+         <obj_property name="ObjectShortName">tb_ur_error_expected</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_ur_data">
+         <obj_property name="ElementShortName">tb_ur_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_ur_data[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_ur_data_expected">
+         <obj_property name="ElementShortName">tb_ur_data_expected[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_ur_data_expected[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group140">
+      <obj_property name="label">IP ASCII Decoder Status</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_ad_error">
+         <obj_property name="ElementShortName">tb_ad_error</obj_property>
+         <obj_property name="ObjectShortName">tb_ad_error</obj_property>
+         <obj_property name="CustomSignalColor">#FF0000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_as_core/tb_ad_error_expected">
+         <obj_property name="ElementShortName">tb_ad_error_expected</obj_property>
+         <obj_property name="ObjectShortName">tb_ad_error_expected</obj_property>
+         <obj_property name="CustomSignalColor">#FF0000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_ad_err_pos">
+         <obj_property name="ElementShortName">tb_ad_err_pos[5:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_ad_err_pos[5:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF0000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_ad_err_pos_expected">
+         <obj_property name="ElementShortName">tb_ad_err_pos_expected[5:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_ad_err_pos_expected[5:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF0000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_ad_err_char">
+         <obj_property name="ElementShortName">tb_ad_err_char[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_ad_err_char[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF0000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_as_core/tb_ad_err_char_expected">
+         <obj_property name="ElementShortName">tb_ad_err_char_expected[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tb_ad_err_char_expected[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF0000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_as_core/DUT/update_window">
+      <obj_property name="ElementShortName">update_window</obj_property>
+      <obj_property name="ObjectShortName">update_window</obj_property>
+   </wvobject>
+</wave_config>
