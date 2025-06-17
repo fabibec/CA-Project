@@ -70,7 +70,7 @@ build/
 *.elf
 *.bd.bak
 *.dmp
-*.xml
+!*.xml
 *.html
 
 # SDK / Vitis
