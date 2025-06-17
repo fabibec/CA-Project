@@ -1,22 +1,15 @@
 ----------------------------------------------------------------------------------
 -- Engineers: Fabian Becker, Nicolas Koch
 -- 
--- Create Date: 05/22/2025 03:08:36 PM
--- Design Name: 
 -- Module Name: as_core - arch
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
+-- Project Name: AS - an AXI IP for PMod MaxSonar
+-- Target Devices: Arty A7-100
 -- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+--  This is the top-level module of our IP'S VHDL Logic. Here we instantiate all submodule connect them together and create
+--  the correct signals for the AXI Interface.
+--
+-- Verison 1.0 - File Created
 ----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -24,15 +17,13 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity as_core is
     generic (
-        UART_BAUDRATE_DIVISOR: integer := 651;
-        UART_NUM_DATA_BITS: integer := 8;
-        CONTROL_MS_DIVISOR: integer := 100_000;
-        CONTROL_POWER_UP_TIME : integer := 250; -- 250 ms power-up delay
-        CONTROL_FIRST_READING_TIME : integer := 100; -- 100 ms first reading delay
-        -- the sensor checks if tx is high every 49 ms and then proceeds to measrue or not
-        -- so worst case time can be 2x interval!!
-        CONTROL_CALIBRATION_TIME : integer := 49; -- 49 ms calibration cycle
-        CONTROL_RANGE_READING_TIME : integer := 49 -- 49 ms range reading time
+        UART_BAUDRATE_DIVISOR: integer;
+        UART_NUM_DATA_BITS: integer;
+        CONTROL_MS_DIVISOR: integer;
+        CONTROL_POWER_UP_TIME : integer;
+        CONTROL_FIRST_READING_TIME : integer;
+        CONTROL_CALIBRATION_TIME : integer;
+        CONTROL_RANGE_READING_TIME : integer
     );
     port ( 
         -- AXI 
@@ -41,31 +32,37 @@ entity as_core is
         
         -- GCSR
         i_ap_start: in std_logic;
-        o_ap_idle: out std_logic; -- async, register when ad_done -> 1, on i_ap_start or reset or restart = 0 
-        o_ap_done: out std_logic; -- ad_done    
+        o_ap_idle: out std_logic;
+        o_ap_done: out std_logic;
         i_auto_restart: in std_logic; 
         
         -- SCSR0
         o_powerup_done: out std_logic;
         o_calib_done: out std_logic;
-        o_read_valid: out std_logic; -- no ad_error, uart can be ignored, updated/set on done
+        o_read_valid: out std_logic;
         i_reset_ip: in std_logic; 
-        i_freeze_ip: in std_logic; -- # TODO ONLY accept freeze if no reset in progess!!!
+        i_freeze_ip: in std_logic;
  
         -- DIST0
-        o_dist_in: out std_logic_vector(7 downto 0); -- ad_data, updated/set on done
-        o_dist_char_1: out std_logic_vector(7 downto 0); -- ad_char 1
-        o_dist_char_2: out std_logic_vector(7 downto 0); -- ad_char 2 
+        o_dist_in: out std_logic_vector(7 downto 0);
+        -- Raw chars processed by the ASCII Decoder
+        o_dist_char_1: out std_logic_vector(7 downto 0);
+        o_dist_char_2: out std_logic_vector(7 downto 0);
         o_dist_char_3: out std_logic_vector(7 downto 0);
  
        -- UCSR Signals
-       o_ur_error: out std_logic; -- ur_error, updated async, 1 if at least on error occured during current measurement reading, cleared on start 
-       o_ur_data: out std_logic_vector(7 downto 0); -- ur_data, updated async, cleared on start
+       -- UART Receiver Framing Error (no stop bit)
+       o_ur_error: out std_logic;
+       -- UART Receiver Register State
+       o_ur_data: out std_logic_vector(7 downto 0);
  
        -- ADSR Signals
-       o_ad_error: out std_logic; -- ad_error, updated/set on done
-       o_ad_err_pos: out std_logic_vector(5 downto 0); -- ad_err_pos, updated/set on done
-       o_ad_err_char: out std_logic_vector(7 downto 0); -- ad_err_char, updated/set on done
+       -- ASCII Decoder Error
+       o_ad_error: out std_logic;
+       -- Postion of ASCII Decoder Error
+       o_ad_err_pos: out std_logic_vector(5 downto 0);
+       -- Char which caused error
+       o_ad_err_char: out std_logic_vector(7 downto 0);
        
        -- I/Os
        i_rx: in std_logic;
@@ -78,11 +75,11 @@ architecture arch of as_core is
     -- Control Timer 
     component control_timer is
     generic (
-        MS_DIVISOR : integer := 100_000; -- 1 ms @ 100 MHz
-        POWER_UP_TIME : integer := 250; -- 250 ms power-up delay
-        FIRST_READING_TIME : integer := 100; -- 100 ms first reading delay
-        CALIBRATION_TIME : integer := 49; -- 49 ms calibration cycle
-        RANGE_READING_TIME : integer := 49 -- 49 ms range reading time
+        MS_DIVISOR : integer;
+        POWER_UP_TIME : integer := 250;
+        FIRST_READING_TIME : integer := 100;
+        CALIBRATION_TIME : integer := 49;
+        RANGE_READING_TIME : integer := 49
     );
     port (
         i_clk : in std_logic;
@@ -166,11 +163,13 @@ architecture arch of as_core is
         );
     end component;
     
+    -- Internal strected ap_done_signal
     signal ap_start_stage1, ap_start_stage2: std_logic := '0';
-    signal global_enable: std_logic;
     
+    signal global_enable: std_logic;
     signal global_reset: std_logic := '0';
     
+    -- Enable for all modules that work with sensor data (UART Receiver, ASCII Decoder)
     signal sensor_enable: std_logic;
     
     signal ctl_reset_timer: std_logic;
@@ -200,7 +199,7 @@ architecture arch of as_core is
     signal ad_dist_char_1_reg: std_logic_vector(7 downto 0) := (others => '0');
     signal ad_dist_char_2_reg: std_logic_vector(7 downto 0) := (others => '0');
     signal ad_dist_char_3_reg: std_logic_vector(7 downto 0) := (others => '0');
-    signal ad_digit_index: unsigned(1 downto 0) := (others => '0'); -- (0-3)
+    signal ad_digit_index: unsigned(1 downto 0) := (others => '0');
     
     signal read_valid_reg: std_logic := '0';
     signal update_window: std_logic := '0';
@@ -210,8 +209,7 @@ architecture arch of as_core is
     signal ad_chars: std_logic_vector(3 downto 0);
 
 begin
-    -- Write big ass testbench
-    
+    -- Instantion of Control Timer
     CONTROL_TIMER_INST: control_timer
         generic map (
             MS_DIVISOR => CONTROL_MS_DIVISOR,
@@ -316,7 +314,7 @@ begin
     global_reset <= i_reset or i_reset_ip;
     global_enable <= ap_start_stage1 or ap_start_stage2;
     
-    ctl_enable <= not i_freeze_ip and global_enable; -- stretch ap_start by 1 clock cycle in order to enable timer reset
+    ctl_enable <= not i_freeze_ip and global_enable;
     ctl_reset_timer <= ad_done; 
     
     sensor_enable <= ctl_enable and ctl_calib_done;

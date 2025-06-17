@@ -1,23 +1,17 @@
 ----------------------------------------------------------------------------------
--- Engineer: Fabian Becker, Nicolas Koch
+-- Engineers: Fabian Becker, Nicolas Koch
 -- 
--- Create Date: 05/09/2025 08:01:52 PM
--- Design Name: 
 -- Module Name: uart_receiver - arch
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
+-- Project Name: AS - an AXI IP for PMod MaxSonar
+-- Target Devices: Arty A7-100
 -- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+--  This file is the implementation of the UART Receiver. 
+--  We use an external Baudrate Generator to generate a ticks at correct baud rate.
+--  Moreover 16x oversampling is used and we sample at the middle of each bit. 
+--  The receiver and the  Baudrate Generator is synchronized to the start bit.
+--
+-- Verison 1.0 - File Created
 ----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -46,7 +40,7 @@ entity uart_receiver is
         o_data: out unsigned((N_DATA_BITS - 1) downto 0);
         o_error: out std_logic;
         
-        -- Debug 
+        -- Debug - high when receiver samples a bit
         o_sample: out std_logic
     );
 end uart_receiver;
@@ -55,9 +49,9 @@ architecture arch of uart_receiver is
     type state_type is (idle, start, data, stop); 
     
     signal state, next_state: state_type; 
-    signal ticks_reg, ticks_next: unsigned (3 downto 0) := (others => '0'); -- ticks
+    signal ticks_reg, ticks_next: unsigned (3 downto 0) := (others => '0'); -- tick counter
     signal baud_enable_reg, baud_enable_next : std_logic := '0';
-    signal bits_reg, bits_next: unsigned (3 downto 0) := (others => '0'); -- # data bits
+    signal bits_reg, bits_next: unsigned (3 downto 0) := (others => '0'); -- # bits received
     signal data_reg, data_next: unsigned ((N_DATA_BITS - 1) downto 0) := (others => '0'); -- uart rx register
     
     signal error_next: std_logic := '0';
@@ -82,6 +76,7 @@ begin
         if i_enable = '1' then
             case state is
                 when idle =>
+                    -- Detect falling edge of start bit
                     if (i_rx'event and i_rx = '0' and i_enable = '1') then
                         next_state <= start;
                         ticks_next <= (others => '0');

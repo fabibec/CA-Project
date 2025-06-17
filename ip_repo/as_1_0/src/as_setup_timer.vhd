@@ -3,18 +3,11 @@
 -- Engineer: Nicolas Koch
 -- 
 -- Create Date: 05/22/2025 03:08:36 PM
--- Design Name: 
 -- Module Name: as_setup_timer - arch
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
+-- Project Name: AS - an Axi Sonar IP
+-- Target Device: Arty A7-100
+-- 
 -- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
 library IEEE;

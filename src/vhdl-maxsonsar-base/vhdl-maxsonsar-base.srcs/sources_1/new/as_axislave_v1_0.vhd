@@ -1,3 +1,17 @@
+----------------------------------------------------------------------------------
+-- Engineers: Fabian Becker, Nicolas Koch
+-- 
+-- Module Name: as - arch
+-- Project Name: AS - an AXI IP for PMod MaxSonar
+-- Target Devices: Arty A7-100
+-- Description: 
+--  The original file was taken from the project given to us in the interrupts lab. We added the instantiation of our own IP-Core
+--  and created the needed signals. 
+--
+--  This is the top-level module of our IP and combines the VHDL Logic and the AXI Slave Interface.
+--
+-- Verison 1.0 - File Created
+----------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -9,7 +23,7 @@ entity as is
         C_S00_AXI_ADDR_WIDTH  : integer := 6;
         
         -- Parameters of the UART Receiver
-        C_AS_UART_BAUDRATE_DIVISOR: integer := 651;
+        C_AS_UART_BAUDRATE_DIVISOR: integer := 651; -- 100 MHz / 9600 Baud / 16 (oversampling rate) ~ 651
         C_AS_UART_NUM_DATA_BITS: integer := 8;
         
         -- Timing Constraints Initialisation
@@ -29,7 +43,7 @@ entity as is
         -- I/O ports
         i_rx: in std_logic;
         o_tx: out std_logic;
-        o_interrupt: out std_logic;
+        o_interrupt: out std_logic; -- doesn't work in this version of the IP
 
         -- Ports of Axi Slave Bus Interface S00_AXI
         s00_axi_aclk  : in std_logic;
@@ -124,13 +138,13 @@ architecture arch of as is
     -- IP Core
     component as_core is
         generic (
-            UART_BAUDRATE_DIVISOR: integer := 651;
-            UART_NUM_DATA_BITS: integer := 8;
-            CONTROL_MS_DIVISOR: integer := 100_000;
-            CONTROL_POWER_UP_TIME : integer := 250; -- 250 ms power-up delay
-            CONTROL_CALIBRATION_TIME : integer := 49; -- 49 ms calibration cycle
-            CONTROL_FIRST_READING_TIME : integer := 100; -- 100 ms first reading delay
-            CONTROL_RANGE_READING_TIME : integer := 98 -- 49 ms range reading time * 2
+            UART_BAUDRATE_DIVISOR: integer;
+            UART_NUM_DATA_BITS: integer;
+            CONTROL_MS_DIVISOR: integer;
+            CONTROL_POWER_UP_TIME : integer;
+            CONTROL_CALIBRATION_TIME : integer;
+            CONTROL_FIRST_READING_TIME : integer;
+            CONTROL_RANGE_READING_TIME : integer
         );
         port ( 
             -- AXI 
