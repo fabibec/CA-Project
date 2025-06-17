@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="at_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="at_tb" />
+            <top_module name="axi_vip_pkg" />
+            <top_module name="glbl" />
+            <top_module name="std" />
+            <top_module name="xil_common_vip_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="384.501 ns"></ZoomEndTime>
+      <Cursor1Time time="373.500 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="270"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="32" />
+   <wvobject type="logic" fp_name="/at_tb/ap_clk">
+      <obj_property name="ElementShortName">ap_clk</obj_property>
+      <obj_property name="ObjectShortName">ap_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/ap_rst_n">
+      <obj_property name="ElementShortName">ap_rst_n</obj_property>
+      <obj_property name="ObjectShortName">ap_rst_n</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/o_t0_out">
+      <obj_property name="ElementShortName">o_t0_out</obj_property>
+      <obj_property name="ObjectShortName">o_t0_out</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/interrupt">
+      <obj_property name="ElementShortName">interrupt</obj_property>
+      <obj_property name="ObjectShortName">interrupt</obj_property>
+   </wvobject>
+   <wvobject type="protoinst" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi">
+      <obj_property name="ElementShortName">s00_axi</obj_property>
+      <obj_property name="ObjectShortName">s00_axi</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_awaddr">
+      <obj_property name="ElementShortName">s00_axi_awaddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_awaddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_awvalid">
+      <obj_property name="ElementShortName">s00_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_awready">
+      <obj_property name="ElementShortName">s00_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_awready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_wdata">
+      <obj_property name="ElementShortName">s00_axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_wstrb">
+      <obj_property name="ElementShortName">s00_axi_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_wvalid">
+      <obj_property name="ElementShortName">s00_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_wready">
+      <obj_property name="ElementShortName">s00_axi_wready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_wready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_bvalid">
+      <obj_property name="ElementShortName">s00_axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_bready">
+      <obj_property name="ElementShortName">s00_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_bready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_araddr">
+      <obj_property name="ElementShortName">s00_axi_araddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_araddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_arvalid">
+      <obj_property name="ElementShortName">s00_axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_arready">
+      <obj_property name="ElementShortName">s00_axi_arready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_arready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_rdata">
+      <obj_property name="ElementShortName">s00_axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_rvalid">
+      <obj_property name="ElementShortName">s00_axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/s00_axi_rready">
+      <obj_property name="ElementShortName">s00_axi_rready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_rready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/GCSR_reg">
+      <obj_property name="ElementShortName">GCSR_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">GCSR_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/SCSR0_reg">
+      <obj_property name="ElementShortName">SCSR0_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SCSR0_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/GIER_reg">
+      <obj_property name="ElementShortName">GIER_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">GIER_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/IPIER_reg">
+      <obj_property name="ElementShortName">IPIER_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IPIER_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/IPISR_reg">
+      <obj_property name="ElementShortName">IPISR_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IPISR_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/VERR_reg">
+      <obj_property name="ElementShortName">VERR_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">VERR_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/CR0_reg">
+      <obj_property name="ElementShortName">CR0_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CR0_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/LR0_reg">
+      <obj_property name="ElementShortName">LR0_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">LR0_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/o_ap_start">
+      <obj_property name="ElementShortName">o_ap_start</obj_property>
+      <obj_property name="ObjectShortName">o_ap_start</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/DUT/vip_db_i/at_0/U0/at_S00_AXI_inst/i_ap_done">
+      <obj_property name="ElementShortName">i_ap_done</obj_property>
+      <obj_property name="ObjectShortName">i_ap_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/interrupt">
+      <obj_property name="ElementShortName">interrupt</obj_property>
+      <obj_property name="ObjectShortName">interrupt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/at_tb/o_t0_out">
+      <obj_property name="ElementShortName">o_t0_out</obj_property>
+      <obj_property name="ObjectShortName">o_t0_out</obj_property>
+   </wvobject>
+</wave_config>

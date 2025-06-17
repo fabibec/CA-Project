@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/1work/fpgaproc/test_mb_pmod_clp_sw/pmod_clp_nibble/build",
+  "command": "/opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/bin/mb-gcc  -isystem /1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/sw/standalone_microblaze_0/include -isystem /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/x86_64-oesdk-linux/usr/lib/microblaze-xilinx-elf/gcc/microblaze-xilinx-elf/12.2.0/include -isystem /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/x86_64-oesdk-linux/usr/lib/microblaze-xilinx-elf/gcc/microblaze-xilinx-elf/12.2.0/include-fixed -isystem /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/microblazeeb-xilinx-elf/usr/include  -O2 -mlittle-endian -mxl-soft-mul -mcpu=v11.0 -DSDT  -MMD -MP -specs=/1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/sw/standalone_microblaze_0/Xilinx.spec -I/1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/sw/standalone_microblaze_0/include -Wall -Wextra      -O0  -g3     -U__clang__ -o CMakeFiles/pmod_clp_nibble.elf.dir/main.c.obj -c /1work/fpgaproc/test_mb_pmod_clp_sw/pmod_clp_nibble/src/main.c",
+  "file": "/1work/fpgaproc/test_mb_pmod_clp_sw/pmod_clp_nibble/src/main.c"
+},
+{
+  "directory": "/1work/fpgaproc/test_mb_pmod_clp_sw/pmod_clp_nibble/build",
+  "command": "/opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/bin/mb-gcc  -isystem /1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/sw/standalone_microblaze_0/include -isystem /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/x86_64-oesdk-linux/usr/lib/microblaze-xilinx-elf/gcc/microblaze-xilinx-elf/12.2.0/include -isystem /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/x86_64-oesdk-linux/usr/lib/microblaze-xilinx-elf/gcc/microblaze-xilinx-elf/12.2.0/include-fixed -isystem /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/microblazeeb-xilinx-elf/usr/include  -O2 -mlittle-endian -mxl-soft-mul -mcpu=v11.0 -DSDT  -MMD -MP -specs=/1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/sw/standalone_microblaze_0/Xilinx.spec -I/1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/sw/standalone_microblaze_0/include -Wall -Wextra      -O0  -g3     -U__clang__ -o CMakeFiles/pmod_clp_nibble.elf.dir/PmodCLP.c.obj -c /1work/fpgaproc/test_mb_pmod_clp_sw/pmod_clp_nibble/src/PmodCLP.c",
+  "file": "/1work/fpgaproc/test_mb_pmod_clp_sw/pmod_clp_nibble/src/PmodCLP.c"
+},
+{
+  "directory": "/1work/fpgaproc/test_mb_pmod_clp_sw/pmod_clp_nibble/build",
+  "command": "/opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/bin/mb-gcc  -isystem /1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/sw/standalone_microblaze_0/include -isystem /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/x86_64-oesdk-linux/usr/lib/microblaze-xilinx-elf/gcc/microblaze-xilinx-elf/12.2.0/include -isystem /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/x86_64-oesdk-linux/usr/lib/microblaze-xilinx-elf/gcc/microblaze-xilinx-elf/12.2.0/include-fixed -isystem /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/microblazeeb-xilinx-elf/usr/include  -O2 -mlittle-endian -mxl-soft-mul -mcpu=v11.0 -DSDT  -MMD -MP -specs=/1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/sw/standalone_microblaze_0/Xilinx.spec -I/1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/sw/standalone_microblaze_0/include -Wall -Wextra      -O0  -g3     -U__clang__ -o CMakeFiles/pmod_clp_nibble.elf.dir/platform.c.obj -c /1work/fpgaproc/test_mb_pmod_clp_sw/pmod_clp_nibble/src/platform.c",
+  "file": "/1work/fpgaproc/test_mb_pmod_clp_sw/pmod_clp_nibble/src/platform.c"
+}
+]

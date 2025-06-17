@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_lcd_controller_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_lcd_controller" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1,669.820 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,713.521 ns"></ZoomEndTime>
+      <Cursor1Time time="1,180.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="215"></NameColumnWidth>
+      <ValueColumnWidth column_width="161"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="19" />
+   <wave_markers>
+      <marker label="" time="259883" />
+      <marker label="" time="559983" />
+      <marker label="" time="630017" />
+      <marker label="" time="760083" />
+      <marker label="" time="880000" />
+   </wave_markers>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/uut/i_clk">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider309" type="divider">
+      <obj_property name="label">LCD_Controller signals </obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_lcd_controller/uut/o_db4_7">
+      <obj_property name="ElementShortName">o_db4_7[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o_db4_7[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/uut/s_register_select">
+      <obj_property name="ElementShortName">s_register_select</obj_property>
+      <obj_property name="ObjectShortName">s_register_select</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/uut/s_read_write">
+      <obj_property name="ElementShortName">s_read_write</obj_property>
+      <obj_property name="ObjectShortName">s_read_write</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/uut/s_read_write_enable">
+      <obj_property name="ElementShortName">s_read_write_enable</obj_property>
+      <obj_property name="ObjectShortName">s_read_write_enable</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/uut/o_ap_done">
+      <obj_property name="ElementShortName">o_ap_done</obj_property>
+      <obj_property name="ObjectShortName">o_ap_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/uut/o_lcd_initialized">
+      <obj_property name="ElementShortName">o_lcd_initialized</obj_property>
+      <obj_property name="ObjectShortName">o_lcd_initialized</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_lcd_controller/uut/o_ddram_pos_last_written">
+      <obj_property name="ElementShortName">o_ddram_pos_last_written[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_ddram_pos_last_written[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/TB_lcd_controller/uut/state">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider308" type="divider">
+      <obj_property name="label">EXPECTED SIGNALS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/TB_lcd_controller/ex_TB_state">
+      <obj_property name="ElementShortName">ex_TB_state</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_state</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_lcd_controller/ex_TB_o_db4_7">
+      <obj_property name="ElementShortName">ex_TB_o_db4_7[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_o_db4_7[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/ex_TB_s_register_select">
+      <obj_property name="ElementShortName">ex_TB_s_register_select</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_s_register_select</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/ex_TB_s_read_write">
+      <obj_property name="ElementShortName">ex_TB_s_read_write</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_s_read_write</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/ex_TB_s_read_write_enable">
+      <obj_property name="ElementShortName">ex_TB_s_read_write_enable</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_s_read_write_enable</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/ex_TB_s_ap_done">
+      <obj_property name="ElementShortName">ex_TB_s_ap_done</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_s_ap_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_lcd_controller/ex_TB_s_lcd_initialized">
+      <obj_property name="ElementShortName">ex_TB_s_lcd_initialized</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_s_lcd_initialized</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_lcd_controller/ex_TB_s_ddram_pos_last_written">
+      <obj_property name="ElementShortName">ex_TB_s_ddram_pos_last_written[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_s_ddram_pos_last_written[7:0]</obj_property>
+   </wvobject>
+</wave_config>

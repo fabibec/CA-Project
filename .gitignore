@@ -44,3 +44,61 @@
 latex.out/
 build/
 
+# Vivado project files
+*.jou
+*.log
+*.str
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.tmp/
+*.xpr.bak
+*.webtalk/
+*.wdb
+
+# Project-specific build artifacts
+*.xsim/
+*.Xil/
+*.vivado/
+
+# Generated output
+*.bit
+*.bin
+*.mmi
+*.elf
+*.bd.bak
+*.dmp
+*.xml
+*.html
+
+# SDK / Vitis
+*.sdk/
+*.sdk.log
+*.metadata/
+*.project
+*.cproject
+.msys/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# TCL history
+vivado*.backup.jou
+vivado*.backup.log
+
+# User/GUI state files
+*.restore
+*.crash
+*.journal
+*.db
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Include custom waveforms
+!*.wcfg
