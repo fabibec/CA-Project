@@ -1,0 +1,29 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-255,-130",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_o_interrupt_0 -pg 1 -lvl 3 -x 600 -y 140 -defaultsOSRD
+preplace port port-id_o_register_select -pg 1 -lvl 3 -x 600 -y 80 -defaultsOSRD
+preplace port port-id_o_read_write -pg 1 -lvl 3 -x 600 -y 100 -defaultsOSRD
+preplace port port-id_o_read_write_enable -pg 1 -lvl 3 -x 600 -y 120 -defaultsOSRD
+preplace port port-id_ACLK -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
+preplace port port-id_ARESETN -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD
+preplace portBus o_db4_7 -pg 1 -lvl 3 -x 600 -y 60 -defaultsOSRD
+preplace inst axi_vip_0 -pg 1 -lvl 1 -x 120 -y 80 -defaultsOSRD
+preplace inst ad_0 -pg 1 -lvl 2 -x 400 -y 100 -defaultsOSRD
+preplace netloc ACLK_1 1 0 2 20 10 220
+preplace netloc ARESETN_1 1 0 2 20 150 220J
+preplace netloc ad_0_o_db4_7 1 2 1 NJ 60
+preplace netloc ad_0_o_interrupt 1 2 1 NJ 140
+preplace netloc ad_0_o_read_write 1 2 1 NJ 100
+preplace netloc ad_0_o_read_write_enable 1 2 1 NJ 120
+preplace netloc ad_0_o_register_select 1 2 1 NJ 80
+preplace netloc axi_vip_0_M_AXI 1 1 1 N 80
+levelinfo -pg 1 0 120 400 600
+pagesize -pg 1 -db -bbox -sgen -120 0 800 200
+"
+}
+0

@@ -1,0 +1,13 @@
+WAIT_SETUP -> PULSE_ENABLE_DELAY -> PULSE_ENABLE
+==> Problem: s_read_write_enable <= '1' [SET IN WAIT_SETUP] ==> s_read_write_enable <= '0' (Implicitly set by default value, State: PULSE_ENABLE_DELAy] ===> s_read_write_enable <= '0' [PULSE_ENABLE_DELAY] 
+==> s_read_write_enable wird bereits nach einem Takt auf gezogen, nicht erst nach der Wait-Time => Timing wird verletzt.
+==> Line 310 - 326 LCD_controller
+
+LCD_Initialized wird nur für einen Takt auf 1 gezogen. Macht das Probleme? An sich nicht oder? 
+
+In Zeile 288 setzen wird s_register_select <= '1' so dass wir Signalisieren dass das Data-Register als Zielregister gesetzt wird. 
+Einen Takt später wird dieses aber wieder auf '0' gezogen, weil wir in den SETUP_CONTROL case wechseln und in diesem Zweig kein
+s_register_select <= '1' gesetzt wird. Somit wird der Default-Wert aus dem Process-Begin genommen. Wahrscheinlich muss aber 
+s_register_select bis zum Ende der Schreiboperation auf '1' bleiben.
+
+(Siehe Export ordner mit der Waveform)
