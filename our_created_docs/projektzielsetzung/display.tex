@@ -303,7 +303,7 @@ read\_write\_enable & O & 0x1 & Read/Write Enable: High for Read, falling edge w
     \hline
     0 & lcd\_initialized & R & 0 & 1 indicates the LCD has been properly initialized and is ready for commands. \\
     \hline
-    8:1 & lcd\_state \textit{(for debugging)} & R & 0x00 & Current state of LCD controller. (init: 0x01, ready: 0x02, write: 0x04, read: 0x08, clear display: 0x10, return home: 0x14, display control: 0x18, display line switch: 0x1C) \\
+    8:1 & lcd\_state \textit{(for debugging)} & R & 0x00 & Current state of LCD controller. (startup: 0x00, init: 0x01, ready: 0x02, write: 0x04, read: 0x08, clear display: 0x10, return home: 0x14, display control: 0x18, display line switch: 0x1C) \\
     \hline
     9 & lcd\_error\_flag & R & 0 & Indicates an error occurred during last operation. In combination with 'write\_char' and 'read\_char' two errors can occur: invalid symbol (write) or invalid ddram pos (read). \\
     \hline
@@ -395,7 +395,7 @@ read\_write\_enable & O & 0x1 & Read/Write Enable: High for Read, falling edge w
         \hline
         3 & cursor\_blink & R/W & 1 & Enable cursor blinking (0 = no blink, 1 = blink) \\
         \hline
-        4 & cursor\_apply \textit{(optional)} & R/W & 0 & Write 1 to apply cursor formatting set in cursor\_on and cursor\_blink. \\
+        4 & cursor\_apply & R/W & 0 & Write 1 to apply cursor formatting set in cursor\_on and cursor\_blink. \\
         \hline
         5 & display\_line \textit{(optional)} & R/W & 0 & Indicates selected line on display (0 = line 1, 1 = line 2) \\
         \hline
