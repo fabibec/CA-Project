@@ -1,0 +1,15 @@
+at_int_0:
+- at_int
+- None
+axi_gpio_0:
+- axi_gpio
+- gpio
+axi_timer_0:
+- axi_timer
+- tmrctr
+axi_uartlite_0:
+- axi_uartlite
+- uartlite
+microblaze_0_axi_intc:
+- axi_intc
+- intc

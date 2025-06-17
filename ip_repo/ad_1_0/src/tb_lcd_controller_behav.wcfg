@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_lcd_controller_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_lcd_controller" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="11,052.195 ns"></ZoomStartTime>
+      <ZoomEndTime time="11,145.562 ns"></ZoomEndTime>
+      <Cursor1Time time="11,133.149 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="255"></NameColumnWidth>
+      <ValueColumnWidth column_width="67"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wave_markers>
+      <marker label="" time="32543159983" />
+      <marker label="" time="32457660000" />
+      <marker label="" time="9820016" />
+   </wave_markers>
+   <wvobject type="logic" fp_name="/tb_lcd_controller/TB_i_clk">
+      <obj_property name="ElementShortName">TB_i_clk</obj_property>
+      <obj_property name="ObjectShortName">TB_i_clk</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_lcd_controller/TB_i_reset">
+      <obj_property name="ElementShortName">TB_i_reset</obj_property>
+      <obj_property name="ObjectShortName">TB_i_reset</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_lcd_controller/TB_s_cmd_cnt">
+      <obj_property name="ElementShortName">TB_s_cmd_cnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">TB_s_cmd_cnt[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider258" type="divider">
+      <obj_property name="label">LCD CONTROLLER</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#FFD700</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group207">
+      <obj_property name="label">LCD_Controller Signals</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="other" fp_name="/tb_lcd_controller/uut/state">
+         <obj_property name="ElementShortName">state</obj_property>
+         <obj_property name="ObjectShortName">state</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="other" fp_name="/tb_lcd_controller/uut/nstate">
+         <obj_property name="ElementShortName">nstate</obj_property>
+         <obj_property name="ObjectShortName">nstate</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="other" fp_name="/tb_lcd_controller/ex_TB_state">
+         <obj_property name="ElementShortName">ex_TB_state</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_state</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="other" fp_name="/tb_lcd_controller/ex_TB_nstate">
+         <obj_property name="ElementShortName">ex_TB_nstate</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_nstate</obj_property>
+         <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="divider208" type="divider">
+         <obj_property name="label">OUTPUTS &amp; OUTPUT-REGISTER</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="BkColor">#FF00FF</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/s_upper_nibble">
+         <obj_property name="ElementShortName">s_upper_nibble[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_upper_nibble[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/ex_TB_s_upper_nibble">
+         <obj_property name="ElementShortName">ex_TB_s_upper_nibble[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_upper_nibble[3:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/s_lower_nibble">
+         <obj_property name="ElementShortName">s_lower_nibble[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_lower_nibble[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/ex_TB_s_lower_nibble">
+         <obj_property name="ElementShortName">ex_TB_s_lower_nibble[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_lower_nibble[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/TB_o_db4_7">
+         <obj_property name="ElementShortName">TB_o_db4_7[3:0]</obj_property>
+         <obj_property name="ObjectShortName">TB_o_db4_7[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/ex_TB_o_db4_7">
+         <obj_property name="ElementShortName">ex_TB_o_db4_7[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_o_db4_7[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_register_select">
+         <obj_property name="ElementShortName">s_register_select</obj_property>
+         <obj_property name="ObjectShortName">s_register_select</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_register_select">
+         <obj_property name="ElementShortName">ex_TB_s_register_select</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_register_select</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_read_write">
+         <obj_property name="ElementShortName">s_read_write</obj_property>
+         <obj_property name="ObjectShortName">s_read_write</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_read_write">
+         <obj_property name="ElementShortName">ex_TB_s_read_write</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_read_write</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_read_write_enable">
+         <obj_property name="ElementShortName">s_read_write_enable</obj_property>
+         <obj_property name="ObjectShortName">s_read_write_enable</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_read_write_enable">
+         <obj_property name="ElementShortName">ex_TB_s_read_write_enable</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_read_write_enable</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_ap_idle">
+         <obj_property name="ElementShortName">s_ap_idle</obj_property>
+         <obj_property name="ObjectShortName">s_ap_idle</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_i_ap_idle">
+         <obj_property name="ElementShortName">ex_TB_i_ap_idle</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_i_ap_idle</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_ap_done">
+         <obj_property name="ElementShortName">s_ap_done</obj_property>
+         <obj_property name="ObjectShortName">s_ap_done</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_ap_done">
+         <obj_property name="ElementShortName">ex_TB_s_ap_done</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_ap_done</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_lcd_initialized">
+         <obj_property name="ElementShortName">s_lcd_initialized</obj_property>
+         <obj_property name="ObjectShortName">s_lcd_initialized</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_lcd_initialized">
+         <obj_property name="ElementShortName">ex_TB_s_lcd_initialized</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_lcd_initialized</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_lcd_error_flag">
+         <obj_property name="ElementShortName">s_lcd_error_flag</obj_property>
+         <obj_property name="ObjectShortName">s_lcd_error_flag</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_lcd_error_flag">
+         <obj_property name="ElementShortName">ex_TB_s_lcd_error_flag</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_lcd_error_flag</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/s_lcd_state">
+         <obj_property name="ElementShortName">s_lcd_state[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_lcd_state[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/s_ddram_pos_last_written">
+         <obj_property name="ElementShortName">s_ddram_pos_last_written[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_ddram_pos_last_written[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/ex_TB_s_ddram_pos_last_written">
+         <obj_property name="ElementShortName">ex_TB_s_ddram_pos_last_written[7:0]</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_ddram_pos_last_written[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="divider222" type="divider">
+         <obj_property name="label">Internals</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="BkColor">#00FF7F</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/TB_s_cmd_cnt">
+         <obj_property name="ElementShortName">TB_s_cmd_cnt[3:0]</obj_property>
+         <obj_property name="ObjectShortName">TB_s_cmd_cnt[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_send_lower">
+         <obj_property name="ElementShortName">s_send_lower</obj_property>
+         <obj_property name="ObjectShortName">s_send_lower</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_send_lower">
+         <obj_property name="ElementShortName">ex_TB_s_send_lower</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_send_lower</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_writing_data">
+         <obj_property name="ElementShortName">s_writing_data</obj_property>
+         <obj_property name="ObjectShortName">s_writing_data</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_writing_data">
+         <obj_property name="ElementShortName">ex_TB_s_writing_data</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_writing_data</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/s_data">
+         <obj_property name="ElementShortName">s_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_data[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/ex_TB_s_data">
+         <obj_property name="ElementShortName">ex_TB_s_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_data[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_i_cursor_apply">
+         <obj_property name="ElementShortName">ex_TB_i_cursor_apply</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_i_cursor_apply</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/TB_i_cursor_apply">
+         <obj_property name="ElementShortName">TB_i_cursor_apply</obj_property>
+         <obj_property name="ObjectShortName">TB_i_cursor_apply</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_cursor_blink">
+         <obj_property name="ElementShortName">s_cursor_blink</obj_property>
+         <obj_property name="ObjectShortName">s_cursor_blink</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_cursor_on">
+         <obj_property name="ElementShortName">s_cursor_on</obj_property>
+         <obj_property name="ObjectShortName">s_cursor_on</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/TB_i_clear_display">
+         <obj_property name="ElementShortName">TB_i_clear_display</obj_property>
+         <obj_property name="ObjectShortName">TB_i_clear_display</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_i_clear_display">
+         <obj_property name="ElementShortName">ex_TB_i_clear_display</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_i_clear_display</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/s_next_ddram_pos">
+         <obj_property name="ElementShortName">s_next_ddram_pos[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_next_ddram_pos[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/ex_TB_s_next_ddram_pos">
+         <obj_property name="ElementShortName">ex_TB_s_next_ddram_pos[7:0]</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_next_ddram_pos[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/ns_next_ddram_pos">
+         <obj_property name="ElementShortName">ns_next_ddram_pos[7:0]</obj_property>
+         <obj_property name="ObjectShortName">ns_next_ddram_pos[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/ex_TB_ns_next_ddram_pos">
+         <obj_property name="ElementShortName">ex_TB_ns_next_ddram_pos[7:0]</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_ns_next_ddram_pos[7:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_executing_command">
+         <obj_property name="ElementShortName">s_executing_command</obj_property>
+         <obj_property name="ObjectShortName">s_executing_command</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_function_set_twice">
+         <obj_property name="ElementShortName">s_function_set_twice</obj_property>
+         <obj_property name="ObjectShortName">s_function_set_twice</obj_property>
+         <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider253" type="divider">
+      <obj_property name="label">TIMING CONTROLLER</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#00FFFF</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group142">
+      <obj_property name="label">TIMING CONTROLLER SIGNALS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/timing_controller_inst/counter">
+         <obj_property name="ElementShortName">counter[21:0]</obj_property>
+         <obj_property name="ObjectShortName">counter[21:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/s_timer_delay_time">
+         <obj_property name="ElementShortName">s_timer_delay_time[21:0]</obj_property>
+         <obj_property name="ObjectShortName">s_timer_delay_time[21:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_lcd_controller/uut/timing_controller_inst/delay_time">
+         <obj_property name="ElementShortName">delay_time[21:0]</obj_property>
+         <obj_property name="ObjectShortName">delay_time[21:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/timing_controller_inst/done">
+         <obj_property name="ElementShortName">done</obj_property>
+         <obj_property name="ObjectShortName">done</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_timer_start">
+         <obj_property name="ElementShortName">s_timer_start</obj_property>
+         <obj_property name="ObjectShortName">s_timer_start</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_timer_start">
+         <obj_property name="ElementShortName">ex_TB_s_timer_start</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_timer_start</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/uut/s_timer_done">
+         <obj_property name="ElementShortName">s_timer_done</obj_property>
+         <obj_property name="ObjectShortName">s_timer_done</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_lcd_controller/ex_TB_s_timer_done">
+         <obj_property name="ElementShortName">ex_TB_s_timer_done</obj_property>
+         <obj_property name="ObjectShortName">ex_TB_s_timer_done</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
