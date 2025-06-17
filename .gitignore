@@ -102,3 +102,4 @@ vivado*.backup.log
 
 # Include custom waveforms
 !*.wcfg
+
