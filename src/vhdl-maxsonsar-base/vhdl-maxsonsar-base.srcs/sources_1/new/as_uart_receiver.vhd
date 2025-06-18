@@ -56,7 +56,6 @@ architecture arch of uart_receiver is
     
     signal error_next: std_logic := '0';
     signal done_next: std_logic := '0';
-    
 begin
 
     NSTATEPROC: process(
@@ -77,7 +76,7 @@ begin
             case state is
                 when idle =>
                     -- Detect falling edge of start bit
-                    if (i_rx'event and i_rx = '0' and i_enable = '1') then
+                    if (i_rx = '0' and i_enable = '1') then
                         next_state <= start;
                         ticks_next <= (others => '0');
                         data_next <= (others => '0');
@@ -163,5 +162,4 @@ begin
     
     o_data <= data_reg;
     o_baud_enable <= baud_enable_reg;
-
 end arch;

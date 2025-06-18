@@ -1,3 +1,18 @@
+----------------------------------------------------------------------------------
+-- Engineers: Fabian Becker, Nicolas Koch
+-- 
+-- Module Name: as_SOO_AXI - arch
+-- Project Name: AS - an AXI IP for PMod MaxSonar
+-- Target Devices: Arty A7-100
+-- Description: 
+--  The original file was taken from the project given to us in the interrupts lab. We changed the registers,
+--  their addresses and implemented the read-write logic for the particular bits according to oru register description.   
+--
+--  This is the implementation of the AXI-4 Lite Slave Interface 
+--
+-- Verison 1.0 - File Created
+----------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -667,10 +682,6 @@ begin
     end if;
   end process;
 
-
-  -- Add user logic here
-  --dm begin adapted
-  
   interrupt <='0'; --if not interrupts are implemented set signal to zero
   --interrupt <= GIER_reg(0) and IPIER(0) and IPISR_reg(0);
 

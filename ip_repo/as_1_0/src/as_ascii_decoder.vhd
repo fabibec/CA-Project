@@ -1,30 +1,23 @@
 ----------------------------------------------------------------------------------
--- Engineer: Fabian Becker
+-- Engineers: Fabian Becker
 -- 
--- Create Date: 05/12/2025 10:30:18 AM
--- Design Name: 
 -- Module Name: ascii_decoder - arch
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
+-- Project Name: AS - an AXI IP for PMod MaxSonar
+-- Target Devices: Arty A7-100
 -- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+--  This file is the implementation of the UART Receiver. 
+--  We use an external Baudrate Generator to generate a ticks at correct baud rate.
+--  Moreover 16x oversampling is used and we sample at the middle of each bit. 
+--  The receiver and the  Baudrate Generator is synchronized to the start bit.
+--
+-- Verison 1.0 - File Created
 ----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity ascii_decoder is
     port(
-    
         i_enable: in std_logic;
         i_uart_char: in unsigned(7 downto 0);
         i_uart_char_ready: in std_logic;

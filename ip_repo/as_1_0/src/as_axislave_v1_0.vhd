@@ -2,12 +2,13 @@
 -- Engineers: Fabian Becker, Nicolas Koch
 -- 
 -- Module Name: as - arch
--- Project Name: AS - an AXU Sonar IP
+-- Project Name: AS - an AXI IP for PMod MaxSonar
 -- Target Devices: Arty A7-100
 -- Description: 
---  The baudrate generator generates tick according to the configured values that will be used by the uart receiver.
---  Since the baud enable output of the UART Receiver is synchronous, the enable input will arrive with a delay of one clock cycle.
---  In order to accout for this delay, we will detect the rising edge of enable and then start the timer at 2
+--  The original file was taken from the project given to us in the interrupts lab. We added the instantiation of our own IP-Core
+--  and created the needed signals. 
+--
+--  This is the top-level module of our IP and combines the VHDL Logic and the AXI Slave Interface.
 --
 -- Verison 1.0 - File Created
 ----------------------------------------------------------------------------------
@@ -69,7 +70,7 @@ entity as is
     );
 end as;
 
-architecture arch o f as is
+architecture arch of as is
 
     -- AXI Interface
     component as_S00_AXI is
