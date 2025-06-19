@@ -291,9 +291,9 @@ begin
         uart_byte := x"0D"; -- \r
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
-        tb_read_valid_expected <= '1';
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
+        tb_read_valid_expected <= '1';
         
         -- Resets
         -- axi interface will clear ap_start automaticly when ap_done is asserted
@@ -301,14 +301,11 @@ begin
         tb_tx_expected <= '0';
         tb_ap_idle_expected <= '1';
         tb_ap_start <= '0';
-        tb_read_valid_expected <= '0';
         tb_ap_done_expected <= '0';
-        tb_dist_in_expected <= (others => '0');
-        tb_dist_char_1_expected <= (others => '0');
-        tb_dist_char_2_expected <= (others => '0');
-        tb_dist_char_3_expected <= (others => '0');
+
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
+
         
         -- Send second read
         
@@ -320,11 +317,20 @@ begin
         -- Now we have RANGE_READING
         wait for 1 us;
         
+        -- RESETS ONLY IF UPDATE_WINDOW == 1 --
+        tb_read_valid_expected <= '0' after 6.11 us; 
+        tb_dist_in_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_1_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_2_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_3_expected <= (others => '0') after 6.11 us;
         -- Send 'R255\r' on UART
         
         uart_byte := x"52"; -- R
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
+
         wait for UART_HALF_SAMPLE_TIME;
+
+        
         
         uart_byte := x"32"; -- 2
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
@@ -353,25 +359,18 @@ begin
         uart_byte := x"0D"; -- \r
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
-        tb_read_valid_expected <= '1';
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
-        
+        tb_read_valid_expected <= '1';
         -- Resets
         -- axi interface will clear ap_start automaticly when ap_done is asserted
         -- here we need to do it manually 
         tb_tx_expected <= '0';
         tb_ap_idle_expected <= '1';
-        tb_read_valid_expected <= '0';
         tb_ap_done_expected <= '0';
         tb_ap_start <= '0';
-        tb_dist_in_expected <= (others => '0');
-        tb_dist_char_1_expected <= (others => '0');
-        tb_dist_char_2_expected <= (others => '0');
-        tb_dist_char_3_expected <= (others => '0');
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
-
         -----------------------------------------------------------------------
         -- 2. Two valid reads, with auto restart, first one with init delays
         -----------------------------------------------------------------------
@@ -380,6 +379,13 @@ begin
         -- Reset
         tb_reset <= '1';
         wait for SYS_CLK;
+        
+        tb_read_valid_expected <= '0'; 
+        tb_dist_in_expected <= (others => '0');
+        tb_dist_char_1_expected <= (others => '0');
+        tb_dist_char_2_expected <= (others => '0');
+        tb_dist_char_3_expected <= (others => '0');
+        
         tb_tx_expected <= '1';
         tb_powerup_done_expected <= '0';
         tb_calib_done_expected <= '0';
@@ -434,26 +440,27 @@ begin
         uart_byte := x"0D"; -- \r
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
-        tb_read_valid_expected <= '1';
+        
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
-        
         -- Resets
         -- axi interface will clear ap_start automaticly when ap_done is asserted
         -- here we need to do it manually 
-        tb_read_valid_expected <= '0';
         tb_ap_done_expected <= '0';
-        tb_dist_in_expected <= (others => '0');
-        tb_dist_char_1_expected <= (others => '0');
-        tb_dist_char_2_expected <= (others => '0');
-        tb_dist_char_3_expected <= (others => '0');
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
-        
+        tb_read_valid_expected <= '1';
         -- Send second read
         
         -- Now we have RANGE_READING
         wait for 1 us;
+        
+        -- RESETS ONLY IF UPDATE_WINDOW == 1 --
+        tb_read_valid_expected <= '0' after 6.11 us; 
+        tb_dist_in_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_1_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_2_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_3_expected <= (others => '0') after 6.11 us;
         
         -- Send 'R255\r' on UART
         
@@ -488,27 +495,23 @@ begin
         uart_byte := x"0D"; -- \r
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
-        tb_read_valid_expected <= '1';
+        
         tb_auto_restart <= '0';
         tb_ap_done_expected <= '1';
         
         wait for SYS_CLK;
-        
+        tb_read_valid_expected <= '1';
         -- Resets
         -- axi interface will clear ap_start automaticly when ap_done is asserted
         -- here we need to do it manually 
         tb_ap_start <= '0';
         tb_tx_expected <= '0';
-        tb_ap_idle_expected <= '1';
-        tb_read_valid_expected <= '0';
+        tb_ap_idle_expected <= '1';   
         tb_ap_done_expected <= '0';
-        tb_dist_in_expected <= (others => '0');
-        tb_dist_char_1_expected <= (others => '0');
-        tb_dist_char_2_expected <= (others => '0');
-        tb_dist_char_3_expected <= (others => '0');
+
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
-        
+
         -----------------------------------------------------------------------
         -- 3. Two valid reads, with auto restart, first one with init delays, first one will timeout
         -----------------------------------------------------------------------
@@ -517,6 +520,12 @@ begin
         -- Reset
         tb_reset <= '1';
         wait for SYS_CLK;
+        tb_read_valid_expected <= '0';
+        tb_dist_in_expected <= (others => '0');
+        tb_dist_char_1_expected <= (others => '0');
+        tb_dist_char_2_expected <= (others => '0');
+        tb_dist_char_3_expected <= (others => '0');
+        
         tb_powerup_done_expected <= '0';
         tb_calib_done_expected <= '0';
         tb_ur_data_expected <= (others => '0');
@@ -560,26 +569,22 @@ begin
         wait for SYS_CLK;
         tb_dist_char_2_expected <= uart_byte;
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
-        
+              
         -- wait for timeout
         -- -> 35 us - 2us idle - 6.4us per UART byte * 3 -> 13.8 us
         -- 2 clock cycles for update
-        wait for 13800 ns + 2 * SYS_CLK;
+        wait for 13800 ns;
         tb_ap_done_expected <= '1';
         tb_ad_error_expected <= '1';
         tb_ad_err_pos_expected <= "100000";
         wait for SYS_CLK;
-        
+        tb_read_valid_expected <= '1'; 
         -- Resets
         tb_ap_done_expected <= '0';
         tb_ad_error_expected <= '0';
         tb_ad_err_pos_expected <= (others => '0');
-        tb_read_valid_expected <= '0';
         tb_ap_done_expected <= '0';
-        tb_dist_in_expected <= (others => '0');
-        tb_dist_char_1_expected <= (others => '0');
-        tb_dist_char_2_expected <= (others => '0');
-        tb_dist_char_3_expected <= (others => '0');
+
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         
@@ -587,6 +592,13 @@ begin
         
         -- Now we have RANGE_READING
         wait for 1 us;
+        
+        -- RESETS ONLY IF UPDATE_WINDOW == 1 --
+        tb_read_valid_expected <= '0' after 6.11 us; 
+        tb_dist_in_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_1_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_2_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_3_expected <= (others => '0') after 6.11 us;
         
         -- Send 'R255\r' on UART
         
@@ -621,24 +633,20 @@ begin
         uart_byte := x"0D"; -- \r
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
-        tb_read_valid_expected <= '1';
         tb_auto_restart <= '0';
         tb_ap_done_expected <= '1';
         tb_ap_idle_expected <= '1';
         tb_tx_expected <= '0';
         wait for SYS_CLK;
-        
+        tb_read_valid_expected <= '1';
         -- Resets
         tb_ap_start <= '0';
-        tb_read_valid_expected <= '0';
+        
         tb_ap_done_expected <= '0';
-        tb_dist_in_expected <= (others => '0');
-        tb_dist_char_1_expected <= (others => '0');
-        tb_dist_char_2_expected <= (others => '0');
-        tb_dist_char_3_expected <= (others => '0');
+
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
-        
+        tb_read_valid_expected <= '0';
         -----------------------------------------------------------------------
         -- 4. One valid read, one invalid read (forbidden character send), with auto restart, second one will timeout
         -----------------------------------------------------------------------
@@ -652,6 +660,8 @@ begin
         
         -- Now we have RANGE_READING
         wait for 1 us;
+        
+        
         
         -- Send 'R004\r' on UART
         
@@ -686,18 +696,12 @@ begin
         uart_byte := x"0D"; -- \r
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
-        
-        tb_read_valid_expected <= '1';
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
+        tb_read_valid_expected <= '1';
         
         -- Resets
-        tb_read_valid_expected <= '0';
         tb_ap_done_expected <= '0';
-        tb_dist_in_expected <= (others => '0');
-        tb_dist_char_1_expected <= (others => '0');
-        tb_dist_char_2_expected <= (others => '0');
-        tb_dist_char_3_expected <= (others => '0');
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         
@@ -707,6 +711,13 @@ begin
 
         -- Now we have RANGE_READING
         wait for 1 us;
+        
+        -- RESETS ONLY IF UPDATE_WINDOW == 1 --
+        tb_read_valid_expected <= '0' after 6.11 us; 
+        tb_dist_in_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_1_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_2_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_3_expected <= (others => '0') after 6.11 us;
         
         uart_byte := x"52"; -- R
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
@@ -801,17 +812,13 @@ begin
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
         
-        tb_read_valid_expected <= '1';
+        
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
-        
+        tb_read_valid_expected <= '1';
         -- Resets
-        tb_read_valid_expected <= '0';
         tb_ap_done_expected <= '0';
-        tb_dist_in_expected <= (others => '0');
-        tb_dist_char_1_expected <= (others => '0');
-        tb_dist_char_2_expected <= (others => '0');
-        tb_dist_char_3_expected <= (others => '0');
+
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         
@@ -821,6 +828,13 @@ begin
         
         -- Now we have RANGE_READING
         wait for 1 us;
+        
+        -- RESETS ONLY IF UPDATE_WINDOW == 1 --
+        tb_read_valid_expected <= '0' after 6.11 us; 
+        tb_dist_in_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_1_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_2_expected <= (others => '0') after 6.11 us;
+        tb_dist_char_3_expected <= (others => '0') after 6.11 us;
         
         uart_byte := x"52"; -- R
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
@@ -973,21 +987,23 @@ begin
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
         
-        tb_read_valid_expected <= '1';
+        
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
-        
+        tb_read_valid_expected <= '1';
         -- Resets
         tb_ap_done_expected <= '0';
         tb_ad_err_pos_expected <= (others => '0');
-        tb_read_valid_expected <= '0';
+        
         tb_ap_done_expected <= '0';
+
+        
+        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
+        tb_read_valid_expected <= '0';
         tb_dist_in_expected <= (others => '0');
         tb_dist_char_1_expected <= (others => '0');
         tb_dist_char_2_expected <= (others => '0');
         tb_dist_char_3_expected <= (others => '0');
-        
-        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         -----------------------------------------------------------------------
         -- 7. One invalid read (UART Framing error, should be ignored), with auto restart,
         -----------------------------------------------------------------------
@@ -1048,7 +1064,7 @@ begin
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
         
-        tb_read_valid_expected <= '1';
+        -- tb_read_valid_expected <= '1'; ??
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
         
@@ -1115,6 +1131,7 @@ begin
         
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
+        tb_read_valid_expected <= '1';
         
         -- Resets
         tb_ap_start <= '0';
@@ -1123,13 +1140,14 @@ begin
         tb_ad_error_expected <= '0';
         tb_ad_err_char_expected <= (others => '0');
         tb_ad_err_pos_expected <= (others => '0');
+
+        
+        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
+        tb_read_valid_expected <= '0';
         tb_dist_in_expected <= (others => '0');
         tb_dist_char_1_expected <= (others => '0');
         tb_dist_char_2_expected <= (others => '0');
         tb_dist_char_3_expected <= (others => '0');
-        
-        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
-
         -----------------------------------------------------------------------
         -- 9. One valid read, with init timing  test reset_ip, then valid read, with init timing
         -----------------------------------------------------------------------
@@ -1171,21 +1189,21 @@ begin
         uart_byte := x"0D"; -- \r
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
-        
-        tb_read_valid_expected <= '1';
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
-        
+        tb_read_valid_expected <= '1';
         -- Resets
         tb_ap_done_expected <= '0';
         tb_read_valid_expected <= '0';
         tb_ap_done_expected <= '0';
+        
+        
+        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);         
         tb_dist_in_expected <= (others => '0');
         tb_dist_char_1_expected <= (others => '0');
         tb_dist_char_2_expected <= (others => '0');
         tb_dist_char_3_expected <= (others => '0');
-        
-        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);         
+        tb_read_valid_expected <= '0';
         
         -- reset ip
         tb_reset_ip <= '1';
@@ -1236,24 +1254,23 @@ begin
         
         uart_byte := x"0D"; -- \r
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
-        wait for 2 * SYS_CLK;
-        
-        tb_read_valid_expected <= '1';
+        wait for 2 * SYS_CLK;  
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
-        
+        tb_read_valid_expected <= '1';
         -- Resets
         tb_ap_start <= '0';
         tb_auto_restart <= '0';
+        tb_ap_done_expected <= '0';        
         tb_ap_done_expected <= '0';
+
+        
+        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);   
         tb_read_valid_expected <= '0';
-        tb_ap_done_expected <= '0';
         tb_dist_in_expected <= (others => '0');
         tb_dist_char_1_expected <= (others => '0');
         tb_dist_char_2_expected <= (others => '0');
         tb_dist_char_3_expected <= (others => '0');
-        
-        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);   
         wait;
     end process; -- Total length ~ 610 us
 end sim;
