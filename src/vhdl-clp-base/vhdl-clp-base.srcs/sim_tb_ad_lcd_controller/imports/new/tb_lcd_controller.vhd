@@ -1532,8 +1532,6 @@ begin
     ex_TB_state <= READY;
     ex_TB_s_next_ddram_pos <= LCD_BOTTOM_LEFT; -- Reset DDRAM Position to Bottom Left
     ex_TB_ns_next_ddram_pos <= LCD_BOTTOM_LEFT; -- Reset ns DDRAM position to Bottom Left. 
-    -- The setting of the expected Signals are not time accurate due to the "DONTCARE"-Part where we skip through those parts of the FSM we know are working
-    -- So we set the expected Signals to the expected values after the write operation and DDRAM position reset in the READY-state 
     wait for SYS_CLK;
 
     report "************TEST CASE FINISHED - EXCEED UPPER RIGHT BOUNDARY*************" severity note;
@@ -1589,7 +1587,6 @@ begin
         ex_TB_i_ap_idle <= '1';
         ex_TB_s_ddram_pos_last_written <= ex_TB_ns_next_ddram_pos;
         ex_TB_s_next_ddram_pos <= ex_TB_ns_next_ddram_pos;
-        --ex_TB_s_next_ddram_pos <= std_logic_vector(unsigned(ex_TB_s_next_ddram_pos) + 1);
         ex_TB_s_ap_done <= '0';
         char_count := char_count + 1; -- Variable assignment with :=
         
@@ -1631,8 +1628,6 @@ begin
     ex_TB_nstate <= READY; 
     TB_i_ap_start <= '0';
     TB_i_write_char <= '0';
-    -- The setting of the expected Signals are not time accurate due to the "DONTCARE"-Part where we skip through those parts of the FSM we know are working
-    -- So we set the expected Signals to the expected values after the write operation and DDRAM position reset in the READY-state 
     wait for SYS_CLK;
 
     wait;
