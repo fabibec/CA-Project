@@ -1,3 +1,16 @@
+----------------------------------------------------------------------------------
+-- Engineer: Fabian Becker
+-- 
+-- Create Date: 05/21/2025 20:38:14 PM: 
+-- Module Name: tb_ascii_decoder - sim
+-- Project Name: AS - an Axi Sonar IP
+-- Target Devices: Arty A7-100
+-- Description: 
+-- Testbench for the ascii decoder
+--
+-- Version 1.0 - File Created
+----------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;

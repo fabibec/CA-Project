@@ -5,12 +5,11 @@
 -- Create Date: 05/24/2025 08:21:10 PM
 -- Design Name: 
 -- Module Name: tb_setup_timer - Behavioral
--- Project Name: 
--- Target Devices: 
+-- Project Name: AS - an Axi Sonar IP
+-- Target Devices: Arty A7-100
 -- Tool Versions: 
 -- Description: 
--- 
--- Dependencies: 
+-- Testbench for the control timer
 -- 
 -- Revision:
 -- Revision 0.01 - File Created

@@ -3,12 +3,11 @@
 // 
 // Create Date: 05/30/2025 05:25:06 PM
 // Module Name: as_tb
-// Project Name: as 
-// Target Devices: 
+// Project Name: AS - an Axi Sonar IP
+// Target Devices: Arty A7-100
 // Tool Versions: 
 // Description: 
-// 
-// Dependencies: 
+// Testbench for the IP
 // 
 // Revision:
 // Revision 0.01 - File Created

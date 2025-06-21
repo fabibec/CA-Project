@@ -5,12 +5,11 @@
 -- Create Date: 05/13/2025 08:34:31 AM
 -- Design Name: 
 -- Module Name: tb_uart_receiver - arch
--- Project Name: 
--- Target Devices: 
+-- Project Name: AS - an Axi Sonar IP
+-- Target Devices: Arty A7-100
 -- Tool Versions: 
 -- Description: 
--- 
--- Dependencies: 
+-- Testbench for the uart receiver
 -- 
 -- Revision:
 -- Revision 0.01 - File Created

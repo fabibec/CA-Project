@@ -5,12 +5,11 @@
 -- Create Date: 05/27/2025 08:54:58 PM
 -- Design Name: 
 -- Module Name: tb_as_core - sim
--- Project Name: 
--- Target Devices: 
+-- Project Name: AS - an Axi Sonar IP
+-- Target Devices: Arty A7-100
 -- Tool Versions: 
 -- Description: 
--- 
--- Dependencies: 
+-- Testbench for the as core
 -- 
 -- Revision:
 -- Revision 0.01 - File Created
