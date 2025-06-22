@@ -1,20 +1,14 @@
 ----------------------------------------------------------------------------------
--- Company: 
 -- Engineer: Nicolas Koch
 -- 
 -- Create Date: 05/24/2025 08:21:10 PM
--- Design Name: 
 -- Module Name: tb_setup_timer - Behavioral
 -- Project Name: AS - an Axi Sonar IP
 -- Target Devices: Arty A7-100
--- Tool Versions: 
 -- Description: 
 -- Testbench for the control timer
 -- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Version 1.0 - File Created
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

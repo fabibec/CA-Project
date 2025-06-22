@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////////
-// Engineer: Fabian Becker, Nicolas Koch
+// Engineers: Fabian Becker, Nicolas Koch
 // 
 // Create Date: 05/30/2025 05:25:06 PM
 // Module Name: as_tb
@@ -7,12 +7,9 @@
 // Target Devices: Arty A7-100
 // Tool Versions: 
 // Description: 
-// Testbench for the IP
+// Testbench for AXI Verification
 // 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Version 1.0 - File Created
 //////////////////////////////////////////////////////////////////////////////////
 `timescale 1ns / 1ps
  

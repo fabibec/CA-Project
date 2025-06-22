@@ -1,5 +1,4 @@
 ----------------------------------------------------------------------------------
--- Company: 
 -- Engineer: Nicolas Koch
 -- 
 -- Create Date: 05/22/2025 03:08:36 PM
@@ -8,7 +7,10 @@
 -- Target Device: Arty A7-100
 -- 
 -- Description: 
--- 
+-- The control timer generates timed control signals for the sonar sequence.
+-- It steps through power-up, calibration, first reading, and normal reading states.
+-- Each stage has a predefined duration in milliseconds.
+
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

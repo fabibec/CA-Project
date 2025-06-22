@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------
--- Engineer: Fabian Becker, Nicolas Koch
+-- Engineers: Fabian Becker, Nicolas Koch
 -- 
 -- Create Date: 05/09/2025 12:38:13 PM: 
 -- Module Name: baud_rate_generator - arch

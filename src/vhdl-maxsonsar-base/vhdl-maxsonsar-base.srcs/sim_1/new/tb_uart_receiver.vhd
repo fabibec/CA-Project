@@ -1,22 +1,15 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: Fabian Becker, Nicolas Koch
+-- Engineers: Fabian Becker, Nicolas Koch
 -- 
 -- Create Date: 05/13/2025 08:34:31 AM
--- Design Name: 
 -- Module Name: tb_uart_receiver - arch
 -- Project Name: AS - an Axi Sonar IP
 -- Target Devices: Arty A7-100
--- Tool Versions: 
 -- Description: 
 -- Testbench for the uart receiver
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+--
+-- Version 1.0 - File Created
 ----------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;

@@ -1,14 +1,14 @@
 ----------------------------------------------------------------------------------
--- Engineers: Fabian Becker
+-- Engineer: Fabian Becker
 -- 
 -- Module Name: ascii_decoder - arch
 -- Project Name: AS - an AXI IP for PMod MaxSonar
 -- Target Devices: Arty A7-100
 -- Description: 
---  This file is the implementation of the UART Receiver. 
---  We use an external Baudrate Generator to generate a ticks at correct baud rate.
---  Moreover 16x oversampling is used and we sample at the middle of each bit. 
---  The receiver and the  Baudrate Generator is synchronized to the start bit.
+--  This is the ASCII-Decoder the purpose of this module is it to interpret the data received by the UART Receiver in Hardware and then send
+--  the correct distance as an 8-bit value or an error as a result.
+--  The Decoder obeys the "Rxxx\r" packet structure from the sensor and can be stopped prematurely by a timeout error. If the structure is
+--  violated the position of the violation and the corresponding char is displayed.
 --
 -- Verison 1.0 - File Created
 ----------------------------------------------------------------------------------
@@ -94,6 +94,7 @@ begin
 
         if i_enable = '1' then
         
+            -- Reset together with done 
             if done_reg = '1' then
                 first_number_is_2_next <= '0';
                 
@@ -103,13 +104,14 @@ begin
                 
                 data_next <= (others => '0');
                 chars_next <= (others => '0');
-                
+            -- Timeout error    
             elsif i_sensor_cycle_done = '1' then 
                 done_next <= '1';
                 
                 error_next <= '1';
                 error_pos_next <= error_pos_reg or "100000";
                 next_state <= idle;
+                digit_next <= (others => '0');
             elsif i_uart_char_ready = '1' then
     
                 case state is                   
@@ -195,6 +197,7 @@ begin
                       
                         
                     when error => 
+                        -- Wait until a 5-Byte Packet is received to go back to idle
                         if (chars_reg = (NUM_CHARS - 1)) then
                             done_next <= '1';
                             next_state <= idle;
@@ -203,7 +206,8 @@ begin
                             chars_next <= chars_reg + 1;
                         end if;
                         
-                        if (chars_reg > x"0" and chars_reg <= (NUM_CHARS - 1)) then 
+                        -- Print the digits even when in error state for debugging
+                        if (i_uart_char >= x"30" and i_uart_char <= x"39") then 
                             digit_ready_next <= '1';
                             digit_next <= std_logic_vector(i_uart_char);
                         else
