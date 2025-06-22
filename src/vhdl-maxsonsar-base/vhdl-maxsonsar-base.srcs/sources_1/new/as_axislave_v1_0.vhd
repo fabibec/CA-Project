@@ -219,6 +219,11 @@ architecture arch of as is
 
    -- I/O Signals
    signal w_tx: std_logic;
+   
+   -- Input synchronisation for rx
+   signal i_rx_sync_0 : std_logic := '1';
+   signal i_rx_sync_1 : std_logic := '1';
+   signal i_rx_sync   : std_logic := '1';
  
 begin
 
@@ -331,11 +336,21 @@ begin
             o_ad_err_char => w_ad_err_char,
 
             -- I/Os
-            i_rx => i_rx,
+            i_rx => i_rx_sync,
             o_tx => w_tx
         );
 
     o_tx <= w_tx;
     o_interrupt <= w_interrupt;
     
+    -- Since the input of i_rx is asynchronous we use a 3-flip-flop synchronizer
+    -- prevent metastability problems
+    process(s00_axi_aclk)
+    begin
+        if rising_edge(s00_axi_aclk) then
+            i_rx_sync_0 <= i_rx;
+            i_rx_sync_1 <= i_rx_sync_0;
+            i_rx_sync <= i_rx_sync_1;
+        end if;
+    end process;
 end arch;
