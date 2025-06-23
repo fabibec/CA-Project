@@ -286,7 +286,6 @@ begin
     
     ex_TB_S_timer_delay_time <= std_logic_vector(to_unsigned(G_TB_T_POWER_ON, 22));
     
-    -- Outgoing expected Signals after FSM-Process (Assigning to out Ports to LCD) => No values in this step, use default valuse in lcd_controller.vhd?
     ex_TB_o_db4_7 <= x"0";
     ex_TB_s_register_select <= '0';
     ex_TB_s_read_write <= '0';
@@ -320,7 +319,7 @@ begin
     report "---------------STATE: SETUP_CONTROL---------------" severity note;
     ex_TB_state <= SETUP_CONTROL;
     ex_TB_nstate <= WAIT_SETUP_DELAY;
-    ex_TB_s_data <= CMD_INIT_FUNCTION_SET; -- Expecting an instruction
+    ex_TB_s_data <= CMD_INIT_FUNCTION_SET;
     ex_TB_s_timer_done <= '0';
     ex_TB_s_timer_start <= '1';
     ex_TB_s_timer_delay_time <= std_logic_vector(to_unsigned(G_TB_T_SU, 22));
@@ -330,7 +329,6 @@ begin
     report "---------------STATE: WAIT_SETUP_DELAY---------------" severity note;
     ex_TB_state <= WAIT_SETUP_DELAY;
     ex_TB_s_timer_start <= '0';
-    -- Outgoing expected Signals after FSM-Process (Assigning to out Ports to LCD) => No values in this step, use default valuse in lcd_controller.vhd?
     ex_TB_o_db4_7 <= x"2";
     ex_TB_s_upper_nibble <= "0010";
     ex_TB_s_lower_nibble <= "1000";
@@ -374,7 +372,6 @@ begin
     ex_TB_nstate <= DISABLE_ENABLE;
     ex_TB_s_timer_done <= '1';
     
-    -- Outgoing expected Signals after FSM-Process (Assigning to out Ports to LCD)
     ex_TB_o_db4_7 <= CMD_INIT_FUNCTION_SET(7 downto 4);
     ex_TB_s_register_select <= '0';
     ex_TB_s_read_write <= '0';
@@ -452,7 +449,6 @@ begin
     ex_TB_state <= DISABLE_ENABLE_DELAY;
     ex_TB_s_timer_start <= '0';
     ex_TB_s_read_write_enable <= '0';
-
     wait for G_TB_T_H*SYS_CLK;
     ex_TB_nstate <= DISABLE_ENABLE;
     ex_TB_s_timer_done <= '1';
@@ -551,8 +547,8 @@ begin
     report "---------------STATE: EXEC_DELAY--------------" severity note;
     ex_TB_state <= EXEC_DELAY;
     ex_TB_s_timer_start <= '0';
-    ex_TB_o_db4_7 <= x"2"; -- Actually not necessary, but for sake of completion
     ex_TB_s_send_lower <= '0'; -- reset for next command
+    ex_TB_o_db4_7 <= x"2"; -- New Values because s_send_lower is 0
 
     wait for G_TB_T_40_US*SYS_CLK;
     ex_TB_s_timer_done <= '1';
@@ -569,8 +565,6 @@ begin
     ex_TB_ns_send_lower <= '0';
     ex_TB_nstate <= SETUP_CONTROL;
     
-    
-    -- Outgoing expected Signals after FSM-Process (Assigning to out Ports to LCD)
     ex_TB_s_register_select <= '0';
     wait for SYS_CLK;
         
@@ -602,7 +596,6 @@ begin
     ex_TB_s_timer_start <= '1';
     ex_TB_nstate <= PULSE_ENABLE_DELAY;
     
-    -- Outgoing expected Signals after FSM-Process (Assigning to out Ports to LCD)
     wait for SYS_CLK;
     
     report "---------------STATE: PULSE_ENABLE_DELAY--------------" severity note;
@@ -658,7 +651,6 @@ begin
     ex_TB_s_timer_start <= '1';
     ex_TB_nstate <= WAIT_SETUP_DELAY;
     
-    -- Outgoing expected Signals after FSM-Process (Assigning to out Ports to LCD)
     ex_TB_s_ap_done <= '0';
     wait for SYS_CLK;
     
@@ -741,7 +733,6 @@ begin
     ex_TB_nstate <= SETUP_CONTROL;
     
     
-    -- Outgoing expected Signals after FSM-Process (Assigning to out Ports to LCD)
     ex_TB_s_register_select <= '0';
     wait for SYS_CLK;
         
@@ -826,7 +817,6 @@ begin
     ex_TB_nstate <= WAIT_SETUP_DELAY;
     ex_TB_s_timer_done <= '0';
     
-    -- Outgoing expected Signals after FSM-Process (Assigning to out Ports to LCD)
     ex_TB_s_ap_done <= '0';
     wait for SYS_CLK;
     
@@ -907,7 +897,6 @@ begin
     ex_TB_nstate <= SETUP_CONTROL;
     ex_TB_s_timer_done <= '0';
     
-    -- Outgoing expected Signals after FSM-Process (Assigning to out Ports to LCD)
     ex_TB_s_register_select <= '0';
     wait for SYS_CLK;
     
@@ -1355,7 +1344,7 @@ begin
 
     ex_TB_s_register_select <= '0';
     ex_TB_s_data <= ex_TB_ns_data;
-    -- Undefined State, since processing chain is working, jumping to relevant state - Only valid in Simulation
+
     -- Don't care values since we already know the processing chain is working => shortcut 
     ex_TB_state <= DONTCARE; 
     ex_TB_nstate <= DONTCARE;
@@ -1411,7 +1400,8 @@ begin
     
     ex_TB_s_register_select <= '0';
     ex_TB_s_data <= ex_TB_ns_data;
-    -- Undefined State, since processing chain is working, jumping to relevant state - Only valid in Simulation
+   
+
     -- Don't care values since we already know the processing chain is working => shortcut 
     ex_TB_state <= DONTCARE; 
     ex_TB_nstate <= DONTCARE;
@@ -1443,7 +1433,7 @@ begin
     char_count := 0; -- is equal to next ddram position to write
                      -- since we clear the display in the command beforehand this represents the LCD_TOP_LEFT (0x00)
     
-    while char_count < to_integer(unsigned(LCD_TOP_RIGHT)) loop
+    while char_count < to_integer(unsigned(LCD_TOP_RIGHT)) loop -- Write until we reach the position where the edge case occurs
         -- Setup phase
         ex_TB_state <= READY;
         TB_i_ap_start <= '1';
