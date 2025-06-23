@@ -197,8 +197,16 @@ begin
                       
                         
                     when error => 
-                        -- Wait until a 5-Byte Packet is received to go back to idle
-                        if (chars_reg = (NUM_CHARS - 1)) then
+                        -- Use the R to resynchronize
+                        if i_uart_char = ASCII_R then
+                            next_state <= start;
+                            error_next <= '0';
+                            error_pos_next <= (others => '0');
+                            error_char_next <= (others => '0');
+                            first_number_is_2_next <= '0';
+                            chars_next <= x"1"; -- After R, so char count is 1
+                        -- else wait until a 5-Byte Packet is received to go back to idle
+                        elsif (chars_reg = (NUM_CHARS - 1)) then
                             done_next <= '1';
                             next_state <= idle;
                             first_number_is_2_next <= '0';               

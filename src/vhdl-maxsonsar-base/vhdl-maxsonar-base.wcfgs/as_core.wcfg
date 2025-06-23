@@ -10,12 +10,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="650.000001 us"></ZoomEndTime>
-      <Cursor1Time time="449.477124 us"></Cursor1Time>
+      <ZoomStartTime time="556.120000 us"></ZoomStartTime>
+      <ZoomEndTime time="571.580001 us"></ZoomEndTime>
+      <Cursor1Time time="567.460000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="168"></NameColumnWidth>
+      <NameColumnWidth column_width="160"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="9" />
@@ -51,6 +51,7 @@
    <wvobject type="group" fp_name="group114">
       <obj_property name="label">General Control Signals</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="logic" fp_name="/tb_as_core/tb_clk">
          <obj_property name="ElementShortName">tb_clk</obj_property>
          <obj_property name="ObjectShortName">tb_clk</obj_property>
@@ -67,6 +68,7 @@
    <wvobject type="group" fp_name="group118">
       <obj_property name="label">IP Control &amp; Status</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="logic" fp_name="/tb_as_core/tb_ap_start">
          <obj_property name="ElementShortName">tb_ap_start</obj_property>
          <obj_property name="ObjectShortName">tb_ap_start</obj_property>

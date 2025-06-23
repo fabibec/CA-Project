@@ -58,7 +58,7 @@ architecture sim of tb_ascii_decoder is
         );
     end component;
 
-    type testcase_type is (rst_en, vld, invld_R , invld_d1, invld_d2, invld_d3, invld_cr, timeout_vld, timeout_err);
+    type testcase_type is (rst_en, vld, invld_R , invld_d1, invld_d2, invld_d3, invld_cr, timeout_vld, timeout_err, resync);
     signal tb_testcase: testcase_type;
 
     -- Inputs
@@ -672,6 +672,105 @@ begin
         tb_error_expected <= '0';
         tb_error_pos_expected <= (others => '0');
         tb_error_char_expected <= (others => '0');
+        
+        -----------------------------------------------------------------------
+        -- 9. Resync test: invalid "22\r", then valid "R158\r"
+        -----------------------------------------------------------------------
+        tb_testcase <= resync;
+        
+        -- Send garbage: '2' - Decoder expects 'R' here
+        ch := '2';
+        tb_uart_char <= to_unsigned(character'pos(ch), 8);
+        tb_uart_char_ready <= '1'; 
+        wait for SYS_CLK;
+        tb_error_expected <= '1';
+        tb_error_pos_expected <= "000001";
+        tb_error_char_expected <= x"32"; -- ASCII 2
+        tb_uart_char_ready <= '0'; 
+        wait for 7 * SYS_CLK;
+        
+        -- Still garbage: '2' - Decoder expects first digit
+        ch := '2';
+        tb_uart_char <= to_unsigned(character'pos(ch), 8);
+        tb_uart_char_ready <= '1';
+        wait for SYS_CLK;
+        tb_digit_ready_expected <= '1';
+        tb_digit_expected <= x"32"; -- ASCII 2
+        tb_uart_char_ready <= '0'; 
+        wait for SYS_CLK;
+        tb_digit_ready_expected <= '0'; 
+        wait for 6 * SYS_CLK;
+        
+        -- Carriage return - Decoder expects second digit
+        ch := character'val(13); 
+        tb_uart_char <= to_unsigned(character'pos(ch), 8);
+        tb_uart_char_ready <= '1';
+        wait for SYS_CLK;
+        tb_uart_char_ready <= '0';
+        tb_digit_expected <= (others => '0');
+        wait for 7 * SYS_CLK;
+        
+        -- Now send valid sequence: "R158\r"
+        -- Resynchronization here
+        ch := 'R';
+        tb_uart_char <= to_unsigned(character'pos(ch), 8);
+        tb_uart_char_ready <= '1';
+        wait for SYS_CLK;
+        tb_uart_char_ready <= '0';
+        tb_error_expected <= '0';
+        tb_error_pos_expected <= (others => '0');
+        tb_error_char_expected <= (others => '0');
+        wait for 7 * SYS_CLK;
+        
+        ch := '1';
+        tb_uart_char <= to_unsigned(character'pos(ch), 8);
+        tb_uart_char_ready <= '1';
+        wait for SYS_CLK;
+        tb_uart_char_ready <= '0';
+        tb_data_expected <= x"64"; -- 100
+        tb_digit_ready_expected <= '1';
+        tb_digit_expected <= x"31";
+        wait for SYS_CLK;    
+        tb_digit_ready_expected <= '0';
+        wait for 6 * SYS_CLK;
+        
+        ch := '5';
+        tb_uart_char <= to_unsigned(character'pos(ch), 8);
+        tb_uart_char_ready <= '1';
+        wait for SYS_CLK;
+        tb_uart_char_ready <= '0';
+        tb_data_expected <= x"96"; -- 150
+        tb_digit_ready_expected <= '1';
+        tb_digit_expected <= x"35";
+        wait for SYS_CLK;
+        tb_digit_ready_expected <= '0';
+        wait for 6 * SYS_CLK;
+        
+        ch := '8';
+        tb_uart_char <= to_unsigned(character'pos(ch), 8);
+        tb_uart_char_ready <= '1';
+        wait for SYS_CLK;
+        tb_uart_char_ready <= '0';
+        tb_data_expected <= x"9E"; -- 158
+        tb_digit_ready_expected <= '1';
+        tb_digit_expected <= x"38";
+        wait for SYS_CLK;
+        tb_digit_ready_expected <= '0';
+        wait for 6 * SYS_CLK;
+        
+        ch := character'val(13);
+        tb_uart_char <= to_unsigned(character'pos(ch), 8);
+        tb_uart_char_ready <= '1';        
+        wait for SYS_CLK;
+        tb_done_expected <= '1';
+        tb_uart_char_ready <= '0';
+        tb_digit_expected <= (others => '0');
+        wait for SYS_CLK;
+        tb_done_expected <= '0';
+        tb_data_expected <= (others => '0');
+        wait for 6 * SYS_CLK;
+        
+        tb_enable <= '0';
         
         wait; -- Total length: ~ 3750 ns
     end process;

@@ -233,7 +233,6 @@ begin
         tb_testcase <= two_vld_init_man;
         tb_reset <= '1';
         wait for SYS_CLK;
-        tb_tx_expected <= '1';
         tb_reset <= '0';
         
         -- Start the IP
@@ -242,6 +241,7 @@ begin
         -- Wait for powerup
         wait for 3 us + SYS_CLK;
         tb_powerup_done_expected <= '1';
+        tb_tx_expected <= '1';
         
         -- Wait for calibration
         wait for 2 us + SYS_CLK;
@@ -253,7 +253,9 @@ begin
         -- Send 'R123\r' on UART
         uart_byte := x"52"; -- R
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
-        wait for UART_HALF_SAMPLE_TIME;
+        wait for 3 * SYS_CLK;
+        tb_tx_expected <= '0';
+        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         
         uart_byte := x"31"; -- 1
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
@@ -297,7 +299,6 @@ begin
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
 
-        
         -- Send second read
         
         -- Start the IP
@@ -318,11 +319,10 @@ begin
         
         uart_byte := x"52"; -- R
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
+        wait for 3 * SYS_CLK;
+        tb_tx_expected <= '0';
+        wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
 
-        wait for UART_HALF_SAMPLE_TIME;
-
-        
-        
         uart_byte := x"32"; -- 2
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 *SYS_CLK;
@@ -377,7 +377,6 @@ begin
         tb_dist_char_2_expected <= (others => '0');
         tb_dist_char_3_expected <= (others => '0');
         
-        tb_tx_expected <= '1';
         tb_powerup_done_expected <= '0';
         tb_calib_done_expected <= '0';
         tb_ur_data_expected <= (others => '0');
@@ -391,6 +390,7 @@ begin
         -- Wait for powerup
         wait for 3 us + SYS_CLK;
         tb_powerup_done_expected <= '1';
+        tb_tx_expected <= '1';
         
         -- Wait for calibration
         wait for 2 us + SYS_CLK;
@@ -520,7 +520,6 @@ begin
         tb_powerup_done_expected <= '0';
         tb_calib_done_expected <= '0';
         tb_ur_data_expected <= (others => '0');
-        tb_tx_expected <= '1';
         tb_reset <= '0';
         
         -- Start the IP
@@ -531,6 +530,7 @@ begin
         -- Wait for powerup
         wait for 3 us + SYS_CLK;
         tb_powerup_done_expected <= '1';
+        tb_tx_expected <= '1';
         
         -- Wait for calibration
         wait for 2 us + SYS_CLK;
@@ -1014,8 +1014,6 @@ begin
         tb_ap_start <= '1';
         tb_auto_restart <= '1';
         
-        
-        
         -- Send R166\r but send the R without a proper stop bit
         
         -- R
@@ -1077,6 +1075,8 @@ begin
         tb_ap_start <= '0';
         tb_auto_restart <= '0';
         tb_ap_done_expected <= '0';
+        tb_tx_expected <= '0';
+        tb_ap_idle_expected <= '1';
 
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);   
@@ -1086,6 +1086,8 @@ begin
         tb_testcase <= vld_freeze;
         tb_ap_start <= '1';
         tb_auto_restart <= '1';
+        tb_tx_expected <= '1';
+        tb_ap_idle_expected <= '0';
         
         -- Send valid R123\r 
         
@@ -1147,7 +1149,8 @@ begin
         tb_ad_error_expected <= '0';
         tb_ad_err_char_expected <= (others => '0');
         tb_ad_err_pos_expected <= (others => '0');
-
+        tb_tx_expected <= '0';
+        tb_ap_idle_expected <= '1';
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
 
@@ -1157,6 +1160,8 @@ begin
         tb_testcase <= init_vld_reset_init_vld;
         tb_ap_start <= '1';
         tb_auto_restart <= '1';
+        tb_tx_expected <= '1';
+        tb_ap_idle_expected <= '0';
         
         -- Now we have RANGE_READING
         wait for 1 us;
@@ -1218,10 +1223,12 @@ begin
         tb_ur_data_expected <= (others => '0');
         tb_powerup_done_expected <=  '0';
         tb_calib_done_expected <= '0';
-        
+        tb_tx_expected <= '0';
+
         -- Wait for powerup
         wait for 3 us + SYS_CLK;
         tb_powerup_done_expected <= '1';
+        tb_tx_expected <= '1';
         
         -- Wait for calibration
         wait for 2 us + SYS_CLK;

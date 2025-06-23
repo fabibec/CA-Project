@@ -33,11 +33,7 @@ entity as is
         C_AS_CONTROL_FIRST_READING_TIME : integer := 100; -- 100 ms first reading delay 
         
         -- Timing Constraints Reading
-        -- The sensor checks if tx is high every 49 ms and then proceeds to measure or not
-        -- during manual reading (no auto_restart) we may just miss the the 1 check one clock
-        -- Furthermore the reading stops in the middle of the stop bit + 2 clock cycles, so if the IP is instantly restarted
-        -- we need to add some additional timing to be safe, this takes < 1 ms, so 1 ms will suffice
-        C_AS_CONTROL_RANGE_READING_TIME : integer := 99 -- 49 ms range reading time * 2 + 1
+        C_AS_CONTROL_RANGE_READING_TIME : integer := 99 -- 49 ms range reading time * 2 + 1 (buffer)
     );
     port (
         -- I/O ports

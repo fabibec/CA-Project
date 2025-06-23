@@ -166,6 +166,9 @@ architecture arch of as_core is
     -- Internal strected ap_done_signal
     signal ap_start_stage1, ap_start_stage2: std_logic := '0';
     
+    -- Delayed ap_start for rising edge detection
+    signal ap_start_prev: std_logic := '0';
+    
     signal global_enable: std_logic;
     signal global_reset: std_logic := '0';
     
@@ -203,6 +206,7 @@ architecture arch of as_core is
     
     signal read_valid_reg: std_logic := '0';
     signal update_window: std_logic := '0';
+    signal tx_reg: std_logic := '0';
     
     -- Debug
     signal ur_sample: std_logic;
@@ -403,6 +407,37 @@ begin
     o_ur_data <= std_logic_vector(ur_data);
     o_ur_error <= ur_error;
     
-    o_tx <= i_ap_start or i_auto_restart;
+    -- tx needs to be high for 20us to start a cycle 
+    -- but we need to put tx back to low before the cycle ends
+    -- in order to not trigger another cycle in manual mode accidentally 
+    TX_PROC: process(i_clk)
+    begin
+        if (i_clk'event and i_clk = '1') then
+            if global_reset = '1' then
+                ap_start_prev <= '0';
+                tx_reg <= '0';
+            else 
+                -- Update previous value
+                ap_start_prev <= i_ap_start;
+              
+                if i_freeze_ip = '0' then
+         
+                    -- Rising edge detection
+                    if i_ap_start = '1' and ap_start_prev = '0' then
+                        tx_reg <= '1';
+                    end if;
+    
+                    -- Clear tx if ad_start = '1'
+                    if ad_start = '1' then
+                        tx_reg <= '0';
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
+    
+    -- After the powerup is don the sensor is able to receive the command for calibration
+    --Therefore keeping tx = 0 until powerup_done serves a synchronisation between the IP and the sensor
+    o_tx <= (tx_reg or i_auto_restart) and ctl_powerup_done;
 
 end arch;
