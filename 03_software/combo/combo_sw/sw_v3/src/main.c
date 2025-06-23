@@ -1,4 +1,3 @@
-#include "clp_registertest.h"
 #define __MICROBLAZE__ 
 
 #include "PmodCLP.h"
