@@ -1,0 +1,11 @@
+# Ignore build output directory
+/build
+
+# Ignore object files and dependent files
+
+#Ignore logs folder and log files
+/logs
+.log
+
+#Ignore lock files
+.lock

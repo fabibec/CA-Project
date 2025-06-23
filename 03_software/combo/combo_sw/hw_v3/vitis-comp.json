@@ -1,0 +1,41 @@
+{
+  "name": "hw_v3",
+  "type": "PLATFORM",
+  "configuration": {
+    "description": "",
+    "xsa": "/1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_hw/hw_v3.xsa",
+    "xsaPathInPlatform": "hw_v3/hw/hw_v3.xsa",
+    "emulationXsa": "",
+    "emulationXsaPathInPlatform": "",
+    "isCustomFSBL": false,
+    "fsblPath": "",
+    "pmufwElf": "",
+    "flow": "EMBEDDED",
+    "processorsMap": {
+      "microblaze_0": "microblaze"
+    },
+    "supportedFamily": "fpga",
+    "outOfSync": false,
+    "componentType": "PLATFORM",
+    "domains": [
+      {
+        "name": "standalone_microblaze_0",
+        "displayName": "standalone_microblaze_0",
+        "processor": "microblaze_0",
+        "cpuType": "microblaze",
+        "cpuInstance": "microblaze_0",
+        "os": "standalone",
+        "appTemplate": "empty_application",
+        "isBootDomain": false,
+        "qemuData": "",
+        "qemuArgsFile": "",
+        "pmcQemuArgsFile": "",
+        "isBSPGenReq": false
+      }
+    ],
+    "emptyToolchainConfiguration": []
+  },
+  "previousBuildStatusMap": {
+    "export": "SUCCESS"
+  }
+}
