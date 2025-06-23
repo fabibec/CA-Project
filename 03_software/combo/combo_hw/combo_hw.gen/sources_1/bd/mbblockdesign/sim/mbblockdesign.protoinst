@@ -29,7 +29,7 @@
 						"WVALID": { "actual": "s00_axi_wvalid"}
 					}
 				},
-				"/as_0/s00_axi": {
+				"/as_1/s00_axi": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s00_axi_aclk"},

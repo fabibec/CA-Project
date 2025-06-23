@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-// Date        : Fri Jul 26 15:57:41 2024
+// Date        : Mon Jun 23 15:55:22 2025
 // Host        : xuser-pc running 64-bit Ubuntu 22.04.3 LTS
 // Command     : write_verilog -force -mode synth_stub
-//               /1work/fpgaproc/pf_base_mb_bm_min/pf_base_mb_bm_min.gen/sources_1/bd/mbblockdesign/ip/mbblockdesign_clk_wiz_0_1/mbblockdesign_clk_wiz_0_1_stub.v
+//               /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_hw/combo_hw.gen/sources_1/bd/mbblockdesign/ip/mbblockdesign_clk_wiz_0_1/mbblockdesign_clk_wiz_0_1_stub.v
 // Design      : mbblockdesign_clk_wiz_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-1

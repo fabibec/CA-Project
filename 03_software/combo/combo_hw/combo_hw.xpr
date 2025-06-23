@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="65" Path="/1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_hw/combo_hw.xpr">
+<Project Product="Vivado" Version="7" Minor="65" Path="/1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_hw/combo_hw.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="3b3760030aeb4fb5aa7828a3502e7aa0"/>
@@ -105,8 +105,8 @@
         <CompFileExtendedInfo CompFileName="mbblockdesign.bd" FileRelPathName="ip/mbblockdesign_ad_0_0/mbblockdesign_ad_0_0.xci">
           <Proxy FileSetName="mbblockdesign_ad_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="mbblockdesign.bd" FileRelPathName="ip/mbblockdesign_as_0_0/mbblockdesign_as_0_0.xci">
-          <Proxy FileSetName="mbblockdesign_as_0_0"/>
+        <CompFileExtendedInfo CompFileName="mbblockdesign.bd" FileRelPathName="ip/mbblockdesign_as_1_0/mbblockdesign_as_1_0.xci">
+          <Proxy FileSetName="mbblockdesign_as_1_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="mbblockdesign.bd" FileRelPathName="ip/mbblockdesign_axi_timer_0_0/mbblockdesign_axi_timer_0_0.xci">
           <Proxy FileSetName="mbblockdesign_axi_timer_0_0"/>
@@ -293,9 +293,9 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="mbblockdesign_as_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/mbblockdesign_as_0_0" RelGenDir="$PGENDIR/mbblockdesign_as_0_0">
+    <FileSet Name="mbblockdesign_as_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/mbblockdesign_as_1_0" RelGenDir="$PGENDIR/mbblockdesign_as_1_0">
       <Config>
-        <Option Name="TopModule" Val="mbblockdesign_as_0_0"/>
+        <Option Name="TopModule" Val="mbblockdesign_as_1_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -472,9 +472,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="mbblockdesign_as_0_0_synth_1" Type="Ft3:Synth" SrcSet="mbblockdesign_as_0_0" Part="xc7a100tcsg324-1" ConstrsSet="mbblockdesign_as_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/mbblockdesign_as_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/mbblockdesign_as_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/mbblockdesign_as_0_0_synth_1">
+    <Run Id="mbblockdesign_as_1_0_synth_1" Type="Ft3:Synth" SrcSet="mbblockdesign_as_1_0" Part="xc7a100tcsg324-1" ConstrsSet="mbblockdesign_as_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/mbblockdesign_as_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/mbblockdesign_as_1_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/mbblockdesign_as_1_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -482,7 +484,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" LaunchOptions="-jobs 4 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" LaunchOptions="-jobs 8 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
         <Step Id="init_design"/>
@@ -738,9 +740,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="mbblockdesign_as_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="mbblockdesign_as_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="mbblockdesign_as_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/mbblockdesign_as_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/mbblockdesign_as_0_0_impl_1">
+    <Run Id="mbblockdesign_as_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="mbblockdesign_as_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="mbblockdesign_as_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/mbblockdesign_as_1_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/mbblockdesign_as_1_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

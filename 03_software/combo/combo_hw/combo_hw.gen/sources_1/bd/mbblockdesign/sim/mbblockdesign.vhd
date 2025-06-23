@@ -2,8 +2,8 @@
 --Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
---Date        : Tue Jun 17 08:49:43 2025
---Host        : xuser-pc running 64-bit Ubuntu 24.04.2 LTS
+--Date        : Mon Jun 23 15:49:22 2025
+--Host        : xuser-pc running 64-bit Ubuntu 22.04.3 LTS
 --Command     : generate_target mbblockdesign.bd
 --Design      : mbblockdesign
 --Purpose     : IP block netlist
@@ -2078,7 +2078,7 @@ architecture STRUCTURE of mbblockdesign is
     s00_axi_rready : in STD_LOGIC
   );
   end component mbblockdesign_ad_0_0;
-  component mbblockdesign_as_0_0 is
+  component mbblockdesign_as_1_0 is
   port (
     i_rx : in STD_LOGIC;
     o_tx : out STD_LOGIC;
@@ -2105,12 +2105,12 @@ architecture STRUCTURE of mbblockdesign is
     s00_axi_rvalid : out STD_LOGIC;
     s00_axi_rready : in STD_LOGIC
   );
-  end component mbblockdesign_as_0_0;
+  end component mbblockdesign_as_1_0;
   signal ad_0_o_db4_7 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal ad_0_o_read_write : STD_LOGIC;
   signal ad_0_o_read_write_enable : STD_LOGIC;
   signal ad_0_o_register_select : STD_LOGIC;
-  signal as_0_o_tx : STD_LOGIC;
+  signal as_1_o_tx : STD_LOGIC;
   signal axi_timer_0_interrupt : STD_LOGIC;
   signal axi_timer_0_pwm0 : STD_LOGIC;
   signal clk_wiz_0_locked : STD_LOGIC;
@@ -2248,7 +2248,7 @@ architecture STRUCTURE of mbblockdesign is
   signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_ad_0_o_interrupt_UNCONNECTED : STD_LOGIC;
-  signal NLW_as_0_o_interrupt_UNCONNECTED : STD_LOGIC;
+  signal NLW_as_1_o_interrupt_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_timer_0_generateout0_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_timer_0_generateout1_UNCONNECTED : STD_LOGIC;
   signal NLW_rst_clk_wiz_0_100M_interconnect_aresetn_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2269,7 +2269,7 @@ begin
   o_read_write_0 <= ad_0_o_read_write;
   o_read_write_enable_0 <= ad_0_o_read_write_enable;
   o_register_select_0 <= ad_0_o_register_select;
-  o_tx_0 <= as_0_o_tx;
+  o_tx_0 <= as_1_o_tx;
   pwm0_0 <= axi_timer_0_pwm0;
   reset_1 <= reset;
   sys_clock_1 <= sys_clock;
@@ -2302,11 +2302,11 @@ ad_0: component mbblockdesign_ad_0_0
       s00_axi_wstrb(3 downto 0) => microblaze_0_axi_periph_M02_AXI_WSTRB(3 downto 0),
       s00_axi_wvalid => microblaze_0_axi_periph_M02_AXI_WVALID
     );
-as_0: component mbblockdesign_as_0_0
+as_1: component mbblockdesign_as_1_0
      port map (
       i_rx => i_rx_0_1,
-      o_interrupt => NLW_as_0_o_interrupt_UNCONNECTED,
-      o_tx => as_0_o_tx,
+      o_interrupt => NLW_as_1_o_interrupt_UNCONNECTED,
+      o_tx => as_1_o_tx,
       s00_axi_aclk => microblaze_0_Clk,
       s00_axi_araddr(5 downto 0) => microblaze_0_axi_periph_M01_AXI_ARADDR(5 downto 0),
       s00_axi_aresetn => rst_clk_wiz_0_100M_peripheral_aresetn(0),

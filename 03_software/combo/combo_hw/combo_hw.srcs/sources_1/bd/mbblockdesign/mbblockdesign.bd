@@ -36,7 +36,7 @@
       "axi_timer_0": "",
       "xlconstant_0": "",
       "ad_0": "",
-      "as_0": ""
+      "as_1": ""
     },
     "ports": {
       "sys_clock": {
@@ -976,12 +976,12 @@
           }
         }
       },
-      "as_0": {
+      "as_1": {
         "vlnv": "user.org:user:as:1.0",
-        "ip_revision": "5",
-        "xci_name": "mbblockdesign_as_0_0",
-        "xci_path": "ip/mbblockdesign_as_0_0/mbblockdesign_as_0_0.xci",
-        "inst_hier_path": "as_0",
+        "ip_revision": "10",
+        "xci_name": "mbblockdesign_as_1_0",
+        "xci_path": "ip/mbblockdesign_as_1_0/mbblockdesign_as_1_0.xci",
+        "inst_hier_path": "as_1",
         "interface_ports": {
           "s00_axi": {
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
@@ -1000,8 +1000,8 @@
       },
       "microblaze_0_axi_periph_M01_AXI": {
         "interface_ports": [
-          "as_0/s00_axi",
-          "microblaze_0_axi_periph/M01_AXI"
+          "microblaze_0_axi_periph/M01_AXI",
+          "as_1/s00_axi"
         ]
       },
       "microblaze_0_axi_periph_M02_AXI": {
@@ -1072,9 +1072,9 @@
           "o_register_select_0"
         ]
       },
-      "as_0_o_tx": {
+      "as_1_o_tx": {
         "ports": [
-          "as_0/o_tx",
+          "as_1/o_tx",
           "o_tx_0"
         ]
       },
@@ -1099,7 +1099,7 @@
       "i_rx_0_1": {
         "ports": [
           "i_rx_0",
-          "as_0/i_rx"
+          "as_1/i_rx"
         ]
       },
       "mdm_1_debug_sys_rst": {
@@ -1124,7 +1124,7 @@
           "axi_timer_0/s_axi_aclk",
           "microblaze_0_axi_periph/M03_ACLK",
           "ad_0/s00_axi_aclk",
-          "as_0/s00_axi_aclk"
+          "as_1/s00_axi_aclk"
         ]
       },
       "microblaze_0_intr": {
@@ -1164,7 +1164,7 @@
           "axi_timer_0/s_axi_aresetn",
           "microblaze_0_axi_periph/M03_ARESETN",
           "ad_0/s00_axi_aresetn",
-          "as_0/s00_axi_aresetn"
+          "as_1/s00_axi_aresetn"
         ]
       },
       "sys_clock_1": {
@@ -1197,8 +1197,8 @@
                 "offset": "0x00010000",
                 "range": "4K"
               },
-              "SEG_as_0_reg0": {
-                "address_block": "/as_0/s00_axi/reg0",
+              "SEG_as_1_reg0": {
+                "address_block": "/as_1/s00_axi/reg0",
                 "offset": "0x00020000",
                 "range": "4K"
               },
