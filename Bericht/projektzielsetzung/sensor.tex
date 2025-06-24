@@ -40,7 +40,7 @@ Das Projektteam hat sich auf folgenden Entwurf geeinigt:
     Mittels einer FSM wird der UART Empfang realisiert, dieser empfängt jeweils 1 Byte und meldet den Empfang an den ASCII-Decoder.\\
     Die Baudrate mit Oversampling wird durch einen Clockdivider aus dem Systemtakt generiert.\\
     Bei einem Fehler im Empfangsprozess wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittels des \textit{ap\_done} Signals.
-    \item \textit{Submodul 3}: ASCII Decoder (FSM) \textit{optional} \\
+    \item \textit{Submodul 3}: ASCII Decoder (FSM)\\
     Der ASCII Decoder empfängt stückweise die 5 ASCII-Zeichen im Format "R$x_0 x_ 1 x_ 2$\textbackslash r"
     \newline $x_0 \in \{ 0,..,2\}, x_{1,2} \in \{ 0,...,9 \}$.\\
     Wird dieses Format verletzt, wird ein Fehler-Flag gesetzt, und die IP beendet den Vorgang mittles des \textit{ap\_done} Signals.\\
@@ -76,7 +76,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
 \end{longtable}
 
 \subsection{Registerbereich}
-% PmodCLP Controller Register Mapping in LaTeX with longtables
+% PmodMaxSonar Controller Register Mapping in LaTeX with longtables
 % Register Space Overview Table
 \begin{longtable}{|p{3cm}|p{3cm}|p{8cm}|}
     \hline
@@ -297,7 +297,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \hline
     1 & config\_done & R & 0 & Asserted when the configuration of the sonar sensor is done \\
     \hline
-    2 & read\_valid & R & 0 & Signals if the current values in the DIST0, UCSR \& ADSR Register are valid.
+    2 & read\_valid & R & 0 & Signals if the current values in the DIST0, UCSR \& ADSR Registers are valid.
     \newline If this flag is high the CPU is able to read the registers. If low the values might change between reads.
     \\
     \hline
@@ -332,7 +332,6 @@ tx\_out & O & 1 & UART transmit to sensor \\
     \hline
     7:0 & dist\_in & R & 0x00 & Distance in inches
     \begin{itemize}
-        \item 0x00 = no valid reading yet
         \item 0x06 - 0xFF
         \item 6in - 255in
     \end{itemize}\\
@@ -364,7 +363,7 @@ tx\_out & O & 1 & UART transmit to sensor \\
 
     \multicolumn{5}{|c|}{\textbf{0x20 UCSR - UART Control and Status Register}} \\
     \hline
-    0 & ur\_error & R & 0 & Set to one, if the UART Receiver moves into the error state. Cleared on reset.\\
+    0 & ur\_error & R & 0 & Displays UART Framing Error (no stop bit received).\\
     \hline
     1 & ur\_bd\_rate \newline \textit{(optional)} & R/W & 0 & Baudrate of the UART Receiver
     \newline 0 = 4800 Baud
