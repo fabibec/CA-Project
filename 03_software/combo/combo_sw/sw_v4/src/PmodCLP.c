@@ -3,7 +3,7 @@
 #include <xil_io.h>
 #include <xil_types.h>
 #include <sleep.h>
-
+#include "registerTest.h"
 
 u8 CLP_executeCommand(UINTPTR baseAddr){
   //Set AP_START
@@ -80,3 +80,13 @@ u8 CLP_setCursor(UINTPTR baseAddr, u8 blink, u8 on){
     Xil_Out32(baseAddr + CLP_DCR_OFFSET, dcrReg);
     CLP_executeCommand(baseAddr);
 }
+
+/*
+u16 CLP_testRegisters(UINTPTR baseAddr){
+  u16 errors = 0;
+  if(testRegister(baseAddr + CLP_DCR_OFFSET, 0x1F, 0x0)) errors+=1;
+  if(testRegister(baseAddr + CLP_CDR_OFFSET, 0x3FFF, 0x3F00)) errors+=2;
+  //TODO alle Register testen
+  return errors;
+}
+*/

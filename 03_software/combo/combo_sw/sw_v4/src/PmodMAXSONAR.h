@@ -49,5 +49,7 @@ u8 SON_initialize(UINTPTR baseAddr);
 void SON_reset(UINTPTR baseAddr);
 u8 SON_getIN(UINTPTR baseAddr);
 u16 SON_getCM(UINTPTR baseAddr);
+u16 SON_testRegisters(UINTPTR baseAddr);
+
 
 #endif // PmodMAXSONAR_H

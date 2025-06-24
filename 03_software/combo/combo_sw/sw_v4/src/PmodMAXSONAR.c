@@ -4,6 +4,8 @@
 #include <xil_io.h>
 #include <xil_types.h>
 
+#include "registerTest.h"
+
 #define AUTO_RESTART
 
 u8 SON_initialize(UINTPTR baseAddr){
@@ -74,3 +76,13 @@ u16 SON_getCM(UINTPTR baseAddr){
  u8 distIn = SON_getIN(baseAddr);
  return (distIn != SON_NO_VALID_READING) ? (u16)((distIn*254)/100) : (u16)SON_NO_VALID_READING;
 }
+
+/*
+u16 SON_testRegisters(UINTPTR baseAddr){
+  u16 errors = 0;
+  //TODO alle Register testen
+  if(testRegister(baseAddr + SON_ADSR_OFFSET, , )) errors+=1;
+  if(testRegister(baseAddr + SON_UCSR_OFFSET, , )) errors+=2;
+  return errors;
+}
+*/
