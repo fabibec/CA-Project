@@ -1,0 +1,18 @@
+{
+  "name": "pmod_clp_nibble",
+  "type": "HOST",
+  "platform": "/1work/fpgaproc/test_mb_pmod_clp_sw/platform/export/platform/platform.xpfm",
+  "domain": "standalone_microblaze_0",
+  "cpuInstance": "microblaze_0",
+  "cpuType": "microblaze",
+  "os": "standalone",
+  "configuration": {
+    "componentType": "HOST",
+    "hostToolchainConfigurations": []
+  },
+  "domainRealName": "standalone_microblaze_0",
+  "applicationFlow": "EMBEDDED",
+  "previousBuildStatusMap": {
+    "hw": "SUCCESS"
+  }
+}
