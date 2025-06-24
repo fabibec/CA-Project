@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_timing_controller_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_timing_controller" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="123.201 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="237"></NameColumnWidth>
+      <ValueColumnWidth column_width="146"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject type="logic" fp_name="/tb_timing_controller/TB_i_clk">
+      <obj_property name="ElementShortName">TB_i_clk</obj_property>
+      <obj_property name="ObjectShortName">TB_i_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_timing_controller/ex_TB_i_reset">
+      <obj_property name="ElementShortName">ex_TB_i_reset</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_i_reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_timing_controller/TB_i_reset">
+      <obj_property name="ElementShortName">TB_i_reset</obj_property>
+      <obj_property name="ObjectShortName">TB_i_reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_timing_controller/ex_TB_i_start">
+      <obj_property name="ElementShortName">ex_TB_i_start</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_i_start</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_timing_controller/TB_i_start">
+      <obj_property name="ElementShortName">TB_i_start</obj_property>
+      <obj_property name="ObjectShortName">TB_i_start</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_timing_controller/ex_TB_o_done">
+      <obj_property name="ElementShortName">ex_TB_o_done</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_o_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_timing_controller/TB_o_done">
+      <obj_property name="ElementShortName">TB_o_done</obj_property>
+      <obj_property name="ObjectShortName">TB_o_done</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_timing_controller/ex_TB_i_delay_time">
+      <obj_property name="ElementShortName">ex_TB_i_delay_time[21:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_TB_i_delay_time[21:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_timing_controller/TB_i_delay_time">
+      <obj_property name="ElementShortName">TB_i_delay_time[21:0]</obj_property>
+      <obj_property name="ObjectShortName">TB_i_delay_time[21:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_timing_controller/DUT/delay_time">
+      <obj_property name="ElementShortName">delay_time[21:0]</obj_property>
+      <obj_property name="ObjectShortName">delay_time[21:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_timing_controller/DUT/ndelay_time">
+      <obj_property name="ElementShortName">ndelay_time[21:0]</obj_property>
+      <obj_property name="ObjectShortName">ndelay_time[21:0]</obj_property>
+   </wvobject>
+</wave_config>

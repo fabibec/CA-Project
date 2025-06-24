@@ -1,0 +1,401 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Jun 20 09:05:09 2025
+# Process ID: 5648
+# Current directory: /1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.runs/synth_1
+# Command line: vivado -log ad.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ad.tcl
+# Log file: /1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.runs/synth_1/ad.vds
+# Journal file: /1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.runs/synth_1/vivado.jou
+# Running On: xuser-pc, OS: Linux, CPU Frequency: 2303.998 MHz, CPU Physical cores: 4, Host memory: 4101 MB
+#-----------------------------------------------------------
+source ad.tcl -notrace
+create_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1332.297 ; gain = 0.023 ; free physical = 111 ; free virtual = 5739
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/1work/fpgaproc/pmod-maxsonar-pmod-clp/ip_repo/ad_1_0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/xilinx/Vivado/2023.2/data/ip'.
+Command: synth_design -top ad -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 5796
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2098.926 ; gain = 411.539 ; free physical = 109 ; free virtual = 4725
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'ad' [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/hw/ad_axislave_v1_0.vhd:56]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 6 - type: integer 
+INFO: [Synth 8-3491] module 'ad_S00_AXI' declared at '/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/hw/ad_axislave_v1_0_S00_AXI.vhd:10' bound to instance 'ad_S00_AXI_inst' of component 'ad_S00_AXI' [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/hw/ad_axislave_v1_0.vhd:196]
+INFO: [Synth 8-638] synthesizing module 'ad_S00_AXI' [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/hw/ad_axislave_v1_0_S00_AXI.vhd:109]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 6 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'ad_S00_AXI' (0#1) [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/hw/ad_axislave_v1_0_S00_AXI.vhd:109]
+	Parameter G_AD_T_POWER_ON bound to: 3000000 - type: integer 
+	Parameter G_AD_T_SU bound to: 6 - type: integer 
+	Parameter G_AD_T_W bound to: 45 - type: integer 
+	Parameter G_AD_T_H bound to: 3 - type: integer 
+	Parameter G_AD_T_16_4MS bound to: 164000 - type: integer 
+	Parameter G_AD_T_40_US bound to: 4000 - type: integer 
+	Parameter G_AD_T_LOWER_UPPER_WAIT bound to: 150 - type: integer 
+INFO: [Synth 8-3491] module 'ad_core' declared at '/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/ad_core.vhd:10' bound to instance 'ad_core_inst' of component 'ad_core' [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/hw/ad_axislave_v1_0.vhd:254]
+INFO: [Synth 8-638] synthesizing module 'ad_core' [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/ad_core.vhd:56]
+	Parameter G_AD_T_POWER_ON bound to: 3000000 - type: integer 
+	Parameter G_AD_T_SU bound to: 6 - type: integer 
+	Parameter G_AD_T_W bound to: 45 - type: integer 
+	Parameter G_AD_T_H bound to: 3 - type: integer 
+	Parameter G_AD_T_16_4MS bound to: 164000 - type: integer 
+	Parameter G_AD_T_40_US bound to: 4000 - type: integer 
+	Parameter G_AD_T_LOWER_UPPER_WAIT bound to: 150 - type: integer 
+	Parameter G_T_POWER_ON bound to: 3000000 - type: integer 
+	Parameter G_T_SU bound to: 6 - type: integer 
+	Parameter G_T_W bound to: 45 - type: integer 
+	Parameter G_T_H bound to: 3 - type: integer 
+	Parameter G_T_16_4MS bound to: 164000 - type: integer 
+	Parameter G_T_40_US bound to: 4000 - type: integer 
+	Parameter G_T_LOWER_UPPER_WAIT bound to: 150 - type: integer 
+INFO: [Synth 8-3491] module 'lcd_controller' declared at '/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/lcd_controller.vhd:10' bound to instance 'lcd_controller_inst' of component 'lcd_controller' [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/ad_core.vhd:104]
+INFO: [Synth 8-638] synthesizing module 'lcd_controller' [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/lcd_controller.vhd:61]
+	Parameter G_T_POWER_ON bound to: 3000000 - type: integer 
+	Parameter G_T_SU bound to: 6 - type: integer 
+	Parameter G_T_W bound to: 45 - type: integer 
+	Parameter G_T_H bound to: 3 - type: integer 
+	Parameter G_T_16_4MS bound to: 164000 - type: integer 
+	Parameter G_T_40_US bound to: 4000 - type: integer 
+	Parameter G_T_LOWER_UPPER_WAIT bound to: 150 - type: integer 
+INFO: [Synth 8-3491] module 'timing_controller' declared at '/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/timing_controller.vhd:10' bound to instance 'timing_controller_inst' of component 'timing_controller' [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/lcd_controller.vhd:171]
+INFO: [Synth 8-638] synthesizing module 'timing_controller' [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/timing_controller.vhd:20]
+INFO: [Synth 8-226] default block is never used [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/timing_controller.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'timing_controller' (0#1) [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/timing_controller.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'lcd_controller' (0#1) [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/lcd_controller.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'ad_core' (0#1) [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/new/ad_core.vhd:56]
+INFO: [Synth 8-256] done synthesizing module 'ad' (0#1) [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/sources_1/imports/hw/ad_axislave_v1_0.vhd:56]
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[31] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[30] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[29] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[28] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[27] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[26] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[25] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[24] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[23] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[22] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[21] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[20] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[19] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[18] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[17] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[15] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[14] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[13] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[12] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[11] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[10] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[9] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WDATA[8] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[3] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[1] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module ad_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module ad_S00_AXI is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2180.863 ; gain = 493.477 ; free physical = 108 ; free virtual = 4614
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2198.676 ; gain = 511.289 ; free physical = 107 ; free virtual = 4612
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2198.676 ; gain = 511.289 ; free physical = 107 ; free virtual = 4612
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2198.676 ; gain = 0.000 ; free physical = 105 ; free virtual = 4612
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/constrs_prod/new/Arty-A7-100-Master_prod.xdc]
+Finished Parsing XDC File [/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.srcs/constrs_prod/new/Arty-A7-100-Master_prod.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2314.410 ; gain = 0.000 ; free physical = 119 ; free virtual = 4602
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2314.445 ; gain = 0.000 ; free physical = 108 ; free virtual = 4601
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 102 ; free virtual = 4597
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 102 ; free virtual = 4597
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 102 ; free virtual = 4597
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'lcd_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+          init_wait_30ms |                            00000 |                            00001
+    init_wait_30ms_delay |                            00001 |                            00010
+           init_func_set |                            00010 |                            00011
+           setup_control |                            00011 |                            01001
+        wait_setup_delay |                            00100 |                            01100
+              wait_setup |                            00101 |                            01011
+      pulse_enable_delay |                            00110 |                            01110
+            pulse_enable |                            00111 |                            01101
+    disable_enable_delay |                            01000 |                            10000
+          disable_enable |                            01001 |                            01111
+     setup_control_delay |                            01010 |                            01010
+              exec_delay |                            01011 |                            10001
+          init_disp_ctrl |                            01100 |                            00100
+         init_entry_mode |                            01101 |                            00101
+              init_clear |                            01110 |                            00110
+           init_finished |                            01111 |                            00111
+        check_cursor_pos |                            10000 |                            10010
+        write_cursor_pos |                            10001 |                            10011
+                   ready |                            10010 |                            01000
+           clear_display |                            10011 |                            10101
+             return_home |                            10100 |                            10110
+         display_control |                            10101 |                            10111
+                   write |                            10110 |                            10100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'lcd_controller'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 100 ; free virtual = 4597
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   22 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 3     
+	               22 Bit    Registers := 2     
+	                8 Bit    Registers := 5     
+	                6 Bit    Registers := 2     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 17    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 2     
+	  11 Input   32 Bit        Muxes := 1     
+	   2 Input   22 Bit        Muxes := 3     
+	  23 Input   22 Bit        Muxes := 1     
+	   3 Input   18 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 4     
+	   4 Input    8 Bit        Muxes := 1     
+	   3 Input    8 Bit        Muxes := 1     
+	  23 Input    8 Bit        Muxes := 4     
+	  36 Input    5 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 4     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 30    
+	   4 Input    1 Bit        Muxes := 1     
+	   3 Input    1 Bit        Muxes := 3     
+	  23 Input    1 Bit        Muxes := 24    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design ad has port o_read_write driven by constant 0
+WARNING: [Synth 8-3917] design ad has port o_interrupt driven by constant 0
+WARNING: [Synth 8-7129] Port s00_axi_awprot[2] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_awprot[1] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_awprot[0] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[31] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[30] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[29] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[28] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[27] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[26] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[25] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[24] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[23] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[22] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[21] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[20] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[19] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[18] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[17] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[15] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[14] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[13] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[12] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[11] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[10] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[9] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wdata[8] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wstrb[3] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_wstrb[1] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_arprot[2] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_arprot[1] in module ad is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_arprot[0] in module ad is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 103 ; free virtual = 4577
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+-----------------------------------+---------------+----------------+
+|Module Name | RTL Object                        | Depth x Width | Implemented As | 
++------------+-----------------------------------+---------------+----------------+
+|ad          | ad_core_inst/lcd_controller_inst/ | 32x8          | LUT            | 
++------------+-----------------------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 112 ; free virtual = 4577
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 112 ; free virtual = 4577
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 112 ; free virtual = 4577
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 110 ; free virtual = 4576
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 110 ; free virtual = 4576
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 110 ; free virtual = 4576
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 110 ; free virtual = 4576
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 110 ; free virtual = 4576
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 110 ; free virtual = 4576
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     9|
+|3     |LUT1   |     1|
+|4     |LUT2   |    19|
+|5     |LUT3   |    24|
+|6     |LUT4   |    43|
+|7     |LUT5   |    50|
+|8     |LUT6   |    62|
+|9     |FDRE   |   124|
+|10    |FDSE   |    23|
+|11    |IBUF   |    26|
+|12    |OBUF   |    49|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 110 ; free virtual = 4576
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 34 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 2314.445 ; gain = 511.289 ; free physical = 110 ; free virtual = 4576
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2314.445 ; gain = 627.059 ; free physical = 110 ; free virtual = 4576
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2314.445 ; gain = 0.000 ; free physical = 107 ; free virtual = 4577
+INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2314.445 ; gain = 0.000 ; free physical = 379 ; free virtual = 4858
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: cbd141fe
+INFO: [Common 17-83] Releasing license: Synthesis
+34 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:02:04 . Memory (MB): peak = 2314.445 ; gain = 978.180 ; free physical = 379 ; free virtual = 4858
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1870.250; main = 1531.350; forked = 386.000
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3295.996; main = 2314.414; forked = 981.582
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2338.422 ; gain = 8.004 ; free physical = 378 ; free virtual = 4857
+INFO: [Common 17-1381] The checkpoint '/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-clp-base/vhdl-clp-base.runs/synth_1/ad.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file ad_utilization_synth.rpt -pb ad_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 20 09:07:33 2025...
