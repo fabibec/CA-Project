@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------
--- Engineer: Jendrik Jürgens (3361128), Michael Specht (3362589)
+-- Engineer: Jendrik Juergens (3361128), Michael Specht (3362589)
 -- Further Information: Simple wrapper for lcd_controller to have a 'core'.
 ----------------------------------------------------------------------------------
 

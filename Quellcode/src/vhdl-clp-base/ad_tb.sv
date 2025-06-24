@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------------
--- Engineer: Jendrik Jürgens (3361128), Michael Specht (3362589)
+-- Engineer: Jendrik Juergens (3361128), Michael Specht (3362589)
 -- Further Information: Template from ELO.
    Test strategy was developed on our own and the file was adapted accordingly as
    explained in lecture lessions.
