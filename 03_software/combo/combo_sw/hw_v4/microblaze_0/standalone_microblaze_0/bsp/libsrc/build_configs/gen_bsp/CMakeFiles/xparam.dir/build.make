@@ -56,10 +56,10 @@ RM = /opt/xilinx/Vitis/2023.2/tps/lnx64/cmake-3.24.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp
+CMAKE_SOURCE_DIR = /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp
+CMAKE_BINARY_DIR = /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp
 
 # Utility rule file for xparam.
 
@@ -70,7 +70,7 @@ include CMakeFiles/xparam.dir/compiler_depend.make
 include CMakeFiles/xparam.dir/progress.make
 
 CMakeFiles/xparam:
-	lopper -O /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/include /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/hw_artifacts/microblaze_0_baremetal.dts -- baremetal_xparameters_xlnx microblaze_0 /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/.repo.yaml
+	lopper -O /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/include /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/hw_artifacts/microblaze_0_baremetal.dts -- baremetal_xparameters_xlnx microblaze_0 /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/.repo.yaml
 
 xparam: CMakeFiles/xparam
 xparam: CMakeFiles/xparam.dir/build.make
@@ -85,6 +85,6 @@ CMakeFiles/xparam.dir/clean:
 .PHONY : CMakeFiles/xparam.dir/clean
 
 CMakeFiles/xparam.dir/depend:
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/CMakeFiles/xparam.dir/DependInfo.cmake --color=$(COLOR)
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/CMakeFiles/xparam.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/xparam.dir/depend
 

@@ -1,7 +1,7 @@
 {
   "name": "sw_v4",
   "type": "HOST",
-  "platform": "/1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/export/hw_v4/hw_v4.xpfm",
+  "platform": "/1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/export/hw_v4/hw_v4.xpfm",
   "domain": "standalone_microblaze_0",
   "cpuInstance": "microblaze_0",
   "cpuType": "microblaze",

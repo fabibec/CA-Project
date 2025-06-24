@@ -60,10 +60,10 @@ RM = /opt/xilinx/Vitis/2023.2/tps/lnx64/cmake-3.24.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp
+CMAKE_SOURCE_DIR = /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp
+CMAKE_BINARY_DIR = /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -135,14 +135,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -E cmake_progress_start /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/CMakeFiles /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc//CMakeFiles/progress.marks
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/CMakeFiles 0
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -E cmake_progress_start /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/CMakeFiles /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc//CMakeFiles/progress.marks
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/clean
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/clean
 .PHONY : clean
 
 # The main clean target
@@ -151,22 +151,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/preinstall
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/preinstall
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libsrc/CMakeFiles/combined.dir/rule:
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/CMakeFiles/combined.dir/rule
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libsrc/CMakeFiles/combined.dir/rule
 .PHONY : libsrc/CMakeFiles/combined.dir/rule
 
 # Convenience name for target.
@@ -175,7 +175,7 @@ combined: libsrc/CMakeFiles/combined.dir/rule
 
 # fast build rule for target.
 combined/fast:
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f libsrc/CMakeFiles/combined.dir/build.make libsrc/CMakeFiles/combined.dir/build
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(MAKE) $(MAKESILENT) -f libsrc/CMakeFiles/combined.dir/build.make libsrc/CMakeFiles/combined.dir/build
 .PHONY : combined/fast
 
 # Help Target
@@ -202,6 +202,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

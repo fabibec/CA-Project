@@ -56,10 +56,10 @@ RM = /opt/xilinx/Vitis/2023.2/tps/lnx64/cmake-3.24.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp
+CMAKE_SOURCE_DIR = /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp
+CMAKE_BINARY_DIR = /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp
 
 # Utility rule file for xiltimer.
 
@@ -70,7 +70,7 @@ include CMakeFiles/xiltimer.dir/compiler_depend.make
 include CMakeFiles/xiltimer.dir/progress.make
 
 CMakeFiles/xiltimer:
-	lopper -O /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/xiltimer/src /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/hw_artifacts/microblaze_0_baremetal.dts -- bmcmake_metadata_xlnx microblaze_0 /opt/xilinx/Vitis/2023.2/data/embeddedsw/lib/sw_services/xiltimer_v1_3/src hwcmake_metadata /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/.repo.yaml
+	lopper -O /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/xiltimer/src /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/hw_artifacts/microblaze_0_baremetal.dts -- bmcmake_metadata_xlnx microblaze_0 /opt/xilinx/Vitis/2023.2/data/embeddedsw/lib/sw_services/xiltimer_v1_3/src hwcmake_metadata /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/.repo.yaml
 
 xiltimer: CMakeFiles/xiltimer
 xiltimer: CMakeFiles/xiltimer.dir/build.make
@@ -85,6 +85,6 @@ CMakeFiles/xiltimer.dir/clean:
 .PHONY : CMakeFiles/xiltimer.dir/clean
 
 CMakeFiles/xiltimer.dir/depend:
-	cd /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/CMakeFiles/xiltimer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/CMakeFiles/xiltimer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/xiltimer.dir/depend
 

@@ -3,7 +3,7 @@
   "type": "PLATFORM",
   "configuration": {
     "description": "",
-    "xsa": "/1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_hw/hw_v4.xsa",
+    "xsa": "/1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_hw/hw_v4.xsa",
     "xsaPathInPlatform": "hw_v4/hw/hw_v4.xsa",
     "emulationXsa": "",
     "emulationXsaPathInPlatform": "",

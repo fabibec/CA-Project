@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "/1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/include/sleep.h"
-  "/1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/include/xiltimer.h"
-  "/1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/include/xtimer_config.h"
-  "/1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/lib/libxiltimer.a"
+  "/1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/include/sleep.h"
+  "/1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/include/xiltimer.h"
+  "/1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/include/xtimer_config.h"
+  "/1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/lib/libxiltimer.a"
   "CMakeFiles/xiltimer.dir/core/axi_timer/axi_timer.c.obj"
   "CMakeFiles/xiltimer.dir/core/axi_timer/axi_timer.c.obj.d"
   "CMakeFiles/xiltimer.dir/core/default_timer/microblaze_sleep.c.obj"

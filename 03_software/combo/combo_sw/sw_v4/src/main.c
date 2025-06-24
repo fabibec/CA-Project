@@ -4,6 +4,7 @@
 #include "PmodMAXSONAR.h"
 #include <xil_io.h>
 #include <xil_types.h>
+#include <sleep.h>
 
 void itoa(char* str, int number){
   str[0] = (number/100) + '0';
@@ -17,6 +18,10 @@ void itoa(char* str, int number){
   str[3] = '\0';
 }
 
+u16 inchesToCentimeter(u8 inches){
+  return (u16)((inches*254)/100);
+}
+
 int main(){
 
   const UINTPTR sonar = 0x00020000;
@@ -24,17 +29,27 @@ int main(){
 
   CLP_initialize(clp);
   SON_initialize(sonar);
-  char s2[] = "cm";
-  char s1[4] = {0};
-  int dist;
+  CLP_setCursor(clp, 0, 0);
+  char s0[] = "    Distanz:     ";
+  char s1[4];
+  char s2[] = "cm || ";
+  char s3[4];
+  char s4[] = "in";
+  int distIN, distCM;
   while(1){
-    dist = SON_getCM(sonar);
-    itoa(s1,dist);
+    distIN = SON_getIN(sonar);
+    distCM = inchesToCentimeter(distIN);
+    if(distIN >= 6) {
+      itoa(s3, distIN);
+      itoa(s1, distCM);
+    }
     CLP_clearDisplay(clp);
-    usleep(100000);
+    CLP_writeDisplay(clp,s0);
     CLP_writeDisplay(clp,s1);
     CLP_writeDisplay(clp,s2);
-    usleep(1000000);
+    CLP_writeDisplay(clp,s3);
+    CLP_writeDisplay(clp,s4);
+    usleep(1000); //Not necessary, but makes the display more readable
   }
   return 0;
 }

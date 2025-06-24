@@ -2,7 +2,7 @@
 -- Found assembler: /opt/xilinx/Vitis/2023.2/gnu/microblaze/lin/bin/mb-gcc
 -- Configuring done
 -- Generating done
--- Build files have been written to: /1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp
+-- Build files have been written to: /1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp
 -- Cache values
 // Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel ...
 CMAKE_BUILD_TYPE:STRING=
@@ -20,7 +20,7 @@ CMAKE_INSTALL_PREFIX:PATH=/usr/local
 CMAKE_SIZE:FILEPATH=mb-size
 
 // Specs file path for using CMAKE toolchain files
-CMAKE_SPECS_FILE:STRING=/1work/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/Xilinx.spec
+CMAKE_SPECS_FILE:STRING=/1work/fpgaproc/pmod-maxsonar-pmod-clp/03_software/combo/combo_sw/hw_v4/microblaze_0/standalone_microblaze_0/bsp/Xilinx.spec
 
 // Non Yocto embeddedsw FLOW
 NON_YOCTO:BOOL=ON
