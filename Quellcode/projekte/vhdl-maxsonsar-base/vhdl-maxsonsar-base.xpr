@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="65" Path="/1work/fpgaproc/pmod-maxsonar-pmod-clp/src/vhdl-maxsonsar-base/vhdl-maxsonsar-base.xpr">
+<Project Product="Vivado" Version="7" Minor="65" Path="/1work/fpgaproc/pmod-maxsonar-pmod-clp/Quellcode/projekte/vhdl-maxsonsar-base/vhdl-maxsonsar-base.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="32efe0e113954e97ae1b9f6a1c9941a6"/>
@@ -46,10 +46,10 @@
     <Option Name="TargetLanguage" Val="VHDL"/>
     <Option Name="BoardPart" Val="digilentinc.com:arty-a7-100:part0:1.1"/>
     <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
-    <Option Name="ActiveSimSet" Val="sim_axi_vip"/>
+    <Option Name="ActiveSimSet" Val="sim_tb_as_core"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip_repo/as_1_0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../../ip_repo/as_1_0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../../../../ip_repo"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
@@ -64,7 +64,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="arty-a7-100"/>
     <Option Name="FeatureSet" Val="FeatureSet_Classic"/>
-    <Option Name="WTXSimLaunchSim" Val="882"/>
+    <Option Name="WTXSimLaunchSim" Val="897"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -137,7 +137,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../ip_repo/as_1_0/component.xml">
+      <File Path="$PPRDIR/../../../ip_repo/as_1_0/component.xml">
         <FileInfo SFType="IPXACT"/>
       </File>
       <Config>

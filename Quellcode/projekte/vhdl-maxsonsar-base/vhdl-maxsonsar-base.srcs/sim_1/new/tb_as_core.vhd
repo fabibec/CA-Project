@@ -566,16 +566,11 @@ begin
         -- 2 clock cycles for update
         wait for 13800 ns;
         tb_ap_done_expected <= '1';
+        wait for SYS_CLK;
         tb_ad_error_expected <= '1';
         tb_ad_err_pos_expected <= "100000";
-        wait for SYS_CLK;
         tb_read_valid_expected <= '1'; 
-        -- Resets
         tb_ap_done_expected <= '0';
-        tb_ad_error_expected <= '0';
-        tb_ad_err_pos_expected <= (others => '0');
-        tb_ap_done_expected <= '0';
-
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         
@@ -590,6 +585,8 @@ begin
         tb_dist_char_1_expected <= (others => '0') after 6.11 us;
         tb_dist_char_2_expected <= (others => '0') after 6.11 us;
         tb_dist_char_3_expected <= (others => '0') after 6.11 us;
+        tb_ad_error_expected <= '0' after 6.11 us;
+        tb_ad_err_pos_expected <= (others => '0') after 6.11 us;
         
         -- Send 'R255\r' on UART
         
@@ -728,11 +725,10 @@ begin
 
         uart_byte := x"36"; -- 6
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
-        wait for 2 * SYS_CLK; 
+        wait for 3 * SYS_CLK; 
         tb_ad_error_expected <= '1';
         tb_ad_err_pos_expected <= "000100";
         tb_ad_err_char_expected <= uart_byte;
-        wait for SYS_CLK;
         tb_dist_char_2_expected <= uart_byte;
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         
@@ -751,12 +747,7 @@ begin
         tb_read_valid_expected <= '1';
         -- Resets
         tb_ap_done_expected <= '0';
-        tb_ad_error_expected <= '0';
-        tb_ad_err_char_expected <= (others => '0');
-        tb_ad_err_pos_expected <= (others => '0');
-        tb_ap_done_expected <= '0';
 
-        
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         
         -----------------------------------------------------------------------
@@ -775,6 +766,9 @@ begin
         tb_dist_char_1_expected <= (others => '0') after 6.11 us;
         tb_dist_char_2_expected <= (others => '0') after 6.11 us;
         tb_dist_char_3_expected <= (others => '0') after 6.11 us;
+        tb_ad_error_expected <= '0' after 6.11 us;
+        tb_ad_err_char_expected <= (others => '0') after 6.11 us;
+        tb_ad_err_pos_expected <= (others => '0') after 6.11 us;
         
         -- Send 'R123\r' on UART
         
@@ -814,9 +808,7 @@ begin
         tb_ap_done_expected <= '1';
         wait for SYS_CLK;
         tb_read_valid_expected <= '1';
-        -- Resets
         tb_ap_done_expected <= '0';
-
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         
@@ -865,20 +857,14 @@ begin
         uart_byte := x"0A"; -- \n
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
-        
+        tb_ap_done_expected <= '1';
+        wait for SYS_CLK;
         tb_ad_error_expected <= '1';
         tb_ad_err_pos_expected <= "010000";
         tb_ad_err_char_expected <= uart_byte;
         tb_ap_done_expected <= '1';
-        wait for SYS_CLK;
         tb_read_valid_expected <= '1';
-        -- Resets
         tb_ap_done_expected <= '0';
-        tb_ad_error_expected <= '0';
-        tb_ad_err_pos_expected <= (others => '0');
-        tb_ad_err_char_expected <= (others => '0');
-        tb_ap_done_expected <= '0';
-
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         -----------------------------------------------------------------------
@@ -898,14 +884,17 @@ begin
         tb_dist_char_1_expected <= (others => '0') after 6.11 us;
         tb_dist_char_2_expected <= (others => '0') after 6.11 us;
         tb_dist_char_3_expected <= (others => '0') after 6.11 us;        
+        tb_ad_error_expected <= '0' after 6.11 us;
+        tb_ad_err_pos_expected <= (others => '0') after 6.11 us;
+        tb_ad_err_char_expected <= (others => '0') after 6.11 us;
         
         uart_byte := x"53"; -- S
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
-        wait for 2 * SYS_CLK; -- correct ? 
+        wait for 4 * SYS_CLK; -- correct ? 
         tb_ad_error_expected <= '1';
         tb_ad_err_pos_expected <= "000001";
         tb_ad_err_char_expected <= uart_byte;
-        wait for UART_HALF_SAMPLE_TIME;
+        wait for UART_HALF_SAMPLE_TIME - (4 * SYS_CLK);
 
         uart_byte := x"31"; -- 1
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
@@ -935,14 +924,10 @@ begin
         uart_send_byte(tb_rx, tb_ur_data_expected, uart_byte);
         wait for 2 * SYS_CLK;
         
+        tb_ap_done_expected <= '1';
         wait for SYS_CLK;
         tb_read_valid_expected <= '1';
-        -- Resets
         tb_ap_done_expected <= '0';
-        tb_ad_error_expected <= '0';
-        tb_ad_err_char_expected <= (others => '0');
-        tb_ad_err_pos_expected <= (others => '0');
-
         
         wait for UART_HALF_SAMPLE_TIME - (3 * SYS_CLK);
         
@@ -955,6 +940,11 @@ begin
         tb_dist_char_1_expected <= (others => '0') after 6.11 us;
         tb_dist_char_2_expected <= (others => '0') after 6.11 us;
         tb_dist_char_3_expected <= (others => '0') after 6.11 us; 
+        tb_ad_error_expected <= '0' after 6.11 us;
+        tb_ad_err_pos_expected <= (others => '0') after 6.11 us;
+        tb_ad_err_char_expected <= (others => '0') after 6.11 us;
+        
+        
         -- Send 'R123\r' on UART
         
         uart_byte := x"52"; -- R
