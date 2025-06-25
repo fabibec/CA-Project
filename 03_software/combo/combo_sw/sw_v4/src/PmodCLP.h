@@ -53,13 +53,6 @@
 #define CLP_ERROR            0x07
 #define CLP_UNEXPECTED_ERROR 0xFF
 
-/************ typedefs ************/
-
-typedef enum bool{
-  false,
-  true
-}  bool;
-
 /************ Function declarations ************/
 
 
