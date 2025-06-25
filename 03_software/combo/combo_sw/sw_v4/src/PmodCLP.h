@@ -53,13 +53,6 @@
 #define CLP_ERROR            0x07
 #define CLP_UNEXPECTED_ERROR 0xFF
 
-/************ typedefs ************/
-
-typedef enum bool{
-  false,
-  true
-}  bool;
-
 /************ Function declarations ************/
 
 
@@ -68,5 +61,6 @@ u8 CLP_checkAvailiableDisplay(UINTPTR baseAddr);
 u8 CLP_clearDisplay(UINTPTR baseAddr);
 u8 CLP_writeDisplay(UINTPTR baseAddr, char* inString);
 u8 CLP_setCursor(UINTPTR baseAddr, u8 blink, u8 on);
+u16 CLP_testRegisters(UINTPTR baseAddr);
 
 #endif // PMODCLP_H
