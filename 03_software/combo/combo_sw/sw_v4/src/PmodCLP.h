@@ -68,5 +68,6 @@ u8 CLP_checkAvailiableDisplay(UINTPTR baseAddr);
 u8 CLP_clearDisplay(UINTPTR baseAddr);
 u8 CLP_writeDisplay(UINTPTR baseAddr, char* inString);
 u8 CLP_setCursor(UINTPTR baseAddr, u8 blink, u8 on);
+u16 CLP_testRegisters(UINTPTR baseAddr);
 
 #endif // PMODCLP_H
