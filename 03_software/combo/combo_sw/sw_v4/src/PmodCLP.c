@@ -78,7 +78,7 @@ u8 CLP_setCursor(UINTPTR baseAddr, u8 blink, u8 on){
     if(on) dcrReg |= CLP_DCR_CURSOR_ON_MASK;
     dcrReg |= CLP_DCR_CURSOR_APPLY_MASK;
     Xil_Out32(baseAddr + CLP_DCR_OFFSET, dcrReg);
-    CLP_executeCommand(baseAddr);
+    return CLP_executeCommand(baseAddr);
 }
 
 u16 CLP_testRegisters(UINTPTR baseAddr){
