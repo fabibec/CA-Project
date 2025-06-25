@@ -81,12 +81,18 @@ u8 CLP_setCursor(UINTPTR baseAddr, u8 blink, u8 on){
     CLP_executeCommand(baseAddr);
 }
 
-/*
 u16 CLP_testRegisters(UINTPTR baseAddr){
   u16 errors = 0;
-  if(testRegister(baseAddr + CLP_DCR_OFFSET, 0x1F, 0x0)) errors+=1;
-  if(testRegister(baseAddr + CLP_CDR_OFFSET, 0x3FFF, 0x3F00)) errors+=2;
-  //TODO alle Register testen
+  if(testRegister(baseAddr + CLP_DCR_OFFSET, 0x1F, 0x00000010)) errors+=1;
+  if(testRegister(baseAddr + CLP_CDR_OFFSET, 0xFF, 0x0)) errors+=2;
+  if(testRegister(baseAddr + CLP_CCR_OFFSET, 0x100ff, 0xFF)) errors+=4;
+  if(testRegister(baseAddr + CLP_SCSR0_OFFSET, 0x5, 0x5)) errors+=8; 
+  if(testRegister(baseAddr + CLP_VERR_OFFSET, 0x80001000, 0x80001000)) errors+=16;
+  if(testRegister(baseAddr + CLP_IDR_OFFSET, 0x80010744, 0x80010744)) errors+=32;
+  if(testRegister(baseAddr + CLP_IPISR_OFFSET, 0x0, 0x0)) errors+=64;
+  if(testRegister(baseAddr + CLP_IPIER_OFFSET, 0x0, 0x0)) errors+=128;
+  if(testRegister(baseAddr + CLP_GIER_OFFSET, 0x0, 0x0)) errors+=256;
+  //if(testRegister(baseAddr + CLP_GCSR_OFFSET, 0x00000005, 0x00000005)) errors+=512; //error wegen apstart register
+  
   return errors;
 }
-*/
