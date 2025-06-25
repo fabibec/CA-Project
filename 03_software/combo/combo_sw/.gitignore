@@ -1,9 +1,0 @@
-# Ignore build output directory
-/build
-
-#Ignore logs folder and log files
-/logs
-.log
-
-#Ignore lock files
-.lock
