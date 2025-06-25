@@ -77,12 +77,19 @@ u16 SON_getCM(UINTPTR baseAddr){
  return (distIn != SON_NO_VALID_READING) ? (u16)((distIn*254)/100) : (u16)SON_NO_VALID_READING;
 }
 
-/*
 u16 SON_testRegisters(UINTPTR baseAddr){
   u16 errors = 0;
   //TODO alle Register testen
-  if(testRegister(baseAddr + SON_ADSR_OFFSET, , )) errors+=1;
-  if(testRegister(baseAddr + SON_UCSR_OFFSET, , )) errors+=2;
+  if(testRegister(baseAddr + SON_ADSR_OFFSET,0x0,0x0 )) errors+=1;
+  if(testRegister(baseAddr + SON_UCSR_OFFSET,0x0,0x0 )) errors+=2;
+  if(testRegister(baseAddr + SON_DIST0_OFFSET, 0x0, 0x0)) errors+=4;
+  if(testRegister(baseAddr + SON_SCSR0_OFFSET, 0x0C0, 0x0)) errors+=8; 
+  if(testRegister(baseAddr + SON_VERR_OFFSET, 0x80001000, 0x80001000)) errors+=16;
+  if(testRegister(baseAddr + SON_IDR_OFFSET, 0x534F4E52, 0x534F4E52)) errors+=32;
+  if(testRegister(baseAddr + SON_IPISR_OFFSET, 0x0, 0x0)) errors+=64;
+  if(testRegister(baseAddr + SON_IPIER_OFFSET, 0x0, 0x0)) errors+=128;
+  if(testRegister(baseAddr + SON_GIER_OFFSET, 0x0, 0x0)) errors+=256;
+  //if(testRegister(baseAddr + SON_GCSR_OFFSET, 0x1, 0x00000001)) errors+=512; //error wegen apstart register
+  
   return errors;
 }
-*/
