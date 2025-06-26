@@ -1,3 +1,0 @@
-domain_path: /home/xuser/pmod-maxsonar-pmod-clp/Quellcode/src/sw/hw-platform/export/hw-platform/sw/standalone_microblaze_0
-app_src_dir: /opt/xilinx/Vitis/2023.2/data/embeddedsw/lib/sw_apps/empty_application
-template: empty_application
