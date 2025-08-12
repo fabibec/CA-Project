@@ -16,8 +16,4 @@ Das Projektziel war es, sowohl die Hardware-Bausteine für den Sensor und das Di
 
 ## Demo 
 
-<p align="center">
-  <video src="Video/demo.mp4" width="300" alt="Demo Video" autoplay loop muted playsinline></video>
-</p>
-
-oder unter Video/demo.mp4
+unter Video/demo.mp4
